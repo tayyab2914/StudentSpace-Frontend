@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router';
 import { Spin, List, Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { API_SEARCH_FACULTY } from '../apis';
-
+import logo from '../assets/logo.svg'
 const MyNavbar = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
@@ -48,7 +48,7 @@ const MyNavbar = () => {
       <Navbar expand="lg" className="bg-body-tertiary px-2 px-lg-5">
         <Container fluid>
           <Navbar.Brand href="/">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_ZmkEZl3rum3GQE4bU1lLrtkiOE5kGiF5og&s" alt="" className="navbar-logo" />
+            <img src={logo} alt="" className="navbar-logo" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll" className="ms-5">
@@ -84,7 +84,7 @@ const MyNavbar = () => {
       </Navbar>
 
       {/* Search Results Section Below Navbar */}
-      {searchResults.length > 0 && (
+      {searchResults?.length > 0 && (
         <div className="search-results-overlay">
           <Container fluid className="mt-3">
             <h5>Search Results:</h5>
