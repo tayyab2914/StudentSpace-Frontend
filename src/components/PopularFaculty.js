@@ -13,7 +13,7 @@ const PopularFaculty = () => {
       try {
         setShowSpinner(true);  // Show spinner while data is loading
         const response = await API_GET_POPULAR_FACULTIES();
-        setPopularFacultyData(response);  // Assuming the API returns a data object
+        setPopularFacultyData(response);  // Assuming the API returns an array of data
         console.log(response);
       } catch (error) {
         console.error("Failed to fetch popular faculties:", error);
@@ -24,21 +24,47 @@ const PopularFaculty = () => {
     fetchPopularFaculties();
   }, []);  // Empty dependency array to run the effect once when the component mounts
 
+  // Function to group data into chunks of specified size
+  const groupArray = (arr, size) => {
+    const result = [];
+    for (let i = 0; i < arr.length; i += size) {
+      result.push(arr.slice(i, i + size));
+    }
+    return result;
+  };
+
+  // Group data into chunks of 3 items each
+  let groupedData 
+  if(window.innerWidth>768 && window.innerWidth < 1200 )
+  {
+    groupedData = groupArray(popularFacultyData, 3);
+  }
+  else
+  {
+    
+    groupedData = groupArray(popularFacultyData, 4);
+  }
+
   return (
     <div>
-      <Divider orientation="left">Popular Faculties</Divider>
+      <Divider orientation="center"><h2>Popular Personalities</h2></Divider>
 
       {/* Show spinner while data is loading */}
       {showSpinner ? (
         <Spin />
       ) : (
         <Carousel>
-          {/* Iterate over popular faculty data */}
-          <div className="row"></div>
-          {popularFacultyData?.map((faculty, index) => (
-            <div key={faculty.id} className="col-10 col-md-4 col-xxl-3 p-1 p-md-3 p-xxl-5">
-              <FacultyCard data={faculty} />
-            </div>
+          {/* Render a Carousel.Item for each group of 3 items */}
+          {groupedData.map((group, index) => (
+            <Carousel.Item key={index}>
+              <div className="row m-0 px-2 justify-content-center">
+                {group.map(faculty => (
+                  <div key={faculty.id} className={`${window.innerWidth<500 ? 'col-10':'col-6'} col-md-4 col-xl-3 p-1 p-md-3`}>
+                    <FacultyCard data={faculty} />
+                  </div>
+                ))}
+              </div>
+            </Carousel.Item>
           ))}
         </Carousel>
       )}

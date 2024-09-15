@@ -54,19 +54,19 @@ const MyNavbar = () => {
           <Navbar.Collapse id="navbarScroll" className="ms-5">
             <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '600px' }} navbarScroll>
               <NavDropdown title="Faculties" id="navbarScrollingDropdown">
-                <NavDropdown.Item onClick={() => handleDepartmentClick("foe")}>foe</NavDropdown.Item>
-                <NavDropdown.Item onClick={() => handleDepartmentClick("fohs")}>fohs</NavDropdown.Item>
-                <NavDropdown.Item onClick={() => handleDepartmentClick("foit")}>foit</NavDropdown.Item>
-                <NavDropdown.Item onClick={() => handleDepartmentClick("foll")}>foll</NavDropdown.Item>
-                <NavDropdown.Item onClick={() => handleDepartmentClick("fol")}>fol</NavDropdown.Item>
-                <NavDropdown.Item onClick={() => handleDepartmentClick("foms")}>foms</NavDropdown.Item>
-                <NavDropdown.Item onClick={() => handleDepartmentClick("fomm")}>fomm</NavDropdown.Item>
-                <NavDropdown.Item onClick={() => handleDepartmentClick("fop")}>fop</NavDropdown.Item>
-                <NavDropdown.Item onClick={() => handleDepartmentClick("fost")}>fost</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => handleDepartmentClick("foit")}>Faculty of Information and Technology</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => handleDepartmentClick("foe")}>Faculty of Engineering</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => handleDepartmentClick("fohs")}>Faculty of Humanities and Social Sciences</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => handleDepartmentClick("foll")}>Faculty of Languages and Literature</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => handleDepartmentClick("fol")}>Faculty of Law</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => handleDepartmentClick("foms")}>Faculty of Management Sciences</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => handleDepartmentClick("fomm")}>Faculty of Media and Mass Communication</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => handleDepartmentClick("fop")}>Faculty of Pharmacy</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => handleDepartmentClick("fost")}>Faculty of Science and Technology</NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="#" disabled>
+              {/* <Nav.Link href="#" disabled>
                 Link
-              </Nav.Link>
+              </Nav.Link> */}
             </Nav>
             <Form className="d-flex position-relative" onSubmit={handleSearch}>
               <Form.Control

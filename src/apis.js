@@ -18,8 +18,8 @@ export const API_GET_FACULTIES_BY_DEPARTMENT = async (setShowSpinner, name) => {
     
     return response.data;
   } catch (error) {
-    console.error("Error fetching faculty data:", error);
-    throw error; 
+    console.log("Error fetching faculty data:", error);
+  
   } finally {
     setShowSpinner(false);
   }
@@ -33,8 +33,7 @@ export const API_GET_POPULAR_FACULTIES = async () => {
     console.log(response.data)
     return response.data;
   } catch (error) {
-    console.error("Error fetching faculty data:", error);
-    throw error; 
+    console.log("Error fetching faculty data:", error);
   }finally{
     
   }
@@ -56,8 +55,7 @@ export const API_SEARCH_FACULTY = async (setShowSpinner, name) => {
       
       return response.data;
     } catch (error) {
-      console.error("Error fetching faculty data:", error);
-      throw error; 
+      console.log("Error fetching faculty data:", error);
     } finally {
       setShowSpinner(false);
     }

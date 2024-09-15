@@ -1,10 +1,35 @@
 .main-image {
-    background: url('https://scontent.flhe32-1.fna.fbcdn.net/v/t39.30808-6/241356236_10159090428548612_9038373125046047832_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=3a1ebe&_nc_eui2=AeEehx_4a7avXllpKcV8ypmxLSWnFwUjn1YtJacXBSOfVlOsTt6CKR5Y1vsAGKuJUC_03gLkD8as5lYtTTpIOBtw&_nc_ohc=fBudDibXs34Q7kNvgEBFS9-&_nc_ht=scontent.flhe32-1.fna&_nc_gid=AnybJnMtPqwTQhMl7KsflA0&oh=00_AYBn4WAESuD98QuC43vsZF6PeSf836E4R99tJtsKOcLA7g&oe=66ED0B27');
+    background: url('https://ucp.edu.pk/wp-content/uploads/2019/01/Experience-New-Learning-slide.jpg');
     height: 700px;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: bottom;
+    background-position: center;
     
     z-index: 1;  /* Lower z-index to stay underneath the overlay */
     position: relative;
+  }
+  .faculty-image
+  {
+    width: 100% !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .department-card{
+    border-radius: 10px;
+    border: 1px solid rgb(229, 229, 229);
+  }
+  .department-card-name{
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 10px;
+  }
+  .department-card-btn{
+    padding: 20px 20px;
+    width: 100%;
+    background-color: white;
+    border: 1px solid rgb(229, 229, 229);
+  }
+  .department-card-btn:hover{
+    background-color: rgb(242, 242, 242);
   }
