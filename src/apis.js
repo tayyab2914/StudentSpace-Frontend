@@ -27,17 +27,16 @@ export const API_GET_FACULTIES_BY_DEPARTMENT = async (setShowSpinner, name) => {
 
 
 
-export const API_GET_POPULAR_FACULTIES = async (setShowSpinner) => {
-    setShowSpinner(true)
+export const API_GET_POPULAR_FACULTIES = async () => {
   try {
-    const response = await axios.get(`${DOMAIN_NAME}/feedbacksystem/get_popular_faculties/`);
+    const response = await axios.get(`${DOMAIN_NAME}/feedback/popular_faculties/`);
+    console.log(response.data)
     return response.data;
   } catch (error) {
     console.error("Error fetching faculty data:", error);
     throw error; 
   }finally{
     
-    setShowSpinner(false)
   }
 };
 
