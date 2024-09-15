@@ -7,36 +7,54 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import './styles/Navbar.css';
 import { useNavigate } from 'react-router';
-import { DOMAIN_NAME } from '../values';
+import { Spin, List, Avatar } from "antd";
+import { UserOutlined } from "@ant-design/icons";
+import { API_SEARCH_FACULTY } from '../apis';
 
 const MyNavbar = () => {
-    const navigate =useNavigate()
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
+  const [showSpinner, setShowSpinner] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
 
   // Handle search click
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
-    console.log("Search Query:", searchQuery);
-    // Add your search functionality here
+    if (!searchQuery.trim()) return;
+
+    setShowSpinner(true);
+    try {
+      const response = await API_SEARCH_FACULTY(setShowSpinner, searchQuery);
+      setSearchResults(response);  // Assuming API returns a list of faculty
+    } catch (error) {
+      console.error("Search failed:", error);
+    }
+    setShowSpinner(false);
   };
 
   const handleDepartmentClick = (departmentName) => {
-    navigate(`/department/${departmentName}`)
+    navigate(`/department/${departmentName}`);
+  };
+
+  const handleFacultyClick = (faculty) => {
+    navigate(`/faculty/${faculty.id}`, { state: { data: faculty } });
+    setSearchQuery('');  // Clear search after selection
+    setSearchResults([]); // Clear search results
   };
 
   return (
     <div>
+      {showSpinner && <Spin fullscreen className="spinner-overlay" />}
       <Navbar expand="lg" className="bg-body-tertiary px-2 px-lg-5">
         <Container fluid>
-          <Navbar.Brand href="#">
+          <Navbar.Brand href="/">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_ZmkEZl3rum3GQE4bU1lLrtkiOE5kGiF5og&s" alt="" className="navbar-logo" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll" className="ms-5">
             <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '600px' }} navbarScroll>
               <NavDropdown title="Faculties" id="navbarScrollingDropdown">
-                {/* Change names from here */}
-                <NavDropdown.Item onClick={() => handleDepartmentClick("foe")}>foe</NavDropdown.Item>  
+                <NavDropdown.Item onClick={() => handleDepartmentClick("foe")}>foe</NavDropdown.Item>
                 <NavDropdown.Item onClick={() => handleDepartmentClick("fohs")}>fohs</NavDropdown.Item>
                 <NavDropdown.Item onClick={() => handleDepartmentClick("foit")}>foit</NavDropdown.Item>
                 <NavDropdown.Item onClick={() => handleDepartmentClick("foll")}>foll</NavDropdown.Item>
@@ -50,20 +68,45 @@ const MyNavbar = () => {
                 Link
               </Nav.Link>
             </Nav>
-            <Form className="d-flex" onSubmit={handleSearch}>
+            <Form className="d-flex position-relative" onSubmit={handleSearch}>
               <Form.Control
                 type="search"
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)} // Update search query
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
               <Button variant="outline-success" type="submit">Search</Button>
             </Form>
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
+      {/* Search Results Section Below Navbar */}
+      {searchResults.length > 0 && (
+        <div className="search-results-overlay">
+          <Container fluid className="mt-3">
+            <h5>Search Results:</h5>
+            <List
+              dataSource={searchResults}
+              renderItem={faculty => (
+                <List.Item
+                  key={faculty.id}
+                  onClick={() => handleFacultyClick(faculty)}
+                  className="search-item"
+                >
+                  <List.Item.Meta
+                    avatar={<Avatar src={faculty.image_url || <UserOutlined />} />}
+                    title={faculty.name}
+                    description={`${faculty.review_count} reviews`}
+                  />
+                </List.Item>
+              )}
+            />
+          </Container>
+        </div>
+      )}
     </div>
   );
 };
