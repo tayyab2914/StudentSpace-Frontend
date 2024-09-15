@@ -1,6 +1,6 @@
 .main-image {
     background: url('https://ucp.edu.pk/wp-content/uploads/2019/01/Experience-New-Learning-slide.jpg');
-    height: 700px;
+    height: 800px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -32,4 +32,26 @@
   }
   .department-card-btn:hover{
     background-color: rgb(242, 242, 242);
+  }
+
+
+  @media screen and (max-width:680px){
+    .main-image {
+        height: 300px;
+      }
+  }
+
+  
+
+  @media screen and (max-width:900px){
+    .main-image {
+        height: 370px;
+      }
+  }
+
+
+  @media screen and (max-width:1400px){
+    .main-image {
+        height: 600px;
+      }
   }
