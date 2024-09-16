@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Images
 
-![alt text](https://github.com/tayyab2914/StudentSpace-Frontend/blob/master/public/logo192.png)
+![alt text](https://github.com/tayyab2914/StudentSpace-Frontend/blob/master/public/logo192.png?raw=true)
 
 ## Available Scripts
 
