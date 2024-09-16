@@ -35,23 +35,35 @@
   }
 
 
-  @media screen and (max-width:680px){
+  @media screen and (min-width:0px){
     .main-image {
         height: 300px;
       }
+      .department-card-name{
+        font-size: 12px;
+    }
   }
 
   
 
-  @media screen and (max-width:900px){
+  @media screen and (min-width:680px){
     .main-image {
         height: 370px;
       }
+      .department-card-name{
+        font-size: 16px;
+    }
   }
 
 
-  @media screen and (max-width:1400px){
+  @media screen and (min-width:900px){
     .main-image {
-        height: 600px;
+        height: 500px;
+      }
+  }
+
+  @media screen and (min-width:1100px){
+    .main-image {
+        height: 700px;
       }
   }

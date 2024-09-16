@@ -16,7 +16,7 @@ const FacultyCard = ({ data }) => {
       className="faculty-card"
       onClick={() => navigate(`/faculty/${id}`, { state: { data } })} // Pass data as state
     >
-      <Meta title={name} description={designation} />
+      <Meta title={name} description={designation} className="faculty-card-name"/>
       <div className="faculty-rating text-start">
         <Rate allowHalf disabled defaultValue={overall_rating} />
         <br />

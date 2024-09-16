@@ -51,7 +51,7 @@ const MyNavbar = () => {
             <img src={logo} alt="" className="navbar-logo" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll" className="ms-5">
+          <Navbar.Collapse id="navbarScroll" className="ms-0 ms-lg-5">
             <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '600px' }} navbarScroll>
               <NavDropdown title="Faculties" id="navbarScrollingDropdown">
                 <NavDropdown.Item onClick={() => handleDepartmentClick("foit")}>Faculty of Information and Technology</NavDropdown.Item>
