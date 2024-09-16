@@ -85,7 +85,7 @@ const MyNavbar = () => {
 
       {/* Search Results Section Below Navbar */}
       {searchResults?.length > 0 && (
-        <div className="search-results-overlay">
+        <div className="search-results-overlay px-3">
           <Container fluid className="mt-3">
             <h5>Search Results:</h5>
             <List

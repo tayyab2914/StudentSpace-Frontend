@@ -1,41 +1,41 @@
 .faculty-card {
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
-  }
-  
-  .faculty-image {
-    width: 90%;
-    height: 300px;
-    object-fit: cover;
-  }
-  
-  .faculty-rating {
-    margin-top: 10px;
-  }
-  
-  .review-count {
-    margin-left: 8px;
-    color: #888;
-  }
-  .faculty-card-name{
-    font-size: 16px;
-  }
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+}
 
-  @media screen and (max-width: 640px){
-    .ant-card-meta-title {
-        font-size: 12px !important;
-      }
-      .ant-card-meta-detail {
-        font-size: 10px !important;
-      }
-      .ant-rate {
-        font-size: 16px !important;
-      }
-      .review-count {
-        font-size: 12px !important;
-      }
-      .faculty-image{
-        height: 250px;
-      }
+.faculty-image {
+  width: 90%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.faculty-rating {
+  margin-top: 10px;
+}
+
+.review-count {
+  margin-left: 8px;
+  color: #888;
+}
+.faculty-card-name {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 640px) {
+  .ant-card-meta-title {
+    font-size: 12px !important;
   }
+  .ant-card-meta-detail {
+    font-size: 10px !important;
+  }
+  .ant-rate {
+    font-size: 16px !important;
+  }
+  .review-count {
+    font-size: 12px !important;
+  }
+  .faculty-image {
+    height: 250px;
+  }
+}

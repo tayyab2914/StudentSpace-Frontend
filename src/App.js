@@ -1,12 +1,15 @@
 import React from 'react';
-import { Alert } from 'react-bootstrap';
-import Home from './pages/Home';
+import { message } from 'antd'; // Import message from Ant Design
 import ProjectRoutes from './pages/ProjectRoutes';
 
 function App() {
+  // Initialize message API
+  const [messageApi, contextHolder] = message.useMessage();
+
   return (
     <div className="App">
-        <ProjectRoutes/>
+      {contextHolder} {/* Make sure contextHolder is included */}
+      <ProjectRoutes />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
-import { Card, Rate } from "antd";
+import { Button, Card, Rate } from "antd";
 import "./styles/FacultyCard.css";
-import { useNavigate } from "react-router-dom"; // make sure it's react-router-dom, not just "react-router"
+import { useNavigate } from "react-router-dom";
 
 const { Meta } = Card;
 
@@ -14,7 +14,7 @@ const FacultyCard = ({ data }) => {
       hoverable
       cover={<img alt={name} src={image_url || "https://via.placeholder.com/150"} className="faculty-image" />}
       className="faculty-card"
-      onClick={() => navigate(`/faculty/${id}`, { state: { data } })} // Pass data as state
+      onClick={() => navigate(`/faculty/${id}`)} // Navigate without passing state
     >
       <Meta title={name} description={designation} className="faculty-card-name"/>
       <div className="faculty-rating text-start">
@@ -22,6 +22,7 @@ const FacultyCard = ({ data }) => {
         <br />
         <span className="review-count">({review_count} reviews)</span>
       </div>
+      <Button className='department-card-btn mt-3'>Provide Review</Button>
     </Card>
   );
 };
