@@ -3,8 +3,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Images
+logo192
 
 ![alt text](https://github.com/tayyab2914/StudentSpace-Frontend/blob/master/public/logo192.png?raw=true)
+
+logo512
+![alt text](https://github.com/tayyab2914/StudentSpace-Frontend/blob/master/public/logo512.png?raw=true)
 
 ## Available Scripts
 
