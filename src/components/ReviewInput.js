@@ -1,39 +1,63 @@
 import React, { useState } from 'react';
 import { Collapse, Rate, Input, Button, Form, Spin, message } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
 import { GET_RANDOM_NAME_COMBINATION } from '../values';
 import { API_SUBMIT_REVIEW } from '../apis'; // Adjust import path as needed
+import { addToFacultyReviewed } from '../redux/FacultyReviewed/Action';
+// import { addToFacultyReviewed } from '../redux/FacultyReviewed/Action';
 
 const { Panel } = Collapse;
 
-const ReviewInput = ({ facultyData ,fetch_reviews}) => {
+const ReviewInput = ({ facultyData, fetch_reviews }) => {
   const [gradingFairness, setGradingFairness] = useState(0);
   const [leniency, setLeniency] = useState(0);
   const [subjectKnowledge, setSubjectKnowledge] = useState(0);
   const [reviewText, setReviewText] = useState('');
   const [showSpinner, setShowSpinner] = useState(false);
 
+  const dispatch = useDispatch();
+  const reviewedFaculties = useSelector(state => state.facultyReducer.reviewedFaculties);
+
+console.log(reviewedFaculties)
   const handleSubmit = async (values) => {
     if (gradingFairness === 0 || leniency === 0 || subjectKnowledge === 0) {
-      message.error('Please rate all categories before submitting.');
+      message.error("Please rate all categories before submitting.");
       return;
     }
 
-    const studentName = GET_RANDOM_NAME_COMBINATION();
-    const reviewData = {
-      faculty_id: facultyData.id,
-      student_name: studentName,
-      rating_grading_fairness: gradingFairness,
-      rating_leniency: leniency,
-      rating_subject_knowledge: subjectKnowledge,
-      review_text: reviewText
-    };
+    const isReviewed = reviewedFaculties.includes(facultyData.id);
 
-      await API_SUBMIT_REVIEW(setShowSpinner, reviewData);
-      setGradingFairness(0);
-      setLeniency(0);
-      setSubjectKnowledge(0);
-      setReviewText('');
-      fetch_reviews()
+    if (isReviewed) {
+      message.error("You have already reviewed this faculty.");
+    } else {
+      const studentName = GET_RANDOM_NAME_COMBINATION();
+      const reviewData = {
+        faculty_id: facultyData.id,
+        student_name: studentName,
+        rating_grading_fairness: gradingFairness,
+        rating_leniency: leniency,
+        rating_subject_knowledge: subjectKnowledge,
+        review_text: reviewText,
+      };
+
+      setShowSpinner(true);
+
+      try {
+        await API_SUBMIT_REVIEW(setShowSpinner, reviewData);
+        // Add the faculty ID to reviewed list after successful review
+        dispatch(addToFacultyReviewed(facultyData.id));
+        setGradingFairness(0);
+        setLeniency(0);
+        setSubjectKnowledge(0);
+        setReviewText("");
+        fetch_reviews();
+        message.success("Review submitted successfully.");
+      } catch (error) {
+        message.error("Failed to submit review. Please try again.");
+      } finally {
+        setShowSpinner(false);
+      }
+    }
   };
 
   return (

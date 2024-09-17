@@ -15,13 +15,13 @@ const Review = ({review}) => {
             <strong className="review-author"> {review.student_name} </strong>
             <p className="review-text">{review.review_text}</p>
             <p className="review-ratings">
-            <b>Grading Fairness:</b> <i class="fa-solid fa-star review-star"></i> {review.rating_grading_fairness}
+            <b>Grading Fairness:</b> <i className="fa-solid fa-star review-star"></i> {review.rating_grading_fairness}
             <span className='review-line-divider'> | </span>
             <br className='review-line-breaker'/>
-            <b>Leniency:</b> <i class="fa-solid fa-star review-star"></i> {review.rating_leniency}
+            <b>Leniency:</b> <i className="fa-solid fa-star review-star"></i> {review.rating_leniency}
             <span className='review-line-divider'> | </span>
             <br className='review-line-breaker'/>
-            <b>Subject Knowledge:</b> <i class="fa-solid fa-star review-star"></i> {review.rating_subject_knowledge}
+            <b>Subject Knowledge:</b> <i className="fa-solid fa-star review-star"></i> {review.rating_subject_knowledge}
 
             </p>
         </div>

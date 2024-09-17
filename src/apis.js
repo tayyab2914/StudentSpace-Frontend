@@ -84,11 +84,11 @@ export const API_SUBMIT_REVIEW = async (setShowSpinner, reviewData) => {
       reviewData
     );
 
-    message.success("Review Submitted Successfully");
+    // message.success("Review Submitted Successfully");
     return response.data;
   } catch (error) {
 
-    message.error(error?.response?.data?.error);
+    // message.error(error?.response?.data?.error);
   } finally {
     setShowSpinner(false);
     //   window.location.reload()

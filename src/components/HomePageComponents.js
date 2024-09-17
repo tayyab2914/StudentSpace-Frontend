@@ -9,9 +9,9 @@ import { API_SEARCH_FACULTY } from '../apis';
 const LANDING_IMAGE_URL = 'https://res.cloudinary.com/dmlxb4ea9/image/upload/v1726561915/Untitled-1_jhidos.png';
 
 export const LANDING_IMAGE_COMPONENT = ({navigate}) => (
-  <Parallax blur={2} bgImage={LANDING_IMAGE_URL} bgImageAlt="Ijaz Carpets Parallax Image" strength={300}>
+  <Parallax blur={2} bgImage={LANDING_IMAGE_URL} strength={300}>
     <div className="row parallax-component" data-aos="fade-up">
-      <div className="col-12 home-main-img align-self-end mb-5">
+      <div className="col-11 home-main-img align-self-end mb-5">
         <h2>Rate your Professors, <br />Share your Experience</h2>
         <SearchBar
               placeholder="Enter Faculty Name"

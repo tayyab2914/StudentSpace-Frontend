@@ -4,7 +4,7 @@ import { UserOutlined } from '@ant-design/icons';
 
 const { Search } = Input;
 
-const SearchBar = ({ placeholder, apiCall, onResultClick, style }) => {
+const SearchBar = ({ placeholder, apiCall, onResultClick, style, isInNavbar }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [showSpinner, setShowSpinner] = useState(false);
@@ -69,7 +69,7 @@ const SearchBar = ({ placeholder, apiCall, onResultClick, style }) => {
           enterButton
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          style={{ width: 300 }}
+          style={{ width: isInNavbar ? (window.innerWidth<520 ? 200 : 300) : 300 }}
         />
       </Popover>
     </div>
