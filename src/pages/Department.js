@@ -4,6 +4,7 @@ import MyNavbar from "../components/Navbar";
 import { API_GET_FACULTIES_BY_DEPARTMENT } from "../apis";
 import { Divider, Spin, Row, Col } from "antd";
 import FacultyCard from "../components/FacultyCard";
+import { getFacultyName } from "../values";
 
 const Department = () => {
   const { department_name } = useParams();
@@ -31,9 +32,9 @@ const Department = () => {
     <>
       {ShowSpinner && <Spin fullscreen className="spinner-overlay" />}
       <MyNavbar />
-      <Divider orientation="left" plain>
-        <h2 style={{color:"#6e00b7"}}>{Department?.toUpperCase()}</h2>
-      </Divider>
+      {/* <Divider orientation="left" plain> */}
+        <h2 style={{color:"#6e00b7", margin:"20px "}}>{getFacultyName(Department)}</h2>
+      {/* </Divider> */}
 
      <div className="container-xxl">
      <div className="row m-0 Department-list justify-content-center">

@@ -6,6 +6,7 @@ import { API_GET_FACULTY_REVIEWS } from "../apis";
 import "./styles/Instructor.css";
 import Review from "../components/Review";
 import ReviewInput from "../components/ReviewInput";
+import { formatRating } from "../values";
 
 const Instructor = () => {
   const { instructor_id } = useParams(); // Extract instructor_id
@@ -37,8 +38,9 @@ const Instructor = () => {
             <div className="col-12 col-xl-4 text-center p-0">
               <div className="d-flex justify-content-end mb-3 px-xl-5">
                 <div>
-                  <b>{facultyInfo?.overall_rating || 0}</b> 
-                  <Rate style={{ marginLeft: "10px" }} disabled allowHalf value={facultyInfo?.overall_rating || 0} />
+                  <b className="me-1">{formatRating(facultyInfo?.overall_rating) || 0}</b> 
+                  ({facultyInfo?.review_count || 0})
+                  <Rate style={{ marginLeft: "10px" }} disabled allowHalf value={facultyInfo?.overall_rating || 0} className="searchbar-results-rate"/>
                 </div>
               </div>
               <div className="text-center px-xl-5">
@@ -49,8 +51,8 @@ const Instructor = () => {
               <ReviewInput facultyData={facultyInfo} fetch_reviews={fetch_reviews}/>
             </div>
             <div className="col-12 col-xl-8 p-0 mt-2 mt-xl-0">
+            <h4>Reviews:</h4>
               <div className="p-3 reviews">
-                <h4>Reviews:</h4>
                 {reviews.length > 0 ? (
                   <List itemLayout="horizontal" dataSource={reviews} renderItem={(review) => (
                       <List.Item>

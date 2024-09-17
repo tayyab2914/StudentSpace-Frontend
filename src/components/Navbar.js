@@ -55,17 +55,17 @@ const NAVBAR_COMPONENT = ()=>(
     <div>
       <Navbar className="bg-body-tertiary px-2 px-lg-5">
   <Container fluid>
-    <Navbar.Brand href="/">
+    <Navbar.Brand onClick={()=>navigate('/')}>
       <img src={logo} alt="" className="navbar-logo" />
     </Navbar.Brand>
     <div className="ms-auto d-flex align-items-center">
     <Navbar.Collapse id="navbarScroll" className="ms-0 ms-lg-5">
      { windowWidth > 550 && <NAVBAR_COMPONENT/>}
      </Navbar.Collapse>
-     {!show_searchbar_onclick_of_icon && windowWidth < 550 && <button onClick={()=>setShowNav(true)} className='faculties-btn-navbar'>Faculties<i class="fa-solid fa-chevron-down"></i></button>}
+     {!show_searchbar_onclick_of_icon && windowWidth < 550 && <button onClick={()=>setShowNav(true)} className='faculties-btn-navbar'>Faculties<i className="fa-solid fa-chevron-down"></i></button>}
       {windowWidth > 550 && <SearchBar placeholder="Enter Faculty Name" apiCall={API_SEARCH_FACULTY} onResultClick={handleFacultyClick} style={{ marginLeft: '20px' }} isInNavbar={true} />}
-      {windowWidth < 550 && !show_searchbar_onclick_of_icon && <i class="fa-solid fa-magnifying-glass" style={{color:"#9500ff"}} onClick={()=>setshow_searchbar_onclick_of_icon(!show_searchbar_onclick_of_icon)}/>}
-      {windowWidth < 550 && show_searchbar_onclick_of_icon && <><SearchBar placeholder="Enter Faculty Name" apiCall={API_SEARCH_FACULTY} onResultClick={handleFacultyClick} style={{ marginLeft: '20px' }} isInNavbar={true} /> <i class="fa-solid fa-xmark ms-3" style={{color:"#9500ff"}} onClick={()=>setshow_searchbar_onclick_of_icon(false)}></i></>}
+      {windowWidth < 550 && !show_searchbar_onclick_of_icon && <i className="fa-solid fa-magnifying-glass" style={{color:"#9500ff"}} onClick={()=>setshow_searchbar_onclick_of_icon(!show_searchbar_onclick_of_icon)}/>}
+      {windowWidth < 550 && show_searchbar_onclick_of_icon && <><SearchBar placeholder="Enter Faculty Name" apiCall={API_SEARCH_FACULTY} onResultClick={handleFacultyClick} style={{ marginLeft: '20px' }} isInNavbar={true} /> <i className="fa-solid fa-xmark ms-3" style={{color:"#9500ff"}} onClick={()=>setshow_searchbar_onclick_of_icon(false)}></i></>}
 
     </div>
   </Container>

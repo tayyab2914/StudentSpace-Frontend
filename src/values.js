@@ -38,3 +38,28 @@ export function GET_RANDOM_NAME_COMBINATION() {
     
     return `${cuteAnimeNames[randomIndex1]} ${cuteAnimeNames[randomIndex2]}`;
 }
+
+
+export const  formatRating = (rating)=> {
+    if (Number.isInteger(rating)) {
+      return rating.toFixed(1); 
+    }
+    return rating;
+  }
+
+  export const getFacultyName = (key) => {
+    const facultyMap = {
+      "foit": "Faculty of Information and Technology",
+      "foe": "Faculty of Engineering",
+      "fohs": "Faculty of Humanities and Social Sciences",
+      "foll": "Faculty of Languages and Literature",
+      "fol": "Faculty of Law",
+      "foms": "Faculty of Management Sciences",
+      "fomm": "Faculty of Media and Mass Communication",
+      "fop": "Faculty of Pharmacy",
+      "fost": "Faculty of Science and Technology"
+    };
+  
+    return facultyMap[key] || "Unknown Faculty"; // Return "Unknown Faculty" if key not found
+  };
+  

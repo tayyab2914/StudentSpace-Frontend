@@ -1,0 +1,21 @@
+.searchbar-results-rate .ant-rate-star-full{
+    font-size: 15px;
+}
+
+.searchbar-results-rate .ant-rate-star-half{
+    font-size: 15px;
+}
+
+.searchbar-results-rate .ant-rate-star-zero{
+    font-size: 15px;
+}
+
+.searchbar-results-rate{
+    color: rgb(255, 217, 0);
+    margin-right: 5px;
+}
+.searchbar-results-rate-count{
+    color: rgb(186, 186, 186);
+    margin-left: 5px;
+    
+}

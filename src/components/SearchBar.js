@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
-import { Popover, Avatar, Input, Spin } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
-
+import React, { useState } from "react";
+import { Popover, Avatar, Input, Spin, Rate, Divider, message } from "antd";
+import { UserOutlined } from "@ant-design/icons";
+import "./styles/Searchbar.css";
+import { formatRating } from "../values";
 const { Search } = Input;
 
-const SearchBar = ({ placeholder, apiCall, onResultClick, style, isInNavbar }) => {
-  const [searchQuery, setSearchQuery] = useState('');
+const SearchBar = ({
+  placeholder,
+  apiCall,
+  onResultClick,
+  style,
+  isInNavbar,
+}) => {
+  const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [showSpinner, setShowSpinner] = useState(false);
 
@@ -17,8 +24,13 @@ const SearchBar = ({ placeholder, apiCall, onResultClick, style, isInNavbar }) =
     try {
       const response = await apiCall(setShowSpinner, searchQuery); // Call the passed-in API function
       setSearchResults(response); // Assuming API returns a list of items
+      if(response?.length == 0)
+      {
+        message.error("No results found")
+      }
+      console.log(response);
     } catch (error) {
-      console.error('Search failed:', error);
+      console.error("Search failed:", error);
     }
     setShowSpinner(false);
   };
@@ -28,27 +40,37 @@ const SearchBar = ({ placeholder, apiCall, onResultClick, style, isInNavbar }) =
     if (onResultClick) {
       onResultClick(result); // Call the passed-in function to handle result click
     }
-    setSearchQuery(''); // Clear search after selection
+    setSearchQuery(""); // Clear search after selection
     setSearchResults([]); // Clear search results
   };
 
   // Content for the Popover that shows search results
+
   const popoverContent = (
     <div
       style={{
-        maxHeight: searchResults.length > 5 ? '200px' : 'auto', // Limit height for more than 5 items
-        overflowY: searchResults.length > 5 ? 'auto' : 'visible', // Enable scroll if more than 5
+        maxHeight: searchResults.length > 5 ? "250px" : "auto", // Limit height for more than 5 items
+        overflowY: searchResults.length > 5 ? "auto" : "visible", // Enable scroll if more than 5
       }}
     >
-      {searchResults.map((result) => (
-        <div
-          key={result.id}
-          onClick={() => handleResultClick(result)}
-          className="search-result-item"
-          style={{ cursor: 'pointer', padding: '5px 0' }}
-        >
-          <Avatar src={result.image_url || <UserOutlined />} />
-          <span style={{ marginLeft: '10px' }}>{result.name}</span>
+      {searchResults.map((result, index) => (
+        <div key={result.id}>
+          <div
+            onClick={() => handleResultClick(result)}
+            className="search-result-item"
+            style={{ cursor: "pointer", padding: "5px 0" }}
+          >
+            <Avatar src={result.image_url || <UserOutlined />} />
+            <span style={{ marginLeft: "10px" }}>
+              {result.name}
+              <br />
+              <i className="fa-solid fa-star searchbar-results-rate"></i>
+              <span>{formatRating(result.overall_rating)}</span>
+              <span className="searchbar-results-rate-count">({result.review_count})</span>
+            </span>
+          </div>
+          {/* Conditionally render Divider */}
+          {index < searchResults.length - 1 && <Divider className="my-1" />}
         </div>
       ))}
     </div>
@@ -69,7 +91,9 @@ const SearchBar = ({ placeholder, apiCall, onResultClick, style, isInNavbar }) =
           enterButton
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          style={{ width: isInNavbar ? (window.innerWidth<520 ? 200 : 300) : 300 }}
+          style={{
+            width: isInNavbar ? (window.innerWidth < 520 ? 200 : 300) : 300,
+          }}
         />
       </Popover>
     </div>

@@ -5,8 +5,9 @@
 .reviews {
   border: 0.3px solid rgb(210, 210, 210);
   border-radius: 10px;
+  max-height: 700px; /* Adjust the height as needed */
+  overflow-y: auto;
 }
-
 .review-avatar {
   width: 40px;
   height: 40px;
@@ -47,6 +48,9 @@
   display: inline; /* Show divider by default */
 }
 
+.ant-collapse-header-text{
+    text-align: center;
+}
 /* Styles for screens 600px wide or less */
 @media screen and (max-width: 600px) {
   .review-line-breaker {
