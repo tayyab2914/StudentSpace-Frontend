@@ -27,7 +27,7 @@ export const LANDING_IMAGE_COMPONENT = ({navigate}) => (
 export const FACULTY_CARDS =({navigate})=>(
     <>
     
-    <Divider orientation="center"><h2>Departments</h2></Divider>
+    <Divider orientation="center"><h2 >Departments</h2></Divider>
     
     <div className="row m-0 px-4" >
         <div className="col-6 col-md-4 col-lg-3 p-1 p-md-3 p-xl-4" onClick={()=>navigate("/department/foit")}  data-aos="fade-up">

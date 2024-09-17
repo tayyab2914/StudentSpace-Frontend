@@ -7,7 +7,10 @@
 .ant-input-search-button {
   background-color: #9500ff !important;
 }
-
+.dropdown-item:active{
+    background-color: #eed7ff !important;
+    color: #24003e !important;
+}
 .search-result-item {
   padding: 5px 0;
   display: flex;

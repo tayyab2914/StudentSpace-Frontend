@@ -45,7 +45,7 @@ const PopularFaculty = () => {
 
   return (
     <div>
-      <Divider orientation="center"><h2>Popular Personalities</h2></Divider>
+      <Divider orientation="center"><h2 >Popular Personalities</h2></Divider>
 
       {showSpinner ? (
         <Spin />
