@@ -55,7 +55,7 @@ const PopularFaculty = () => {
             <Carousel.Item key={index}>
               <div className="row m-0 px-2 justify-content-center" >
                 {group.map(faculty => (
-                  <div key={faculty.id} className={`${window.innerWidth<500 ? 'col-10':'col-6'} col-md-4 col-xl-3 p-1 p-md-3`}>
+                  <div key={faculty.id} className={`col-6 col-md-4 col-xl-3 p-1 p-md-3`}>
                     <FacultyCard data={faculty} />
                   </div>
                 ))}

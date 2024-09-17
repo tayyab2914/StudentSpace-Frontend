@@ -34,7 +34,7 @@
   font-size: 20px;
   font-weight: 500;
   margin-top: 10px;
-  color: blueviolet !important;
+  /* color: blueviolet !important; */
 }
 .department-card-btn {
   padding: 20px 20px;

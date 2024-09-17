@@ -13,21 +13,13 @@ const Footer = () => {
     <div className="footer">
       <div className="container">
         <div className="row">
-          <div className="col-md-4 col-sm-4 col-xs-12">
-            <div className="single_footer single_footer_address text-center align-self-center">
-              <img src={logo} alt="" style={{width:"80%"}}  className='align-self-center'/>
-            </div>
+        <div className="col-lg-4 col-xs-12 d-flex align-items-center justify-content-center">
+  <span className="single_footer single_footer_address text-center">
+    <img src={logo} alt="Footer Logo" className='footer-logo'/>
+  </span>
+</div>
 
-            {/* <div className="social_profile">
-              <ul>
-                <li><a href="#"><i className="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i className="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i className="fab fa-google-plus-g"></i></a></li>
-                <li><a href="#"><i className="fab fa-instagram"></i></a></li>
-              </ul>
-            </div> */}
-          </div>
-          <div className="col-lg-4 col-sm-4 col-xs-12">
+          <div className="col-lg-4  col-xs-12">
           <div className="single_footer single_footer_address">
               <h4>Pages</h4>
               <ul>
@@ -38,7 +30,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="col-md-4 col-sm-4 col-xs-12">
+          <div className="col-lg-4 col-xs-12">
             <div className="single_footer single_footer_address">
               <h4>Departments</h4>
               <ul>

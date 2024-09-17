@@ -39,7 +39,7 @@ const Department = () => {
      <div className="container-xxl">
      <div className="row m-0 Department-list justify-content-center">
         {DepartmentData?.map((DepartmentMember) => (
-          <div key={DepartmentMember.id} className="col-10 col-md-4 col-xxl-3 p-1 p-md-3 p-xxl-3">
+          <div key={DepartmentMember.id} className="col-6 col-md-4 col-xxl-3 p-1 p-md-3 p-xxl-3">
             <FacultyCard data={DepartmentMember} />
           </div>
         ))}
