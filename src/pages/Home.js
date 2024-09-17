@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <div>
       <MyNavbar />
-      <LANDING_IMAGE_COMPONENT />
+      <LANDING_IMAGE_COMPONENT navigate={navigate}/>
       <PopularFaculty />
 
       <FACULTY_CARDS navigate={navigate} />

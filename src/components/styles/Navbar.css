@@ -1,3 +1,31 @@
-.navbar-logo{
-    height: 40px;
+.navbar-logo {
+  height: 40px;
+}
+.navbar-search {
+  border-radius: 30px !important;
+}
+.ant-input-search-button {
+  background-color: #9500ff !important;
+}
+
+.search-result-item {
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+}
+.nav-link{
+    color: #7100c2 !important;
+    margin-right: 20px;
+}
+.search-popover {
+  /* max-height: 200px;  */
+  overflow-y: auto; /* Enable scrolling */
+}
+.navbar-toggler {
+  border-color: #9500ff !important;
+  box-shadow: none !important;
+}
+
+.navbar-toggler::after {
+  border-color: #9500ff !important;
 }

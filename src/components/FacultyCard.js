@@ -14,7 +14,8 @@ const FacultyCard = ({ data }) => {
       hoverable
       cover={<img alt={name} src={image_url || "https://via.placeholder.com/150"} className="faculty-image" />}
       className="faculty-card"
-      onClick={() => navigate(`/faculty/${id}`)} // Navigate without passing state
+      onClick={() => navigate(`/faculty/${id}`)} 
+       data-aos="fade-up"
     >
       <Meta title={name} description={designation} className="faculty-card-name"/>
       <div className="faculty-rating text-start">

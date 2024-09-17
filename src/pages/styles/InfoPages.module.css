@@ -1,0 +1,24 @@
+.text{
+    color: #6e00b7;
+    font-weight: 200;
+}
+.text strong{
+    color: #6e00b7;
+    font-weight: 700;
+}
+.heading{
+    color: #6e00b7;
+    font-weight: 600;
+    font-size: 32px;
+    margin-top: 20px;
+}
+
+
+@media screen and (max-width:550px){
+    .text{
+        font-size: 12px;
+    }
+    .heading{
+        font-size: 24px;
+    }
+}

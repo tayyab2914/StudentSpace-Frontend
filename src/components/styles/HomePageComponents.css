@@ -1,69 +1,81 @@
-.main-image {
-    background: url('https://ucp.edu.pk/wp-content/uploads/2019/01/Experience-New-Learning-slide.jpg');
-    height: 800px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    
-    z-index: 1;  /* Lower z-index to stay underneath the overlay */
-    position: relative;
-  }
-  .faculty-image
-  {
-    width: 100% !important;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-  .department-card{
-    border-radius: 10px;
-    border: 1px solid rgb(229, 229, 229);
-  }
-  .department-card-name{
-    font-size: 20px;
-    font-weight: 500;
-    margin-top: 10px;
-  }
-  .department-card-btn{
-    padding: 20px 20px;
-    width: 100%;
-    background-color: white;
-    border: 1px solid rgb(229, 229, 229);
-  }
-  .department-card-btn:hover{
-    background-color: rgb(242, 242, 242);
-  }
+/* .main-image {
+  background: url("https://res.cloudinary.com/dmlxb4ea9/image/upload/v1726561915/Untitled-1_jhidos.png");
+  height: 600px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 
-
-  @media screen and (min-width:0px){
-    .main-image {
-        height: 300px;
-      }
-      .department-card-name{
-        font-size: 12px;
-    }
+  z-index: 1;
+  position: relative;
+} */
+.faculty-image {
+  width: 100% !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.department-card {
+  border-radius: 10px;
+  border: 1px solid rgb(229, 229, 229);
+}
+.department-card-name {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+.department-card-btn {
+  padding: 20px 20px;
+  width: 100%;
+  background-color: white;
+  border: 1px solid rgb(229, 229, 229);
+}
+.department-card-btn:hover {
+  background-color: rgb(242, 242, 242);
+}
+.parallax-component {
+  height: 500px; /* Default height */
+}
+.home-main-img{
+    text-align: start;
+    margin-left: 30px;
+}
+.home-main-img h2 {
+    color: white;
+    font-size: 50px;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.355); /* Horizontal offset, vertical offset, blur radius, color */
+}
+@media (max-width: 768px) {
+  .parallax-component {
+    height: 600px; /* Height for smaller screens */
   }
-
-  
-
-  @media screen and (min-width:680px){
-    .main-image {
-        height: 370px;
-      }
-      .department-card-name{
-        font-size: 16px;
-    }
+}
+@media screen and (min-width: 0px) {
+  .main-image {
+    height: 300px;
   }
-
-
-  @media screen and (min-width:900px){
-    .main-image {
-        height: 500px;
-      }
+  .department-card-name {
+    font-size: 12px;
   }
+}
 
-  @media screen and (min-width:1100px){
-    .main-image {
-        height: 700px;
-      }
+@media screen and (min-width: 680px) {
+  .main-image {
+    height: 370px;
   }
+  .department-card-name {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .main-image {
+    height: 500px;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .main-image {
+    height: 600px;
+  }
+}

@@ -52,10 +52,7 @@ const Instructor = () => {
               <div className="p-3 reviews">
                 <h4>Reviews:</h4>
                 {reviews.length > 0 ? (
-                  <List
-                    itemLayout="horizontal"
-                    dataSource={reviews}
-                    renderItem={(review) => (
+                  <List itemLayout="horizontal" dataSource={reviews} renderItem={(review) => (
                       <List.Item>
                         <Review review={review} />
                       </List.Item>
