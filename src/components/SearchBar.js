@@ -19,7 +19,7 @@ const SearchBar = ({
   // Handle search click
   const handleSearch = async () => {
     if (!searchQuery.trim()) return;
-
+console.log(searchQuery)
     setShowSpinner(true);
     try {
       const response = await apiCall(setShowSpinner, searchQuery); // Call the passed-in API function
@@ -37,6 +37,8 @@ const SearchBar = ({
 
   // Handle clicking on a search result
   const handleResultClick = (result) => {
+    console.log("result",result)
+    
     if (onResultClick) {
       onResultClick(result); // Call the passed-in function to handle result click
     }

@@ -61,7 +61,7 @@ console.log(reviewedFaculties)
   };
 
   return (
-    <div className='text-start review-collapse pe-3'>
+    <div className='text-start review-collapse pe-xl-3'>
       {showSpinner && <Spin fullscreen className="spinner-overlay" />}
       <Collapse>
         <Panel header="Add Review" key="1">

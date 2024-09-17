@@ -27,6 +27,7 @@ const MyNavbar = () => {
   }, []);
 
   const handleFacultyClick = (faculty) => {
+    console.log("Faculty",faculty)
     navigate(`/faculty/${faculty.id}`, { state: { data: faculty } });
   };
 
