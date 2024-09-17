@@ -25,7 +25,7 @@ const FacultyCard = ({ data }) => {
       data-aos="fade-up"
     >
      <div className="row m-0">
-        <div className="col-12 p-0 d-flex flex-column" style={{height:`${window.innerWidth<500 ?  "100px":"180px"}`}}>
+        <div className="col-12 p-0 d-flex flex-column card-height" >
         <Meta
         title={name}
         description={designation}
