@@ -32,7 +32,7 @@ const Department = () => {
       {ShowSpinner && <Spin fullscreen className="spinner-overlay" />}
       <MyNavbar />
       <Divider orientation="left" plain>
-        <h2>{Department?.toUpperCase()}</h2>
+        <h2 style={{color:"#6e00b7"}}>{Department?.toUpperCase()}</h2>
       </Divider>
 
      <div className="container-xxl">
