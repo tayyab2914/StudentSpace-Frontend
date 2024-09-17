@@ -16,7 +16,7 @@ const PrivacyPolicy = () => {
           </Divider>
           <div className="row m-0  justify-content-center">
             <div className={`${styles.text} col-10`}>
-              <section>
+              <section className="py-2">
                 <h4>Introduction</h4>
                 <p>
                   Welcome to Student Space. We are committed to protecting your
@@ -25,7 +25,7 @@ const PrivacyPolicy = () => {
                   how we collect, use, and protect your information.
                 </p>
               </section>
-              <section>
+              <section className="py-2">
                 <h4>Anonymous Reviews</h4>
                 <p>
                   To ensure complete anonymity, Student Space assigns random
@@ -35,7 +35,7 @@ const PrivacyPolicy = () => {
                   transparency in the review process.
                 </p>
               </section>
-              <section>
+              <section className="py-2">
                 <h4>Data Collection and Use</h4>
                 <p>
                   We collect and use data from reviews to maintain and improve
@@ -45,7 +45,7 @@ const PrivacyPolicy = () => {
                   personal information about students.
                 </p>
               </section>
-              <section>
+              <section className="py-2">
                 <h4>Review Moderation</h4>
                 <p>
                   All reviews are moderated by our admin team within 24 hours of

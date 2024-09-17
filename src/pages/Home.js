@@ -8,6 +8,7 @@ import {
 import PopularFaculty from "../components/PopularFaculty";
 
 import { useNavigate } from "react-router";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const Home = () => {
       <PopularFaculty />
 
       <FACULTY_CARDS navigate={navigate} />
+      <Footer/>
     </div>
   );
 };

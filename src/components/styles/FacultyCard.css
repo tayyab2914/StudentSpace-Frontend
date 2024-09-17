@@ -3,7 +3,9 @@
   overflow: hidden;
   text-align: center;
 }
-
+.faculty-card{
+    color: blueviolet !important;
+}
 .faculty-image {
   width: 90%;
   height: 300px;
@@ -21,7 +23,10 @@
 .faculty-card-name {
   font-size: 16px;
 }
-
+.department-card-btn:hover{
+    color: blueviolet !important;
+    border-color: blueviolet !important;
+}
 @media screen and (max-width: 640px) {
   .ant-card-meta-title {
     font-size: 12px !important;

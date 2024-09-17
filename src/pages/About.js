@@ -16,7 +16,7 @@ const PrivacyPolicy = () => {
           </Divider>
           <div className="row m-0  justify-content-center">
             <div className={`${styles.text} col-10`}>
-              <section>
+              <section className="py-2">
                 <h4>Our Mission</h4>
                 <p>
                   At Student Space, our mission is to foster a respectful and
@@ -27,7 +27,7 @@ const PrivacyPolicy = () => {
                   review process.
                 </p>
               </section>
-              <section>
+              <section className="py-2">
                 <h4>Why We Focus on Anonymity</h4>
                 <p>
                   Anonymity is a cornerstone of our platform. To ensure that
@@ -38,7 +38,7 @@ const PrivacyPolicy = () => {
                   judgment.
                 </p>
               </section>
-              <section>
+              <section className="py-2">
                 <h4>How We Handle Reviews</h4>
                 <p>
                   All reviews submitted by students are reviewed by our admin
