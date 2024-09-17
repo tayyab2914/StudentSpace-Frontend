@@ -19,3 +19,6 @@
     margin-left: 5px;
     
 }
+.search-popover{
+    overflow-y: hidden !important;
+}

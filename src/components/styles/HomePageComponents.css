@@ -58,6 +58,18 @@
     margin-bottom: 20px;
     text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.355); /* Horizontal offset, vertical offset, blur radius, color */
 }
+.department-card-name
+{
+    margin: 0px;
+}
+.slick-dots{
+    padding-top: 15px !important;
+}
+.slick-dots li button{
+background-color: black !important;
+border-color: black !important;
+margin-top: 10px;
+}
 @media (max-width: 768px) {
   .parallax-component {
     height: 600px; /* Height for smaller screens */
@@ -68,7 +80,7 @@
     height: 300px;
   }
   .department-card-name {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 
@@ -78,6 +90,11 @@
   }
   .department-card-name {
     font-size: 16px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .ant-card-body{
+    padding: 10px !important;
   }
 }
 
@@ -92,3 +109,43 @@
     height: 600px;
   }
 }
+
+
+/* From Uiverse.io by cssbuttons-io */ /* From Uiverse.io by kamehame-ha */
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    gap: 15px;
+    background-color: #181717;
+    outline: 2px #181717 solid;
+    outline-offset: -3px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+  }
+  
+  .button .text {
+    color: white;
+    font-weight: 700;
+    font-size: 1em;
+    transition: 400ms;
+  }
+  
+  .button svg path {
+    transition: 400ms;
+  }
+  
+  .button:hover {
+    background-color: transparent;
+  }
+  
+  .button:hover .text {
+    color: #181717;
+  }
+  
+  .button:hover svg path {
+    fill: #181717;
+  }

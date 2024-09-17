@@ -84,6 +84,7 @@ const SearchBar = ({
         visible={searchResults?.length > 0}
         placement="bottom"
         overlayClassName="search-popover"
+        
       >
         <Search
           placeholder={placeholder}
@@ -92,7 +93,7 @@ const SearchBar = ({
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           style={{
-            width: isInNavbar ? (window.innerWidth < 520 ? 200 : 300) : 300,
+            width: isInNavbar ? (window.innerWidth < 520 ? 230 : 300) : 300,
           }}
         />
       </Popover>

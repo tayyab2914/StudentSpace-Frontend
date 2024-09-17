@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Divider, Spin } from "antd";
-import Carousel from 'react-bootstrap/Carousel';
+import { Divider, Spin, Carousel as AntCarousel } from 'antd';
 import FacultyCard from './FacultyCard';
 import { API_GET_POPULAR_FACULTIES } from '../apis';
 
@@ -11,18 +10,18 @@ const PopularFaculty = () => {
   useEffect(() => {
     const fetchPopularFaculties = async () => {
       try {
-        setShowSpinner(true); 
+        setShowSpinner(true);
         const response = await API_GET_POPULAR_FACULTIES();
-        setPopularFacultyData(response); 
+        setPopularFacultyData(response);
         console.log(response);
       } catch (error) {
         console.error("Failed to fetch popular faculties:", error);
       } finally {
-        setShowSpinner(false); 
+        setShowSpinner(false);
       }
     };
     fetchPopularFaculties();
-  }, []);  
+  }, []);
 
   const groupArray = (arr, size) => {
     const result = [];
@@ -32,37 +31,40 @@ const PopularFaculty = () => {
     return result;
   };
 
-  let groupedData 
-  if(window.innerWidth>768 && window.innerWidth < 1200 )
-  {
-    groupedData = groupArray(popularFacultyData, 3);
+  let groupedData;
+  if (window.innerWidth < 768 ) {
+    groupedData = groupArray(popularFacultyData, 2);
   }
-  else
-  {
-    
+  else if (window.innerWidth > 768 && window.innerWidth < 1200) {
+    groupedData = groupArray(popularFacultyData, 3);
+  } else {
     groupedData = groupArray(popularFacultyData, 4);
   }
 
   return (
     <div>
-      <Divider orientation="center"><h2 >Popular Personalities</h2></Divider>
+      <Divider orientation="center">
+        <h2>Popular Personalities</h2>
+      </Divider>
 
       {showSpinner ? (
         <Spin />
       ) : (
-        <Carousel>
+        <AntCarousel  dots={true} pauseOnHover={true}>
           {groupedData.map((group, index) => (
-            <Carousel.Item key={index}>
-              <div className="row m-0 px-2 justify-content-center" >
-                {group.map(faculty => (
-                  <div key={faculty.id} className={`col-6 col-md-4 col-xl-3 p-1 p-md-3`}>
-                    <FacultyCard data={faculty} />
-                  </div>
-                ))}
+            <div key={index}>
+              <div className="container-xxl">
+                <div className="row m-0 px-2 justify-content-center">
+                  {group.map(faculty => (
+                    <div key={faculty.id} className="col-6 col-md-4 col-xl-3 p-1 p-md-3">
+                      <FacultyCard data={faculty} />
+                    </div>
+                  ))}
+                </div>
               </div>
-            </Carousel.Item>
+            </div>
           ))}
-        </Carousel>
+        </AntCarousel>
       )}
     </div>
   );

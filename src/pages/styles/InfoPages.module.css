@@ -1,13 +1,13 @@
 .text{
-    color: #6e00b7;
+    color: var(--accent-color);
     font-weight: 200;
 }
 .text strong{
-    color: #6e00b7;
+    color: var(--accent-color);
     font-weight: 700;
 }
 .heading{
-    color: #6e00b7;
+    color: var(--accent-color);
     font-weight: 600;
     font-size: 32px;
     margin-top: 20px;

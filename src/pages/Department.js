@@ -5,6 +5,7 @@ import { API_GET_FACULTIES_BY_DEPARTMENT } from "../apis";
 import { Divider, Spin, Row, Col } from "antd";
 import FacultyCard from "../components/FacultyCard";
 import { getFacultyName } from "../values";
+import { accent_color } from "../components/Colors";
 
 const Department = () => {
   const { department_name } = useParams();
@@ -33,7 +34,7 @@ const Department = () => {
       {ShowSpinner && <Spin fullscreen className="spinner-overlay" />}
       <MyNavbar />
       {/* <Divider orientation="left" plain> */}
-        <h2 style={{color:"#6e00b7", margin:"20px "}}>{getFacultyName(Department)}</h2>
+        <h2 style={{color:accent_color, margin:"20px "}}>{getFacultyName(Department)}</h2>
       {/* </Divider> */}
 
      <div className="container-xxl">

@@ -45,7 +45,7 @@ const Review = ({ review }) => {
     
     const reasonPrompt = (
         <Menu onClick={handleMenuClick}>
-            <Menu.Item disabled>Why are you reporting this review?</Menu.Item>
+            <Menu.Item disabled style={{fontWeight:"600"}}>Why are you reporting this review?</Menu.Item>
             <Menu.Item key="reason1">Inappropriate Content</Menu.Item>
             <Menu.Item key="reason2">Spam</Menu.Item>
             <Menu.Item key="reason3">Harassment</Menu.Item>
