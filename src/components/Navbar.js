@@ -31,8 +31,8 @@ const MyNavbar = () => {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll" className="ms-0 ms-lg-5">
             
-          <Nav.Link onClick={()=>navigate('/about')} > About Us </Nav.Link>
-          <Nav.Link onClick={()=>navigate('/privacy-policy')} > Privacy Policy </Nav.Link>
+          <Nav.Link className='pt-2 pt-lg-0' onClick={()=>navigate('/about')} > About Us </Nav.Link>
+          <Nav.Link className='pt-2 pt-lg-0' onClick={()=>navigate('/privacy-policy')} > Privacy Policy </Nav.Link>
           <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '600px' }} navbarScroll>
               <NavDropdown title="Faculties" id="navbarScrollingDropdown" className='nav-option'>
                 <NavDropdown.Item onClick={() => handleDepartmentClick("foit")}>Faculty of Information and Technology</NavDropdown.Item>
