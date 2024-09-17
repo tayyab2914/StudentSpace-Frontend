@@ -1,96 +1,110 @@
 .faculty-card {
-  border-radius: 10px;
-  overflow: hidden;
-  text-align: center;
-}
-.faculty-card{
-    color: blueviolet !important;
-}
-.faculty-image {
-  width: 90%;
-  height: 300px;
-  object-fit: cover;
-}
-
-.faculty-rating {
-  margin-top: 10px;
-}
-
-.review-count {
-  margin-left: 8px;
-  color: #888;
-}
-.faculty-card-name {
-  font-size: 16px;
-}
-.department-card-btn:hover{
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 400px; /* Fixed height for the card */
+  }
+  
+  .faculty-image {
+    width: 100%;
+    height: 200px; /* Adjust the height of the image */
+    object-fit: cover;
+  }
+  
+  .faculty-card-content {
+    flex: 1; /* Make the content area flexible */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .faculty-rating {
+    margin-top: 10px;
+  }
+  
+  .review-count {
+    margin-left: 8px;
+    color: #888;
+  }
+  
+  .faculty-card-name {
+    font-size: 16px;
+  }
+  
+  .department-card-btn:hover {
     color: blueviolet !important;
     border-color: blueviolet !important;
-}
-
-/* From Uiverse.io by cssbuttons-io */ /* From Uiverse.io by kamehame-ha */ 
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 15px;
-  gap: 15px;
-  background-color: #181717;
-  outline: 2px #181717 solid;
-  outline-offset: -3px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  transition: 400ms;
-}
-
-.button .text {
-  color: white;
-  font-weight: 700;
-  font-size: 1em;
-  transition: 400ms;
-}
-
-.button svg path {
-  transition: 400ms;
-}
-
-.button:hover {
-  background-color: transparent;
-}
-
-.button:hover .text {
-  color: #181717;
-}
-
-.button:hover svg path {
-  fill: #181717;
-}
-@media screen and (max-width: 640px) {
-  .ant-card-meta-title {
-    font-size: 12px !important;
   }
-  .ant-card-meta-detail {
-    font-size: 10px !important;
+  
+  /* Button styles */
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    gap: 15px;
+    background-color: #181717;
+    outline: 2px #181717 solid;
+    outline-offset: -3px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+    margin-top: auto; /* Push the button to the bottom */
   }
-  .ant-rate {
-    font-size: 16px !important;
+  
+  .button .text {
+    color: white;
+    font-weight: 700;
+    font-size: 1em;
+    transition: 400ms;
   }
-  .review-count {
-    font-size: 12px !important;
+  
+  .button svg path {
+    transition: 400ms;
   }
-  .faculty-image {
-    height: 250px;
+  
+  .button:hover {
+    background-color: transparent;
   }
-  .product-card-rate .ant-rate-star-full{
-    font-size: 15px;
-}
-
-.product-card-rate .ant-rate-star-half{
-    font-size: 15px;
-}
-
-.product-card-rate .ant-rate-star-zero{
-    font-size: 15px;
-}
-}
+  
+  .button:hover .text {
+    color: #181717;
+  }
+  
+  .button:hover svg path {
+    fill: #181717;
+  }
+  
+  @media screen and (max-width: 640px) {
+    .ant-card-meta-title {
+      font-size: 12px !important;
+    }
+    .ant-card-meta-description {
+      font-size: 10px !important;
+    }
+    .ant-rate {
+      font-size: 16px !important;
+    }
+    .review-count {
+      font-size: 12px !important;
+    }
+    .faculty-image {
+      height: 150px;
+    }
+    .product-card-rate .ant-rate-star-full {
+      font-size: 15px;
+    }
+    .product-card-rate .ant-rate-star-half {
+      font-size: 15px;
+    }
+    .product-card-rate .ant-rate-star-zero {
+      font-size: 15px;
+    }
+    .button .text {
+      font-size: .7em;
+    }
+  }
+  

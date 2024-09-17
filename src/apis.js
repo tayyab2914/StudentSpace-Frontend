@@ -87,10 +87,25 @@ export const API_SUBMIT_REVIEW = async (setShowSpinner, reviewData) => {
     // message.success("Review Submitted Successfully");
     return response.data;
   } catch (error) {
-
     // message.error(error?.response?.data?.error);
   } finally {
     setShowSpinner(false);
     //   window.location.reload()
+  }
+};
+
+export const API_REPORT_REVIEW = async (id, reason) => {
+  // setShowSpinner(true);
+  console.log(id, reason);
+  try {
+    const response = await axios.post(
+      `${DOMAIN_NAME}/feedback/report_review/`,
+      { review_id: id, reason: reason }
+    );
+    message.success("Your report has been recorded successfully");
+    return response.data;
+  } catch (error) {
+  } finally {
+    // setShowSpinner(false);
   }
 };

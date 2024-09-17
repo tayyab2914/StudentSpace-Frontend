@@ -49,8 +49,8 @@ const SearchBar = ({
   const popoverContent = (
     <div
       style={{
-        maxHeight: searchResults.length > 5 ? "250px" : "auto", // Limit height for more than 5 items
-        overflowY: searchResults.length > 5 ? "auto" : "visible", // Enable scroll if more than 5
+        maxHeight: searchResults?.length > 5 ? "250px" : "auto", // Limit height for more than 5 items
+        overflowY: searchResults?.length > 5 ? "auto" : "visible", // Enable scroll if more than 5
       }}
     >
       {searchResults.map((result, index) => (
@@ -70,7 +70,7 @@ const SearchBar = ({
             </span>
           </div>
           {/* Conditionally render Divider */}
-          {index < searchResults.length - 1 && <Divider className="my-1" />}
+          {index < searchResults?.length - 1 && <Divider className="my-1" />}
         </div>
       ))}
     </div>
@@ -81,7 +81,7 @@ const SearchBar = ({
       <Popover
         content={popoverContent}
         trigger="click"
-        visible={searchResults.length > 0}
+        visible={searchResults?.length > 0}
         placement="bottom"
         overlayClassName="search-popover"
       >

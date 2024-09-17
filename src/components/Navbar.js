@@ -52,7 +52,7 @@ const NAVBAR_COMPONENT = ()=>(
 )
 
   return (
-    <div>
+    <div className=' sticky-navbar'>
       <Navbar className="bg-body-tertiary px-2 px-lg-5">
   <Container fluid>
     <Navbar.Brand onClick={()=>navigate('/')}>
