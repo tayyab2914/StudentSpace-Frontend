@@ -1,24 +1,28 @@
-
 import './styles/HomePageComponents.css'
 import { Parallax } from "react-parallax";
-// import parallax from 'https://res.cloudinary.com/dmlxb4ea9/image/upload/v1726561915/Untitled-1_jhidos.png'
-import { Divider, Spin,Card, Button } from "antd";
+import { Divider, Card, Button } from "antd";
 import SearchBar from './SearchBar';
 import { API_SEARCH_FACULTY } from '../apis';
 
 const LANDING_IMAGE_URL = 'https://res.cloudinary.com/dmlxb4ea9/image/upload/v1726561915/Untitled-1_jhidos.png';
 
-export const LANDING_IMAGE_COMPONENT = ({navigate}) => (
-  <Parallax blur={2} bgImage={LANDING_IMAGE_URL} strength={300}>
+export const LANDING_IMAGE_COMPONENT = ({ navigate }) => (
+  <Parallax
+    blur={2}
+    bgImage={LANDING_IMAGE_URL}
+    strength={300}
+    bgImageStyle={{ width: '100%', objectFit: 'cover' }}
+    // style={{ height: '100vh' }} // Set height as needed
+  >
     <div className="row parallax-component" data-aos="fade-up">
-      <div className="col-11 home-main-img align-self-end mb-5">
+      <div className="col-12 home-main-img align-self-end mb-5">
         <h2>Rate your Professors, <br />Share your Experience</h2>
         <SearchBar
-              placeholder="Enter Faculty Name"
-              apiCall={API_SEARCH_FACULTY}
-              onResultClick={(faculty)=>navigate(`/faculty/${faculty.id}`, { state: { data: faculty } })}
-              style={{ marginRight: '20px'  }}
-            />
+          placeholder="Enter Faculty Name"
+          apiCall={API_SEARCH_FACULTY}
+          onResultClick={(faculty) => navigate(`/faculty/${faculty.id}`, { state: { data: faculty } })}
+          style={{ marginRight: '20px' }}
+        />
       </div>
     </div>
   </Parallax>
@@ -29,7 +33,7 @@ export const FACULTY_CARDS =({navigate})=>(
     
     <Divider orientation="center"><h2 >Departments</h2></Divider>
     
-    <div className="row m-0 px-4" id='faculty-cards' name='faculty-cards' >
+    <div className="row m-0 px-4" >
         <div className="col-6 col-md-4 col-lg-3 p-1 p-md-3 p-xl-4" onClick={()=>navigate("/department/foit")}  data-aos="fade-up">
             <Card hoverable cover={<img  src={'https://thumbs.dreamstime.com/b/consultant-presenting-tag-cloud-information-technology-213591032.jpg'} className="faculty-image" /> }>
                 <p className='department-card-name'>Faculty of Information and Technology</p>
