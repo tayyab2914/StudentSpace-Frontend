@@ -43,7 +43,7 @@
   border: 1px solid rgb(229, 229, 229);
 }
 .parallax_2_text{
-    background-color: white;
+    background: linear-gradient(90deg, #ffffff, #ececec) !important;
     padding: 25px;
     border-radius: 10px;
 }

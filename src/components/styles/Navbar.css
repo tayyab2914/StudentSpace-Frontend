@@ -12,6 +12,10 @@
 .navbar-logo:hover{
     cursor: pointer;
 }
+.offcanvas-body, .offcanvas-header{
+    background: linear-gradient(90deg, #ffffff, #cacaca) !important;
+
+}
 .navbar-search {
   border-radius: 30px !important;
 }
