@@ -3,6 +3,7 @@ import { Popover, Avatar, Input, Spin, Rate, Divider, message } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import "./styles/Searchbar.css";
 import { formatRating } from "../values";
+import { trackSearch } from "../analytics/analytics_invokers";
 const { Search } = Input;
 
 const SearchBar = ({
@@ -25,6 +26,7 @@ const SearchBar = ({
     setShowSpinner(true);
     try {
       const response = await apiCall(setShowSpinner, searchQuery);
+      trackSearch()
       setSearchResults(response);
       if (response?.length == 0) {
         message.error("No results found");

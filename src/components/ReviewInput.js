@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GET_RANDOM_NAME_COMBINATION } from '../values';
 import { API_SUBMIT_REVIEW } from '../apis'; // Adjust import path as needed
 import { addToFacultyReviewed } from '../redux/FacultyReviewed/Action';
+import { trackRating, trackReview } from '../analytics/analytics_invokers';
 // import { addToFacultyReviewed } from '../redux/FacultyReviewed/Action';
 
 const { Panel } = Collapse;
@@ -51,7 +52,11 @@ console.log(reviewedFaculties)
         setSubjectKnowledge(0);
         setReviewText("");
         fetch_reviews();
+        trackRating(reviewData?.rating_grading_fairness)
+        trackRating(reviewData?.rating_leniency)
+        trackRating(reviewData?.rating_subject_knowledge)
         message.success("Review submitted successfully.");
+        trackReview()
       } catch (error) {
         message.error("Failed to submit review. Please try again.");
       } finally {

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { DOMAIN_NAME } from "./values";
 import { message } from "antd";
+import { trackReport } from "./analytics/analytics_invokers";
 
 export const API_GET_FACULTIES_BY_DEPARTMENT = async (setShowSpinner, name) => {
   setShowSpinner(true);
@@ -103,6 +104,7 @@ export const API_REPORT_REVIEW = async (id, reason) => {
       { review_id: id, reason: reason }
     );
     message.success("Your report has been recorded successfully");
+    trackReport()
     return response.data;
   } catch (error) {
   } finally {

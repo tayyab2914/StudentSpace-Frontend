@@ -36,7 +36,6 @@ const Review = ({ review, isScrolling}) => {
                 reason2: 'Spam',
                 reason3: 'Harassment',
                 reason4: 'False Information',
-                // reason5: 'Other',
             };
     
             const selectedReason = reasons[selectedKey];

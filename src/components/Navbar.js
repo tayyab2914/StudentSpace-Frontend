@@ -80,9 +80,6 @@ const NAVBAR_COMPONENT = ()=>(
       />
     ):<img src={hamburger_icon} style={{height:"25px"}} onClick={()=>setShowNav(true)}></img>
   
-  
-  
-  
 }
      
     </div>
