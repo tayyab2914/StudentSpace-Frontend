@@ -109,7 +109,7 @@ console.log(reviewedFaculties)
                 onChange={(e) => setReviewText(e.target.value)}
                 showCount
                 placeholder="Please provide a constructive feedback..."
-                className='mb-3'
+                className='mb-3 mt-1'
               />
             </Form.Item>
             <Form.Item>

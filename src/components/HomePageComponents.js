@@ -29,6 +29,32 @@ export const LANDING_IMAGE_COMPONENT = ({ navigate }) => (
   </Parallax>
 );
 
+
+const LANDING_IMAGE_URL_2 = 'https://res.cloudinary.com/dmlxb4ea9/image/upload/v1726511323/OG_ftmsqn.png';
+export const IMAGE_COMPONENT_2 = ({ navigate }) => (
+    <div className="row m-0 pt-3">
+        <Parallax
+        blur={2}
+        bgImage={LANDING_IMAGE_URL_2}
+        bgImageAlt="the cat"
+        strength={300}
+        bgImageStyle={{ width: '100%', objectFit: 'cover' }}
+      >
+        <div className="row justify-content-end" style={{ height: `400px` }}>
+          <div className="col-11 pe-5 col-lg-5 d-flex flex-column justify-content-center text-center parallax-component-2">
+            {/* <img src={decoration_1} alt="" data-aos="fade-right"/> */}
+           <span className=' parallax_2_text ' data-aos="fade-left"> 
+            <h2 data-aos="fade-left">Empowering Teachers Through Honest Feedback</h2>
+            <p data-aos="fade-left">
+            Your reviews help educators grow and improve. By sharing your experiences, you contribute to a better learning environment for future students and help teachers refine their teaching approach.
+            </p>
+            {/* <Button type="primary" className="letter_spacing_true button_medium light" onClick={() => navigate("/rugs")} data-aos="fade-right" > Shop Now </Button> */}
+            </span>
+          </div>
+        </div>
+      </Parallax>
+    </div>
+  );
 export const FACULTY_CARDS =({navigate})=>(
     <>
     
