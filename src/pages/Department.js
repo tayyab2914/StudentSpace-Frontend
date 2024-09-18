@@ -6,6 +6,7 @@ import { Divider, Spin, Row, Col } from "antd";
 import FacultyCard from "../components/FacultyCard";
 import { getFacultyName } from "../values";
 import { accent_color } from "../components/Colors";
+import Shimmer from "../components/Shimmer";
 
 const Department = () => {
   const { department_name } = useParams();
@@ -31,7 +32,7 @@ const Department = () => {
 
   return (
     <>
-      {ShowSpinner && <Spin fullscreen className="spinner-overlay" />}
+      {/* {ShowSpinner && <Spin fullscreen className="spinner-overlay" />} */}
       <MyNavbar />
       {/* <Divider orientation="left" plain> */}
         <h2 style={{color:accent_color, margin:"20px "}}>{getFacultyName(Department)}</h2>
@@ -39,11 +40,19 @@ const Department = () => {
 
      <div className="container-xxl">
      <div className="row m-0 Department-list justify-content-center">
-        {DepartmentData?.map((DepartmentMember) => (
+        {!ShowSpinner ? DepartmentData?.map((DepartmentMember) => (
           <div key={DepartmentMember.id} className="col-6 col-md-4 col-xxl-3 p-1 p-md-3 p-xxl-3">
             <FacultyCard data={DepartmentMember} />
+            
+          </div>
+        )):<>
+        {[...Array(20)].map((_, index) => (
+            <div key={index} className="col-6 col-md-4 col-xxl-3 p-1 p-md-3 p-xxl-3">
+          <Shimmer />
           </div>
         ))}
+      </>}
+
       </div>
      </div>
     </>

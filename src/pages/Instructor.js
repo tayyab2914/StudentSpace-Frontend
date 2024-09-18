@@ -15,11 +15,14 @@ const Instructor = () => {
   const [facultyInfo, setFacultyInfo] = useState(null);
   const [isScrolling, setIsScrolling] = useState(false);
 const [isLinkCopied, setisLinkCopied] = useState(false);
+
+
   const fetch_reviews = async () => {
     try {
       const response = await API_GET_FACULTY_REVIEWS(setShowSpinner, instructor_id); // Use instructor_id
       setReviews(response.reviews.reverse());
       setFacultyInfo(response.faculty);
+      console.log('response.faculty',response.faculty)
     } catch (error) {
       console.error("Error fetching faculty reviews:", error);
     }
@@ -69,6 +72,7 @@ const [isLinkCopied, setisLinkCopied] = useState(false);
                         style={{ marginLeft: "10px" }} 
                         disabled 
                         allowHalf 
+                        defaultValue={0}
                         value={facultyInfo?.overall_rating || 0} 
                         className="searchbar-results-rate" 
                     />

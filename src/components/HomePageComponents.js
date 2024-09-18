@@ -55,6 +55,7 @@ export const IMAGE_COMPONENT_2 = ({ navigate }) => (
       </Parallax>
     </div>
   );
+  
 export const FACULTY_CARDS =({navigate})=>(
     <>
     
@@ -63,7 +64,7 @@ export const FACULTY_CARDS =({navigate})=>(
     <div className="container-xxl">
     <div className="row m-0 px-2" >
         <div className="col-6 col-md-4 col-lg-3 p-1 p-md-3 p-xl-4" onClick={()=>navigate("/department/foit")}  data-aos="fade-up">
-            <Card hoverable cover={<img  src={'https://thumbs.dreamstime.com/b/consultant-presenting-tag-cloud-information-technology-213591032.jpg'} className="faculty-image" /> }>
+            <Card hoverable cover={<img  src={'https://res.cloudinary.com/dmlxb4ea9/image/upload/v1726685552/tech_company-amico_kq2tjk.svg'} className="faculty-image" /> }>
             
                 <div className="row m-0">
                     <div className="col-12 p-0 d-flex flex-column" style={{height:"120px"}}>
@@ -72,7 +73,7 @@ export const FACULTY_CARDS =({navigate})=>(
             </div></div></Card>
         </div>
         <div className="col-6 col-md-4 col-lg-3 p-1 p-md-3 p-xl-4" onClick={()=>navigate("/department/foe")}  data-aos="fade-up">
-            <Card hoverable cover={<img  src={'https://www.discoverengineering.org/wp-content/uploads/2023/12/mj_11433_2.jpg'} className="faculty-image" /> }>
+            <Card hoverable cover={<img  src={'https://res.cloudinary.com/dmlxb4ea9/image/upload/v1726685552/Printed_circuit_board-amico_tkssap.svg'} className="faculty-image" /> }>
             
                 <div className="row m-0">
                     <div className="col-12 p-0 d-flex flex-column" style={{height:"120px"}}>
@@ -81,7 +82,7 @@ export const FACULTY_CARDS =({navigate})=>(
             </div></div></Card>
         </div>
         <div className="col-6 col-md-4 col-lg-3 p-1 p-md-3 p-xl-4" onClick={()=>navigate("/department/fohs")}  data-aos="fade-up">
-            <Card hoverable cover={<img  src={'https://i.dawn.com/primary/2018/11/5bdca85499445.jpg'} className="faculty-image" /> }>
+            <Card hoverable cover={<img  src={'https://res.cloudinary.com/dmlxb4ea9/image/upload/v1726685551/Halloween_Instagram_feed-amico_jgomby.svg'} className="faculty-image" /> }>
             
                 <div className="row m-0">
                     <div className="col-12 p-0 d-flex flex-column" style={{height:"120px"}}>
@@ -90,7 +91,7 @@ export const FACULTY_CARDS =({navigate})=>(
             </div></div></Card>
         </div>
         <div className="col-6 col-md-4 col-lg-3 p-1 p-md-3 p-xl-4" onClick={()=>navigate("/department/foll")}  data-aos="fade-up">
-            <Card hoverable cover={<img  src={'https://kinnaird.edu.pk/wp-content/uploads/2024/03/which_is_better_literature_or_linguistics.png'} className="faculty-image" /> }>
+            <Card hoverable cover={<img  src={'https://res.cloudinary.com/dmlxb4ea9/image/upload/v1726685558/Translator-amico_qgfwz8.svg'} className="faculty-image" /> }>
             
                 <div className="row m-0">
                     <div className="col-12 p-0 d-flex flex-column" style={{height:"120px"}}>
@@ -99,7 +100,7 @@ export const FACULTY_CARDS =({navigate})=>(
             </div></div></Card>
         </div>
         <div className="col-6 col-md-4 col-lg-3 p-1 p-md-3 p-xl-4" onClick={()=>navigate("/department/fol")}  data-aos="fade-up">
-            <Card hoverable cover={<img  src={'https://www.pakistantoday.com.pk/wp-content/uploads/2023/03/Alpha-5.jpg'} className="faculty-image" /> }>
+            <Card hoverable cover={<img  src={'https://res.cloudinary.com/dmlxb4ea9/image/upload/v1726685560/Universal_declaration_of_human_rights-amico_mhrvdo.svg'} className="faculty-image" /> }>
             
                 <div className="row m-0">
                     <div className="col-12 p-0 d-flex flex-column" style={{height:"120px"}}>
@@ -110,7 +111,7 @@ export const FACULTY_CARDS =({navigate})=>(
             </Card>
         </div>
         <div className="col-6 col-md-4 col-lg-3 p-1 p-md-3 p-xl-4" onClick={()=>navigate("/department/fomm")}  data-aos="fade-up">
-            <Card hoverable cover={<img  src={'https://blogassets.leverageedu.com/blog/wp-content/uploads/2020/03/14165058/BA-Journalism-and-Mass-Communication.jpg'} className="faculty-image" /> }>
+            <Card hoverable cover={<img  src={'https://res.cloudinary.com/dmlxb4ea9/image/upload/v1726685551/Journalist-amico_aay5fw.svg'} className="faculty-image" /> }>
             
                 <div className="row m-0">
                     <div className="col-12 p-0 d-flex flex-column" style={{height:"120px"}}>
@@ -119,7 +120,7 @@ export const FACULTY_CARDS =({navigate})=>(
             </div></div></Card>
         </div>
         <div className="col-6 col-md-4 col-lg-3 p-1 p-md-3 p-xl-4" onClick={()=>navigate("/department/foms")}  data-aos="fade-up">
-            <Card hoverable cover={<img  src={'https://www.cleverism.com/wp-content/uploads/2017/12/shutterstock_667848580.jpg'} className="faculty-image" /> }>
+            <Card hoverable cover={<img  src={'https://res.cloudinary.com/dmlxb4ea9/image/upload/v1726685552/Manage_money-amico_c7sa2a.svg'} className="faculty-image" /> }>
             
                 <div className="row m-0">
                     <div className="col-12 p-0 d-flex flex-column" style={{height:"120px"}}>
@@ -128,7 +129,7 @@ export const FACULTY_CARDS =({navigate})=>(
             </div></div></Card>
         </div>
         <div className="col-6 col-md-4 col-lg-3 p-1 p-md-3 p-xl-4" onClick={()=>navigate("/department/fop")}  data-aos="fade-up">
-            <Card hoverable cover={<img  src={'https://chughtailab.com/wp-content/uploads/2020/11/Pharmacy-2-1.jpg'} className="faculty-image" /> }>
+            <Card hoverable cover={<img  src={'https://res.cloudinary.com/dmlxb4ea9/image/upload/v1726685548/chemistry_lab-rafiki_g1vdme.svg'} className="faculty-image" /> }>
             
                 <div className="row m-0">
                     <div className="col-12 p-0 d-flex flex-column" style={{height:"120px"}}>
@@ -137,7 +138,7 @@ export const FACULTY_CARDS =({navigate})=>(
             </div></div></Card>
         </div>
         <div className="col-6 col-md-4 col-lg-3 p-1 p-md-3 p-xl-4" onClick={()=>navigate("/department/fost")}  data-aos="fade-up">
-            <Card hoverable cover={<img  src={'https://research.sociology.cam.ac.uk/sites/research.sociology.cam.ac.uk/files/humanbrainshutterstock_719504626_1.jpg'} className="faculty-image" /> }>
+            <Card hoverable cover={<img  src={'https://res.cloudinary.com/dmlxb4ea9/image/upload/v1726685551/Science-amico_cjucsg.svg'} className="faculty-image" /> }>
     
                 <div className="row m-0">
                     <div className="col-12 p-0 d-flex flex-column" style={{height:"120px"}}>
