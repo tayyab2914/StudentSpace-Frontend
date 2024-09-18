@@ -2,18 +2,38 @@ import React, { useEffect } from "react";
 // import { PRIVACY_POLICY_TEXT } from "../values/Text";
 import styles from "./styles/InfoPages.module.css";
 import MyNavbar from "../components/Navbar";
-import { Divider, Spin } from "antd";
+import { Breadcrumb, Divider, Spin } from "antd";
 import { PRIVACY_POLICY_TEXT } from "../components/Text";
+import { accent_color } from "../components/Colors";
+import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const PrivacyPolicy = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <div>
       <MyNavbar />
       <div className="row m-0 justify-content-center">
         <div className="col-12">
-          <Divider orientation="left">
-            <h2 className={styles.heading}>Privacy Policy</h2>
-          </Divider>
+          <Breadcrumb
+            className="ms-4 my-1 mt-3"
+            items={[
+              { title: <a onClick={() => navigate("/")}>Home</a> },
+              { title: "Privacy Policy" },
+            ]}
+          />
+          <h2
+            style={{
+              color: accent_color,
+              margin: "20px ",
+              marginBottom: "5px",
+            }}
+          >
+            Privacy Policy
+          </h2>
           <div className="row m-0  justify-content-center">
             <div className={`${styles.text} col-10`}>
               <section className="py-2">
@@ -59,6 +79,7 @@ const PrivacyPolicy = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };
