@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MyNavbar from "../components/Navbar";
 import { useParams } from "react-router-dom"; // Import useParams
-import { Rate, Spin, List, message } from "antd";
+import { Rate, Spin, List, message, Tooltip } from "antd";
 import { API_GET_FACULTY_REVIEWS } from "../apis";
 import "./styles/Instructor.css";
 import Review from "../components/Review";
@@ -14,7 +14,7 @@ const Instructor = () => {
   const [reviews, setReviews] = useState([]);
   const [facultyInfo, setFacultyInfo] = useState(null);
   const [isScrolling, setIsScrolling] = useState(false);
-
+const [isLinkCopied, setisLinkCopied] = useState(false);
   const fetch_reviews = async () => {
     try {
       const response = await API_GET_FACULTY_REVIEWS(setShowSpinner, instructor_id); // Use instructor_id
@@ -74,11 +74,12 @@ const Instructor = () => {
                     />
                     </div>
                 </div>
-                <span onClick={() => {
+                <Tooltip title="Copy Link" open={!isLinkCopied}><span onClick={() => {
                     message.success("Link copied successfully")
+                    setisLinkCopied(true)
                     navigator.clipboard.writeText(window.location.href)}}>
-                    <i className="fa-regular fa-copy"></i>
-                </span>
+                    <i className="fa-regular fa-copy copy-icon"></i>
+                </span></Tooltip>
                                 
                 </div>
 

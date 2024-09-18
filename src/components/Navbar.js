@@ -7,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import './styles/Navbar.css';
 import { useNavigate } from 'react-router';
-import SearchBar from './SearchBar';
+import SearchBar2 from './SearchBar2';
 import { API_SEARCH_FACULTY } from '../apis'; 
 import logo from '../assets/logo.svg';
 import Offcanvas from 'react-bootstrap/Offcanvas'; 
@@ -65,7 +65,7 @@ const NAVBAR_COMPONENT = ()=>(
      { windowWidth > 550 && <NAVBAR_COMPONENT/>}
      </Navbar.Collapse>
      {/* {!show_searchbar_onclick_of_icon && windowWidth < 550 && <button onClick={()=>setShowNav(true)} className='faculties-btn-navbar'>Faculties<i className="fa-solid fa-chevron-down"></i></button>} */}
-      { <SearchBar placeholder="Enter Faculty Name" apiCall={API_SEARCH_FACULTY} onResultClick={handleFacultyClick} style={{ marginLeft: '20px' }} isInNavbar={true} id={1}/>}
+      { <SearchBar2 placeholder="Enter Faculty Name" apiCall={API_SEARCH_FACULTY} onResultClick={handleFacultyClick} style={{ marginLeft: '20px' }} isInNavbar={true} id={1}/>}
       {/* {windowWidth < 550 && !show_searchbar_onclick_of_icon && <i className="fa-solid fa-magnifying-glass" style={{color:"#9500ff"}} onClick={()=>setshow_searchbar_onclick_of_icon(!show_searchbar_onclick_of_icon)}/>} */}
       {/* {windowWidth < 550 && show_searchbar_onclick_of_icon && <><SearchBar placeholder="Enter Faculty Name" apiCall={API_SEARCH_FACULTY} onResultClick={handleFacultyClick} style={{ marginLeft: '20px' }} isInNavbar={true} /> <i className="fa-solid fa-xmark ms-3" style={{color:"#9500ff"}} onClick={()=>setshow_searchbar_onclick_of_icon(false)}></i></>} */}
       {/* {windowWidth < 550  && <><SearchBar placeholder="Enter Faculty Name" apiCall={API_SEARCH_FACULTY} onResultClick={handleFacultyClick} style={{ marginLeft: '20px' }} isInNavbar={true} /> </>} */}

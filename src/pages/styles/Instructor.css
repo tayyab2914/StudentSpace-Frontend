@@ -43,7 +43,9 @@
 .review-line-breaker {
   display: none; /* Hide line breaker by default */
 }
-
+.copy-icon:hover{
+    cursor: pointer;
+}
 .review-line-divider {
   display: inline; /* Show divider by default */
 }
