@@ -39,7 +39,18 @@
     margin-bottom: 10px;
     border-radius: 4px;
   }
-  
+  .name-shimmer {
+    height: 20px;
+    width: 150px;
+    margin: 0 auto;
+    border-radius: 4px;
+  }
+  .name-shimmer {
+    height: 20px;
+    width: 150px;
+    margin: 0 auto;
+    border-radius: 4px;
+  }
   /* Shimmer for the rating stars */
   .rate-shimmer {
     height: 20px;
