@@ -10,7 +10,7 @@ const Footer = () => {
         document.getElementById(path)?.scrollIntoView({ behavior: "smooth" });
       };
   return (
-    <div className="footer">
+    <div className="footer px-3 px-sm-0">
       <div className="container">
         <div className="row">
         <div className="col-lg-4 col-xs-12 d-flex align-items-center justify-content-center">
