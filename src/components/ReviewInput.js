@@ -17,9 +17,10 @@ const ReviewInput = ({ facultyData, fetch_reviews }) => {
   const [showSpinner, setShowSpinner] = useState(false);
 
   const dispatch = useDispatch();
-  const reviewedFaculties = useSelector(state => state.facultyReducer.reviewedFaculties);
+  const reviewedFaculties = useSelector(state => state.facultyDataRedux.reviewedFaculties);
+  const facultyDataRedux = useSelector(state => state.facultyDataRedux);
 
-// console.log(reviewedFaculties)
+console.log(facultyDataRedux)
   const handleSubmit = async (values) => {
     if (gradingFairness === 0 || leniency === 0 || subjectKnowledge === 0) {
       message.error("Please rate all categories before submitting.");

@@ -2,8 +2,8 @@
 import { ADD_FACULTY_REVIEWED, CHECK_IF_EXIST_IN_FACULTY, ADD_REPORTED_REVIEW } from './Types';
 
 const initialState = {
-  reviewedFaculties: [0], 
-  reportedReviews: [0], 
+  reviewedFaculties: [], 
+  reportedReviews: [], 
 };
 
 export default function facultyReducer(state = initialState, action) {

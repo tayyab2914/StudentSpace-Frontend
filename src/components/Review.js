@@ -9,8 +9,8 @@ import { addReportedReview } from '../redux/FacultyReviewed/Action';
 const Review = ({ review, isScrolling}) => {
     const [visible, setVisible] = useState(false);
     const [showReasonPrompt, setShowReasonPrompt] = useState(false);
-    const reportedReviews = useSelector(state => state.facultyReducer.reportedReviews);
-    // console.log("reportedReviews",reportedReviews)
+    const reportedReviews = useSelector(state => state.facultyDataRedux.reportedReviews);
+    console.log("reportedReviews",reportedReviews)
     const dispatch = useDispatch();
 
     useEffect(()=>{
