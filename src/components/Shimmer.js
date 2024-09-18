@@ -1,4 +1,4 @@
-import { Card } from 'antd'
+import { Card, Skeleton } from 'antd'
 import React from 'react'
 import './styles/Shimmer.css'
 
@@ -14,15 +14,12 @@ const Shimmer = () => {
 >
   <div className="row m-0">
     <div className="col-12 p-0 d-flex flex-column card-height text-center">
-    <div className="faculty-rating-shimmer text-center">
-        <div className="name-shimmer shimmer"></div>
-        <div className="name-shimmer shimmer my-1"></div>
-      </div>
+      {/* <Skeleton.Input active={true} style={{height:"15px !important", marginTop:"10px",width:"130px !important"}}/>
+      <Skeleton.Input active={true} style={{height:"15px !important", marginTop:"10px",width:"130px !important"}}/> */}
 
-      <div className="faculty-rating-shimmer text-center">
-        <div className="rate-shimmer shimmer"></div>
-        <div className="review-count-shimmer shimmer"></div>
-      </div>
+      {/* <div className="faculty-rating-shimmer text-center"> */}
+      <Skeleton active/>
+      {/* </div> */}
 
       <div className="button-shimmer shimmer"></div>
     </div>

@@ -54,13 +54,13 @@ const Department = () => {
 
       <div className="container-xxl">
         <div className="row m-0 Department-list justify-content-center">
-          {!ShowSpinner ? (
+          {ShowSpinner ? (
             DepartmentData?.map((DepartmentMember) => (
               <div
                 key={DepartmentMember.id}
                 className="col-6 col-md-4 col-xxl-3 p-1 p-md-3 p-xxl-3"
               >
-                <FacultyCard data={DepartmentMember} />
+                {/* <FacultyCard data={DepartmentMember} /> */}
               </div>
             ))
           ) : (
