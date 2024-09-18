@@ -50,6 +50,7 @@
 
 .ant-collapse-header-text{
     text-align: center;
+    font-weight: 600;
 }
 /* Styles for screens 600px wide or less */
 @media screen and (max-width: 600px) {

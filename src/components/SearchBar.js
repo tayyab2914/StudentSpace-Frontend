@@ -21,7 +21,6 @@ const SearchBar = ({
   const handleSearch = async () => {
     if (!searchQuery.trim()) return;
 
-    console.log(searchQuery);
     setShowSpinner(true);
     try {
       const response = await apiCall(setShowSpinner, searchQuery);
@@ -31,7 +30,6 @@ const SearchBar = ({
       } else {
         setPopoverVisible(true); // Show popover when results are found
       }
-      console.log(response);
     } catch (error) {
       console.error("Search failed:", error);
     }

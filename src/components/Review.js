@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Popover, Menu } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
 import { API_REPORT_REVIEW } from '../apis';
 // import { API_REPORT_REVIEW } from '../apis';
 import './styles/Review.css'
-const Review = ({ review }) => {
+const Review = ({ review, isScrolling}) => {
     const [visible, setVisible] = useState(false);
     const [showReasonPrompt, setShowReasonPrompt] = useState(false);
 
+    useEffect(()=>{
+        if(isScrolling)
+        {
+            
+            setShowReasonPrompt(false);
+            setVisible(false);  
+        }
+    })
     const getAvatarUrl = () => {
         // Generate a random number between 1 and 1000
         const randomNumber = Math.floor(Math.random() * 1000);
