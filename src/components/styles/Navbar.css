@@ -2,54 +2,55 @@
   height: 40px;
 }
 .sticky-navbar {
-    position: fixed;
-    top: 0; /* Stick to the top */
-    z-index: 1000; /* Ensure it's on top of other content */
-    background-color: #fff; /* Adjust background if needed */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add a shadow */
-    width: 100vw;
-  }
+  position: fixed;
+  top: 0; /* Stick to the top */
+  z-index: 1000; /* Ensure it's on top of other content */
+  background-color: #fff; /* Adjust background if needed */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add a shadow */
+  width: 100vw;
+}
+
 .navbar-search {
   border-radius: 30px !important;
 }
 .ant-input-search-button {
   background-color: var(--accent-color) !important;
 }
-.dropdown-item:active{
-    background-color: #eed7ff !important;
-    color: #24003e !important;
+.dropdown-item:active {
+  background-color: #eed7ff !important;
+  color: #24003e !important;
 }
-.faculties-btn-navbar{
-    color: var(--accent-color)!important;
-    margin-right: 20px;
-    background-color: transparent;
-    border: none ;
+.faculties-btn-navbar {
+  color: var(--accent-color) !important;
+  margin-right: 20px;
+  background-color: transparent;
+  border: none;
 }
-.ant-popover-inner{
-    width: 300px !important;
+.ant-popover-inner {
+  width: 300px !important;
 }
-.offcanvas-data{
-    background-color: transparent !important;
-    border: none !important;
-    color: black !important;
-    text-align: left !important ;
+.offcanvas-data {
+  background-color: transparent !important;
+  border: none !important;
+  color: black !important;
+  text-align: left !important ;
 }
-.offcanvas-data:hover{
-    background-color: rgb(242, 242, 242) !important;
-    font-weight: 500;
+.offcanvas-data:hover {
+  background-color: rgb(242, 242, 242) !important;
+  font-weight: 500;
 }
-.faculties-btn-navbar i{
-    font-size: 10px;
-    margin-left: 5px;
+.faculties-btn-navbar i {
+  font-size: 10px;
+  margin-left: 5px;
 }
 .search-result-item {
   padding: 5px 0;
   display: flex;
   align-items: center;
 }
-.nav-link{
-    color: var(--accent-color)!important;
-    margin-right: 20px;
+.nav-link {
+  color: var(--accent-color) !important;
+  margin-right: 20px;
 }
 .search-popover {
   /* max-height: 200px;  */

@@ -4,7 +4,7 @@ import { Divider, Card, Button } from "antd";
 import SearchBar from './SearchBar';
 import { API_SEARCH_FACULTY } from '../apis';
 
-const LANDING_IMAGE_URL = 'https://res.cloudinary.com/dmlxb4ea9/image/upload/v1726561915/Untitled-1_jhidos.png';
+const LANDING_IMAGE_URL = 'https://i.postimg.cc/T1xq94bL/Untitled-Project-2.webp';
 
 export const LANDING_IMAGE_COMPONENT = ({ navigate }) => (
   <Parallax

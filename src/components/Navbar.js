@@ -55,7 +55,7 @@ const NAVBAR_COMPONENT = ()=>(
   return (
    <>
     <div className=' sticky-navbar'>
-      <Navbar className="bg-body-tertiary px-2 px-lg-5">
+      <Navbar className=" px-2 px-lg-5 my-navbar">
   <Container fluid>
     <Navbar.Brand onClick={()=>navigate('/')}>
       <img src={logo} alt="" className="navbar-logo" />

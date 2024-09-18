@@ -64,7 +64,7 @@ console.log(reviewedFaculties)
     <div className='text-start review-collapse pe-xl-3 mb-2'>
       {showSpinner && <Spin fullscreen className="spinner-overlay" />}
       <Collapse>
-        <Panel header="Add Review" key="1">
+        <Panel header="Give Review" key="1">
           <Form layout="vertical" onFinish={handleSubmit}>
             <Form.Item
               label="Grading Fairness"
