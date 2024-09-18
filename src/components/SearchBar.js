@@ -11,6 +11,7 @@ const SearchBar = ({
   onResultClick,
   style,
   isInNavbar,
+  id
 }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -87,7 +88,7 @@ const SearchBar = ({
   );
 
   return (
-    <div style={style}>
+    <div style={style} id={id}>
       <Popover
         content={popoverContent}
         trigger="click"

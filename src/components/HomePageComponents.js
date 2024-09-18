@@ -22,6 +22,7 @@ export const LANDING_IMAGE_COMPONENT = ({ navigate }) => (
           apiCall={API_SEARCH_FACULTY}
           onResultClick={(faculty) => navigate(`/faculty/${faculty.id}`, { state: { data: faculty } })}
           style={{ marginRight: '20px' }}
+          id={2}
         />
       </div>
     </div>
