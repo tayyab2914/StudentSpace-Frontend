@@ -90,6 +90,7 @@ const SearchBar2 = ({
   return (
     <div style={style} id={id}>
       <Popover
+        id="1"
         content={popoverContent}
         trigger="click"
         visible={popoverVisible && searchResults?.length > 0} // Control visibility
