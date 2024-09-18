@@ -1,7 +1,9 @@
-import { ADD_FACULTY_REVIEWED, CHECK_IF_EXIST_IN_FACULTY } from "./Types";
+// src/redux/reducers/facultyReducer.js
+import { ADD_FACULTY_REVIEWED, CHECK_IF_EXIST_IN_FACULTY, ADD_REPORTED_REVIEW } from './Types';
 
 const initialState = {
-    reviewedFaculties: [], // Initial state should be an array
+  reviewedFaculties: [0], 
+  reportedReviews: [0], 
 };
 
 export default function facultyReducer(state = initialState, action) {
@@ -17,6 +19,13 @@ export default function facultyReducer(state = initialState, action) {
       return {
         ...state,
         reviewedFaculties: state.reviewedFaculties.includes(action.payload),
+      };
+    case ADD_REPORTED_REVIEW:
+      return {
+        ...state,
+        reportedReviews: [
+          ...new Set([...state.reportedReviews, action.payload]),
+        ],
       };
     default:
       return state;

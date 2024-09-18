@@ -13,7 +13,7 @@ const PopularFaculty = () => {
         setShowSpinner(true);
         const response = await API_GET_POPULAR_FACULTIES();
         setPopularFacultyData(response);
-        console.log(response);
+        // console.log(response);
       } catch (error) {
         console.error("Failed to fetch popular faculties:", error);
       } finally {
