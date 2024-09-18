@@ -74,7 +74,7 @@ const [isLinkCopied, setisLinkCopied] = useState(false);
                     />
                     </div>
                 </div>
-                <Tooltip title="Copy Link" open={!isLinkCopied}><span onClick={() => {
+                <Tooltip title="Invite to Review" open={!isLinkCopied}><span onClick={() => {
                     message.success("Link copied successfully")
                     setisLinkCopied(true)
                     navigator.clipboard.writeText(window.location.href)}}>

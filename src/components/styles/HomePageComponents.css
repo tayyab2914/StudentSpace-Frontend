@@ -65,6 +65,12 @@
 .slick-dots{
     /* padding-top: 15px !important; */
 }
+.slick-next {
+    color: black !important;
+}
+.slick-prev {
+    color: black !important;
+}
 .slick-dots li button{
 background-color: black !important;
 border-color: black !important;
