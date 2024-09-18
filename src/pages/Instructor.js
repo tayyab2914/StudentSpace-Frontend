@@ -91,8 +91,8 @@ const [isLinkCopied, setisLinkCopied] = useState(false);
               <ReviewInput facultyData={facultyInfo} fetch_reviews={fetch_reviews}/>
             </div>
             <div className="col-12 col-xl-8 p-0 mt-2 mt-xl-0">
-              <h4>Reviews:</h4>
-              <div id="scroll-box" className="p-3 reviews" style={{ maxHeight: "400px", overflowY: "scroll" }}>
+              <h4>What others say</h4>
+              <div id="scroll-box" className="p-3 reviews" style={{ maxHeight: "500px", overflowY: "scroll" }}>
                 {reviews.length > 0 ? (
                   <List itemLayout="horizontal" dataSource={reviews} renderItem={(review) => (
                       <List.Item>

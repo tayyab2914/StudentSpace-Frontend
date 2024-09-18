@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import MyNavbar from "../components/Navbar";
 import {
   FACULTY_CARDS,
+  IMAGE_COMPONENT_2,
   LANDING_IMAGE_COMPONENT,
 } from "../components/HomePageComponents";
 import PopularFaculty from "../components/PopularFaculty";
@@ -17,6 +18,7 @@ const Home = () => {
       <MyNavbar />
       <LANDING_IMAGE_COMPONENT navigate={navigate}/>
       <PopularFaculty />
+      <IMAGE_COMPONENT_2/>
       <FACULTY_CARDS navigate={navigate} />
       <Footer/>
     </div>

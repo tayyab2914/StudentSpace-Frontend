@@ -9,7 +9,9 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add a shadow */
   width: 100vw;
 }
-
+.navbar-logo:hover{
+    cursor: pointer;
+}
 .navbar-search {
   border-radius: 30px !important;
 }

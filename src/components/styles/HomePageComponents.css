@@ -42,6 +42,19 @@
   background-color: white;
   border: 1px solid rgb(229, 229, 229);
 }
+.parallax_2_text{
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+@media screen and ( max-width:550px){
+    .parallax_2_text p{
+        font-size: 14px;
+    }
+    .parallax_2_text h2{
+        font-size: 20px;
+    }
+}
 .department-card-btn:hover {
   background-color: rgb(242, 242, 242);
 }
