@@ -76,9 +76,19 @@ background-color: black !important;
 border-color: black !important;
 margin-top: 20px;
 }
+
+
 @media (max-width: 768px) {
   .parallax-component {
     height: 600px; /* Height for smaller screens */
+  }
+}
+@media (max-width: 550px) {
+  .faculty-image{
+    height: 200px !important;
+  }
+  .dropdown-item{
+    font-size: 12px !important;
   }
 }
 @media screen and (min-width: 0px) {
@@ -155,3 +165,9 @@ margin-top: 20px;
   .button:hover svg path {
     fill: #181717;
   }
+
+
+
+
+  
+

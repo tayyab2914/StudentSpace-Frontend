@@ -35,7 +35,7 @@ export const FACULTY_CARDS =({navigate})=>(
     <Divider orientation="center"><h2 >Departments</h2></Divider>
     
     <div className="container-xxl">
-    <div className="row m-0 px-4" >
+    <div className="row m-0 px-2" >
         <div className="col-6 col-md-4 col-lg-3 p-1 p-md-3 p-xl-4" onClick={()=>navigate("/department/foit")}  data-aos="fade-up">
             <Card hoverable cover={<img  src={'https://thumbs.dreamstime.com/b/consultant-presenting-tag-cloud-information-technology-213591032.jpg'} className="faculty-image" /> }>
             

@@ -39,7 +39,7 @@ const FacultyCard = ({ data }) => {
           className="product-card-rate"
         />
         <br />
-        <span className="review-count">({review_count} reviews)</span>
+        <span className="review-count m-0">({review_count} reviews)</span>
       </div>
       <button class="button text-center mt-auto w-100">
         <p class="text m-0">GIVE REVIEW</p>
