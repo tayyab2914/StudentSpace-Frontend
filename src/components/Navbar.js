@@ -92,15 +92,15 @@ const NAVBAR_COMPONENT = ()=>(
                       </Offcanvas.Header>
                       <Offcanvas.Body>
                         <ul className="list-unstyled">
-                          <li><Button className='offcanvas-data' onClick={() => handleDepartmentClick("foit")}>Faculty of Information and Technology</Button></li><Divider className="my-1"/>
-                          <li><Button className='offcanvas-data' onClick={() => handleDepartmentClick("foe")}>Faculty of Engineering</Button></li><Divider className="my-1"/>
-                          <li><Button className='offcanvas-data' onClick={() => handleDepartmentClick("fohs")}>Faculty of Humanities and Social Sciences</Button></li><Divider className="my-1"/>
-                          <li><Button className='offcanvas-data' onClick={() => handleDepartmentClick("foll")}>Faculty of Languages and Literature</Button></li><Divider className="my-1"/>
-                          <li><Button className='offcanvas-data' onClick={() => handleDepartmentClick("fol")}>Faculty of Law</Button></li><Divider className="my-1"/>
-                          <li><Button className='offcanvas-data' onClick={() => handleDepartmentClick("foms")}>Faculty of Management Sciences</Button></li><Divider className="my-1"/>
-                          <li><Button className='offcanvas-data' onClick={() => handleDepartmentClick("fomm")}>Faculty of Media and Mass Communication</Button></li><Divider className="my-1"/>
-                          <li><Button className='offcanvas-data' onClick={() => handleDepartmentClick("fop")}>Faculty of Pharmacy</Button></li><Divider className="my-1"/>
-                          <li><Button className='offcanvas-data' onClick={() => handleDepartmentClick("fost")}>Faculty of Science and Technology</Button></li><Divider className="my-1"/>
+                          <li><span className='offcanvas-data' onClick={() => handleDepartmentClick("foit")}>Faculty of Information and Technology</span></li><Divider className="my-2"/>
+                          <li><span className='offcanvas-data' onClick={() => handleDepartmentClick("foe")}>Faculty of Engineering</span></li><Divider className="my-2"/>
+                          <li><span className='offcanvas-data' onClick={() => handleDepartmentClick("fohs")}>Faculty of Humanities and Social Sciences</span></li><Divider className="my-2"/>
+                          <li><span className='offcanvas-data' onClick={() => handleDepartmentClick("foll")}>Faculty of Languages and Literature</span></li><Divider className="my-2"/>
+                          <li><span className='offcanvas-data' onClick={() => handleDepartmentClick("fol")}>Faculty of Law</span></li><Divider className="my-2"/>
+                          <li><span className='offcanvas-data' onClick={() => handleDepartmentClick("foms")}>Faculty of Management Sciences</span></li><Divider className="my-2"/>
+                          <li><span className='offcanvas-data' onClick={() => handleDepartmentClick("fomm")}>Faculty of Media and Mass Communication</span></li><Divider className="my-2"/>
+                          <li><span className='offcanvas-data' onClick={() => handleDepartmentClick("fop")}>Faculty of Pharmacy</span></li><Divider className="my-2"/>
+                          <li><span className='offcanvas-data' onClick={() => handleDepartmentClick("fost")}>Faculty of Science and Technology</span></li><Divider className="my-2"/>
                         </ul>
                       </Offcanvas.Body>
                     </Offcanvas>
