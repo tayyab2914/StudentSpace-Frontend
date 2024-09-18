@@ -63,12 +63,12 @@
     margin: 0px;
 }
 .slick-dots{
-    padding-top: 15px !important;
+    /* padding-top: 15px !important; */
 }
 .slick-dots li button{
 background-color: black !important;
 border-color: black !important;
-margin-top: 10px;
+margin-top: 20px;
 }
 @media (max-width: 768px) {
   .parallax-component {

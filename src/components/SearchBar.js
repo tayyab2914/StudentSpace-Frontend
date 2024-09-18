@@ -15,18 +15,21 @@ const SearchBar = ({
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [showSpinner, setShowSpinner] = useState(false);
+  const [popoverVisible, setPopoverVisible] = useState(false); // New state for visibility control
 
   // Handle search click
   const handleSearch = async () => {
     if (!searchQuery.trim()) return;
-console.log(searchQuery)
+
+    console.log(searchQuery);
     setShowSpinner(true);
     try {
-      const response = await apiCall(setShowSpinner, searchQuery); // Call the passed-in API function
-      setSearchResults(response); // Assuming API returns a list of items
-      if(response?.length == 0)
-      {
-        message.error("No results found")
+      const response = await apiCall(setShowSpinner, searchQuery);
+      setSearchResults(response);
+      if (response?.length == 0) {
+        message.error("No results found");
+      } else {
+        setPopoverVisible(true); // Show popover when results are found
       }
       console.log(response);
     } catch (error) {
@@ -37,17 +40,22 @@ console.log(searchQuery)
 
   // Handle clicking on a search result
   const handleResultClick = (result) => {
-    console.log("result",result)
-    
+    console.log("result", result);
+
     if (onResultClick) {
-      onResultClick(result); // Call the passed-in function to handle result click
+      onResultClick(result);
     }
     setSearchQuery(""); // Clear search after selection
     setSearchResults([]); // Clear search results
+    setPopoverVisible(false); // Close popover after selecting a result
+  };
+
+  // Handle popover close on outside click or selection
+  const handlePopoverClose = () => {
+    setPopoverVisible(false);
   };
 
   // Content for the Popover that shows search results
-
   const popoverContent = (
     <div
       style={{
@@ -68,7 +76,9 @@ console.log(searchQuery)
               <br />
               <i className="fa-solid fa-star searchbar-results-rate"></i>
               <span>{formatRating(result.overall_rating)}</span>
-              <span className="searchbar-results-rate-count">({result.review_count})</span>
+              <span className="searchbar-results-rate-count">
+                ({result.review_count})
+              </span>
             </span>
           </div>
           {/* Conditionally render Divider */}
@@ -83,10 +93,11 @@ console.log(searchQuery)
       <Popover
         content={popoverContent}
         trigger="click"
-        visible={searchResults?.length > 0}
+        visible={popoverVisible && searchResults?.length > 0} // Control visibility
         placement="bottom"
+        onVisibleChange={(visible) => setPopoverVisible(visible)} // Manage visibility on manual toggle
         overlayClassName="search-popover"
-        
+        onClickOutside={handlePopoverClose} // Close when clicked outside
       >
         <Search
           placeholder={placeholder}
@@ -94,6 +105,7 @@ console.log(searchQuery)
           enterButton
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
+          onPressEnter={handleSearch} // Execute search on pressing enter
           style={{
             width: isInNavbar ? (window.innerWidth < 520 ? 230 : 300) : 300,
           }}

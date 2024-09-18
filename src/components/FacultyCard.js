@@ -31,7 +31,7 @@ const FacultyCard = ({ data }) => {
         description={designation}
         className="faculty-card-name"
       />
-      <div className="faculty-rating text-start">
+      <div className="faculty-rating text-center">
         <Rate
           allowHalf
           disabled
@@ -42,7 +42,7 @@ const FacultyCard = ({ data }) => {
         <span className="review-count">({review_count} reviews)</span>
       </div>
       <button class="button text-center mt-auto w-100">
-        <p class="text m-0">Provide Review</p>
+        <p class="text m-0">PROVIDE REVIEW</p>
       </button>
         </div>
      </div>

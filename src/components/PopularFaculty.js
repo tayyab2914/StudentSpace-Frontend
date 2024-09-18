@@ -50,7 +50,7 @@ const PopularFaculty = () => {
       {showSpinner ? (
         <Spin />
       ) : (
-        <AntCarousel  dots={true} pauseOnHover={true}>
+        <AntCarousel  dots={true} pauseOnHover={true} arrows={true}>
           {groupedData.map((group, index) => (
             <div key={index}>
               <div className="container-xxl">

@@ -17,7 +17,6 @@ const Home = () => {
       <MyNavbar />
       <LANDING_IMAGE_COMPONENT navigate={navigate}/>
       <PopularFaculty />
-
       <FACULTY_CARDS navigate={navigate} />
       <Footer/>
     </div>
