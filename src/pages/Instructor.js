@@ -92,11 +92,11 @@ useEffect(()=>{
                     />
                     </div>
                 </div>
-                <Tooltip placement="left" title="Invite to Review" open={!isLinkCopied}><span onClick={() => {
+                <Tooltip placement="topRight" title="Invite to Review" open={!isLinkCopied}><span onClick={() => {
                     message.success("Link copied successfully")
                     setisLinkCopied(true)
                     navigator.clipboard.writeText(window.location.href)}}>
-                    <i className="fa-regular fa-copy copy-icon"></i>
+                    <i className="fa-regular fa-copy copy-icon me-3"></i>
                 </span></Tooltip>
                                 
                 </div>

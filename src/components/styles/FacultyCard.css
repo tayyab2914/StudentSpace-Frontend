@@ -69,7 +69,17 @@
 .card-height{
     height: 170px !important;
 }
+.product-card-rate .ant-rate-star-full {
+    font-size: 15px;
+  }
 
+  .product-card-rate .ant-rate-star-half {
+    font-size: 15px;
+  }
+
+  .product-card-rate .ant-rate-star-zero {
+    font-size: 15px;
+  }
 
 @media screen and (min-width: 640px) {
     .card-height{

@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Card, Rate } from "antd";
 import "./styles/FacultyCard.css";
 import { useNavigate } from "react-router-dom";
+import { formatRating } from "../values";
 
 const { Meta } = Card;
 
@@ -32,14 +33,15 @@ const FacultyCard = ({ data }) => {
         className="faculty-card-name"
       />
       <div className="faculty-rating text-center">
+        {formatRating(overall_rating)}
         <Rate
           allowHalf
           disabled
           defaultValue={overall_rating}
-          className="product-card-rate"
+          className="product-card-rate ms-2"
         />
         <br />
-        <span className="review-count m-0">({review_count} reviews)</span>
+        <span className="review-count m-0">({review_count} {review_count==1? "review":"reviews"})</span>
       </div>
       <button class="button text-center mt-auto w-100">
         <p class="text m-0">GIVE REVIEW</p>
