@@ -8,8 +8,7 @@ import {
 import PopularFaculty from "../components/PopularFaculty";
 import { useNavigate } from "react-router";
 import Footer from "../components/Footer";
-import Description from "../components/Description"; // Import the updated Description component
-
+ 
 const Home = () => {
   const navigate = useNavigate();
 
@@ -21,7 +20,6 @@ const Home = () => {
       <IMAGE_COMPONENT_2 />
       <FACULTY_CARDS navigate={navigate} />
       <Footer />
-      <Description /> 
     </div>
   );
 };
