@@ -53,6 +53,7 @@ const Review = ({ review, isScrolling}) => {
         
                 const selectedReason = reasons[selectedKey];
         
+                
                 await API_REPORT_REVIEW(review?.id, selectedReason);
                 dispatch(addReportedReview(review?.id));
         

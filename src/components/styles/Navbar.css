@@ -4,7 +4,7 @@
 .sticky-navbar {
   position: fixed;
   top: 0; /* Stick to the top */
-  z-index: 4000; /* Ensure it's on top of other content */
+  z-index: 1071; /* Ensure it's on top of other content */
   background-color: #fff; /* Adjust background if needed */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add a shadow */
   width: 100vw;
