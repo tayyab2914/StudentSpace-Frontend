@@ -80,7 +80,7 @@ export const IMAGE_COMPONENT_2 = ({ navigate }) => {
       {!isImageLoaded && (
         <div className="row justify-content-end" style={{ height: `400px` }}>
           <div className="col-11 pe-5 col-lg-5 d-flex flex-column justify-content-center text-center parallax-component-2">
-            <h2>Empowering Teachers Through Honest Feedback</h2>
+            <h2 className="text-white">Empowering Teachers Through Honest Feedback</h2>
             <p>
               Your reviews help educators grow and improve. By sharing your
               experiences, you contribute to a better learning environment for
@@ -97,7 +97,7 @@ export const IMAGE_COMPONENT_2 = ({ navigate }) => {
         onLoad={handleImageLoaded}
       >
         <div className="row justify-content-end" style={{ height: `400px` }}>
-          <div className="col-11 pe-5 col-lg-5 d-flex flex-column justify-content-center text-center parallax-component-2">
+          <div className=" col-11 pe-5 col-lg-5 d-flex flex-column justify-content-center text-center parallax-component-2">
             <h2>Empowering Teachers Through Honest Feedback</h2>
             <p>
               Your reviews help educators grow and improve. By sharing your
