@@ -23,7 +23,7 @@ const Department = () => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+  });
   const load_Department = async (name) => {
     const response = await API_GET_FACULTIES_BY_DEPARTMENT(setShowSpinner, name);
     setDepartmentData(response);
