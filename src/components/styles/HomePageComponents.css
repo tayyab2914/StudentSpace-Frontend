@@ -29,7 +29,12 @@
     position: relative;
     z-index: 1;
   }
-  
+  .parallax-2-text{
+    background: linear-gradient(90deg, #ffffff, #d8d8d8) !important;
+    padding: 25px;
+    border-radius: 10px;
+    color: black;
+  }
 .department-card-name {
   font-size: 20px;
   font-weight: 500;
@@ -41,11 +46,6 @@
   width: 100%;
   background-color: white;
   border: 1px solid rgb(229, 229, 229);
-}
-.parallax_2_text{
-    background: linear-gradient(90deg, #ffffff, #ececec) !important;
-    padding: 25px;
-    border-radius: 10px;
 }
 @media screen and ( max-width:550px){
     .parallax_2_text p{

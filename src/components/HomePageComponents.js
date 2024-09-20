@@ -76,7 +76,7 @@ export const IMAGE_COMPONENT_2 = ({ navigate }) => {
   };
 
   return (
-    <div>
+    <div className="row m-0 mt-3">
       {!isImageLoaded && (
         <div className="row justify-content-end" style={{ height: `400px` }}>
           <div className="col-11 pe-5 col-lg-5 d-flex flex-column justify-content-center text-center parallax-component-2">
@@ -98,12 +98,12 @@ export const IMAGE_COMPONENT_2 = ({ navigate }) => {
       >
         <div className="row justify-content-end" style={{ height: `400px` }}>
           <div className=" col-11 pe-5 col-lg-5 d-flex flex-column justify-content-center text-center parallax-component-2">
-            <h2>Empowering Teachers Through Honest Feedback</h2>
+            <span className=" parallax-2-text"><h2>Empowering Teachers Through Honest Feedback</h2>
             <p>
               Your reviews help educators grow and improve. By sharing your
               experiences, you contribute to a better learning environment for
               future students and help teachers refine their teaching approach.
-            </p>
+            </p></span>
           </div>
         </div>
       </Parallax>
