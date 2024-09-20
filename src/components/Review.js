@@ -24,8 +24,9 @@ const Review = ({ review, isScrolling}) => {
     })
     const getAvatarUrl = () => {
         // Generate a random number between 1 and 1000
-        const randomNumber = Math.floor(Math.random() * 1000);
-        return `https://robohash.org/${randomNumber}?set=set4&size=50x50`; // Adjust `set` and `size` as needed
+        const randomNumber = Math.floor(Math.random() * 100);
+        // const randomNumber2 = Math.floor(Math.random() * 5) + 1;
+        return `https://robohash.org/${randomNumber}?set=set3&size=50x50`; // Adjust `set` and `size` as needed
     };
 
     const handleReportClick = () => {
