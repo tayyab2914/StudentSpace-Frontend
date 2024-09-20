@@ -60,7 +60,36 @@ export const  formatRating = (rating)=> {
       "fop": "Faculty of Pharmacy",
       "fost": "Faculty of Science and Technology"
     };
+
+
   
     return facultyMap[key] || "Unknown Faculty"; // Return "Unknown Faculty" if key not found
   };
   
+
+  export const getFacultyNameByDepNo = (num)=>{
+    const facultyMap = {
+        1:"foe",
+        2:"fohs" ,
+        3:"foit",
+        4:"foll",
+        5:"fol" ,
+        6:"foms",
+        7:"fomm",
+        8:"fop" ,
+        9:"fost",
+      };
+  
+  
+    
+      return facultyMap[num] || "Unknown Faculty"; 
+  }
+//   1:"foit",
+//   2:"foe" ,
+//   3:"fohs",
+//   4:"foll",
+//   5:"fol" ,
+//   6:"foms",
+//   7:"fomm",
+//   8:"fop" ,
+//   9:"fost",

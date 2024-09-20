@@ -41,7 +41,6 @@ const SearchBar = ({
 
   // Handle clicking on a search result
   const handleResultClick = (result) => {
-    console.log("result", result);
 
     if (onResultClick) {
       onResultClick(result);

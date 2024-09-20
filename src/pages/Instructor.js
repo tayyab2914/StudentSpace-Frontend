@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import MyNavbar from "../components/Navbar";
 import { useParams } from "react-router-dom"; // Import useParams
-import { Rate, Spin, List, message, Tooltip } from "antd";
+import { Rate, Spin, List, message, Tooltip, Breadcrumb } from "antd";
 import { API_GET_FACULTY_REVIEWS } from "../apis";
 import "./styles/Instructor.css";
 import Review from "../components/Review";
 import ReviewInput from "../components/ReviewInput";
-import { formatRating } from "../values";
+import { formatRating, getFacultyNameByDepNo } from "../values";
+import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const Instructor = () => {
   const { instructor_id } = useParams(); // Extract instructor_id
@@ -14,12 +16,19 @@ const Instructor = () => {
   const [reviews, setReviews] = useState([]);
   const [facultyInfo, setFacultyInfo] = useState(null);
   const [isScrolling, setIsScrolling] = useState(false);
+  const navigate = useNavigate()
 const [isLinkCopied, setisLinkCopied] = useState(false);
+
+
+useEffect(()=>{
+    window.scrollTo({ top: 0,behavior: 'smooth'});
+},[])
   const fetch_reviews = async () => {
     try {
       const response = await API_GET_FACULTY_REVIEWS(setShowSpinner, instructor_id); // Use instructor_id
       setReviews(response.reviews.reverse());
       setFacultyInfo(response.faculty);
+      console.log('response.faculty',response.faculty)
     } catch (error) {
       console.error("Error fetching faculty reviews:", error);
     }
@@ -53,9 +62,17 @@ const [isLinkCopied, setisLinkCopied] = useState(false);
   }, []); // Add this useEffect for scroll event handling
 
   return (
-    <div>
+    <div>a
       {ShowSpinner && <Spin fullscreen className="spinner-overlay" />}
       <MyNavbar />
+      <Breadcrumb 
+       className="ms-4 mb-1 mt-0"
+       items={[
+        { title: <a onClick={()=>navigate('/')}>Home</a> },
+        { title: <a onClick={()=>navigate(`/department/${getFacultyNameByDepNo(facultyInfo?.department)}`)}>{getFacultyNameByDepNo(facultyInfo?.department).toUpperCase()}</a>
+         },
+        { title: facultyInfo?.name },
+    ]} />
       <div className="row m-0 justify-content-center">
         <div className="col-12 p-4">
           <div className="row">
@@ -69,16 +86,17 @@ const [isLinkCopied, setisLinkCopied] = useState(false);
                         style={{ marginLeft: "10px" }} 
                         disabled 
                         allowHalf 
+                        defaultValue={0}
                         value={facultyInfo?.overall_rating || 0} 
                         className="searchbar-results-rate" 
                     />
                     </div>
                 </div>
-                <Tooltip placement="left" title="Invite to Review" open={!isLinkCopied}><span onClick={() => {
+                <Tooltip placement="topRight" title="Invite to Review" open={!isLinkCopied}><span onClick={() => {
                     message.success("Link copied successfully")
                     setisLinkCopied(true)
                     navigator.clipboard.writeText(window.location.href)}}>
-                    <i className="fa-regular fa-copy copy-icon"></i>
+                    <i className="fa-regular fa-copy copy-icon me-3"></i>
                 </span></Tooltip>
                                 
                 </div>
@@ -108,6 +126,7 @@ const [isLinkCopied, setisLinkCopied] = useState(false);
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

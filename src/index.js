@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ConfigProvider } from "antd";
-import { INPUT } from "./components/Colors";
+import { INPUT, POPOVER } from "./components/Colors";
 import store, { persistor } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
@@ -16,6 +16,7 @@ root.render(
     theme={{
       components: {
         Input: INPUT,
+        Popover:POPOVER
       },
     }}
   >

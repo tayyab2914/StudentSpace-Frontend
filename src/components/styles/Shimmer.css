@@ -1,0 +1,77 @@
+/* Shimmer base */
+.shimmer {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1s infinite;
+  }
+  
+  /* Shimmer Animation */
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+  
+  /* Shimmer for the image */
+  .faculty-image-shimmer {
+    width: 90%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  /* Shimmer for the faculty name */
+  .faculty-card-name-shimmer {
+    height: 20px;
+    margin-top: 10px;
+    border-radius: 4px;
+    width: 80%;
+    margin-bottom: 5px;
+  }
+  
+  /* Shimmer for the faculty designation */
+  .faculty-card-designation-shimmer {
+    height: 15px;
+    width: 60%;
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+  .name-shimmer {
+    height: 20px;
+    width: 150px;
+    margin: 0 auto;
+    border-radius: 4px;
+  }
+  .name-shimmer {
+    height: 20px;
+    width: 150px;
+    margin: 0 auto;
+    border-radius: 4px;
+  }
+  /* Shimmer for the rating stars */
+  .rate-shimmer {
+    height: 20px;
+    width: 100px;
+    margin: 0 auto;
+    border-radius: 4px;
+  }
+  
+  /* Shimmer for the review count */
+  .review-count-shimmer {
+    height: 15px;
+    width: 50px;
+    margin: 10px auto;
+    border-radius: 4px;
+  }
+  
+  /* Shimmer for the button */
+  .button-shimmer {
+    height: 40px;
+    width: 100%;
+    margin-top: auto;
+    border-radius: 4px;
+  }
+  

@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { Popover, Menu } from 'antd';
+import { Popover, Menu, message } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
 import { API_REPORT_REVIEW } from '../apis';
+import { useDispatch, useSelector } from 'react-redux';
 // import { API_REPORT_REVIEW } from '../apis';
 import './styles/Review.css'
+import { addReportedReview } from '../redux/FacultyReviewed/Action';
 const Review = ({ review, isScrolling}) => {
     const [visible, setVisible] = useState(false);
     const [showReasonPrompt, setShowReasonPrompt] = useState(false);
+    const reportedReviews = useSelector(state => state.facultyDataRedux.reportedReviews);
+    console.log("reportedReviews",reportedReviews)
+    const dispatch = useDispatch();
 
     useEffect(()=>{
+        // console.log(review)
         if(isScrolling)
         {
             
@@ -18,8 +24,9 @@ const Review = ({ review, isScrolling}) => {
     })
     const getAvatarUrl = () => {
         // Generate a random number between 1 and 1000
-        const randomNumber = Math.floor(Math.random() * 1000);
-        return `https://robohash.org/${randomNumber}?set=set4&size=50x50`; // Adjust `set` and `size` as needed
+        const randomNumber = Math.floor(Math.random() * 100);
+        // const randomNumber2 = Math.floor(Math.random() * 5) + 1;
+        return `https://robohash.org/${randomNumber}?set=set3&size=50x50`; // Adjust `set` and `size` as needed
     };
 
     const handleReportClick = () => {
@@ -29,24 +36,33 @@ const Review = ({ review, isScrolling}) => {
 
     const handleMenuClick = async (e) => {
         const selectedKey = e.key;
-    
-        if (showReasonPrompt) {
-            const reasons = {
-                reason1: 'Inappropriate Content',
-                reason2: 'Spam',
-                reason3: 'Harassment',
-                reason4: 'False Information',
-            };
-    
-            const selectedReason = reasons[selectedKey];
-    
-            await API_REPORT_REVIEW(review.id, selectedReason);
-    
-            setShowReasonPrompt(false);
-            setVisible(false);  
-        } else {
-            console.log(`Selected option: ${selectedKey}`);
-            setVisible(false); 
+        const isReported = reportedReviews.includes(review?.id);
+
+        if (isReported) {
+          message.error("You have already reported this review.");
+        }
+        else
+        {
+            if (showReasonPrompt) {
+                const reasons = {
+                    reason1: 'Inappropriate Content',
+                    reason2: 'Spam',
+                    reason3: 'Harassment',
+                    reason4: 'False Information',
+                };
+        
+                const selectedReason = reasons[selectedKey];
+        
+                
+                await API_REPORT_REVIEW(review?.id, selectedReason);
+                dispatch(addReportedReview(review?.id));
+        
+                setShowReasonPrompt(false);
+                setVisible(false);  
+            } else {
+                // console.log(`Selected option: ${selectedKey}`);
+                setVisible(false); 
+            }
         }
     };
     
