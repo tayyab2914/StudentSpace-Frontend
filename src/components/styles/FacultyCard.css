@@ -45,7 +45,7 @@
 }
 
 .button .text {
-  color: white;
+  color: white !important;
   font-weight: 700;
   font-size: 1em;
   transition: 400ms;
