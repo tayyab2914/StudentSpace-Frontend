@@ -102,7 +102,7 @@ export const IMAGE_COMPONENT_2 = ({ navigate }) => {
             <p>
               Your reviews help educators grow and improve. By sharing your
               experiences, you contribute to a better learning environment for
-              future students and help teachers refine their teaching approach.
+              future students and help teachers refine their teaching approach - testing
             </p></span>
           </div>
         </div>
