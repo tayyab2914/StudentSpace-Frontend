@@ -6,7 +6,6 @@ import { trackReport } from "./analytics/analytics_invokers";
 export const API_GET_FACULTIES_BY_DEPARTMENT = async (setShowSpinner, name) => {
   setShowSpinner(true);
   const formattedName = typeof name == "string" ? name.toUpperCase() : "";
-  console.log("formattedName:", formattedName);
 
   try {
     const response = await axios.get(
@@ -31,7 +30,7 @@ export const API_GET_POPULAR_FACULTIES = async () => {
     const response = await axios.get(
       `${DOMAIN_NAME}/feedback/popular_faculties/`
     );
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
     console.log("Error fetching faculty data:", error);
@@ -96,8 +95,6 @@ export const API_SUBMIT_REVIEW = async (setShowSpinner, reviewData) => {
 };
 
 export const API_REPORT_REVIEW = async (id, reason) => {
-  // setShowSpinner(true);
-  console.log(id, reason);
   try {
     const response = await axios.post(
       `${DOMAIN_NAME}/feedback/report_review/`,
