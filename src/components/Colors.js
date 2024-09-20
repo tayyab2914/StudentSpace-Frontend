@@ -19,3 +19,8 @@ export const INPUT = {
     colorPrimaryHover: accent_color,
   };
 
+  export const TOOLTIP = {
+    
+    zIndexPopup:490
+  }
+

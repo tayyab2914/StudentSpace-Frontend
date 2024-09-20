@@ -19,6 +19,7 @@ const ReviewInput = ({ facultyData, fetch_reviews }) => {
   const dispatch = useDispatch();
   const reviewedFaculties = useSelector(state => state.facultyDataRedux.reviewedFaculties);
   const facultyDataRedux = useSelector(state => state.facultyDataRedux);
+  console.log(facultyDataRedux)
 
 console.log(facultyDataRedux)
   const handleSubmit = async (values) => {
