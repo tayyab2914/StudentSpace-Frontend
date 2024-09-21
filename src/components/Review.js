@@ -19,6 +19,13 @@ const Review = ({ review, isScrolling}) => {
     const [showReasonPrompt, setShowReasonPrompt] = useState(false);
     const reportedReviews = useSelector(state => state.facultyDataRedux.reportedReviews);
     const dispatch = useDispatch();
+    const [avatarUrl, setAvatarUrl] = useState(''); // State for storing the avatar URL
+
+    useEffect(() => {
+        // Set the avatar URL only once, when the component mounts
+        const randomNumber = Math.floor(Math.random() * 100);
+        setAvatarUrl(`https://robohash.org/${randomNumber}?set=set4&size=50x50`);
+    }, [review?.student_name]); // Ensure the avatar stays consistent for each unique review
 
     useEffect(()=>{
         console.log(review)
@@ -94,7 +101,7 @@ const Review = ({ review, isScrolling}) => {
         <div style={{ position: 'relative', width: "100%" }}>
             <div className="row w-100 review m-0">
                 <div className="col-2 col-md-1 text-center p-0">
-                    <img src={getAvatarUrl(review?.student_name)} alt="avatar" className="review-avatar" />
+                    <img src={avatarUrl} alt="avatar" className="review-avatar" />
                 </div>
                 <div className="col-10 col-md-11 p-0">
                     <strong className="review-author"> {review?.student_name} </strong>
