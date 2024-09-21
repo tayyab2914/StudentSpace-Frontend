@@ -18,11 +18,10 @@ const Review = ({ review, isScrolling}) => {
     const [visible, setVisible] = useState(false);
     const [showReasonPrompt, setShowReasonPrompt] = useState(false);
     const reportedReviews = useSelector(state => state.facultyDataRedux.reportedReviews);
-    console.log("reportedReviews",reportedReviews)
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        // console.log(review)
+        console.log(review)
         if(isScrolling)
         {
             
@@ -99,7 +98,10 @@ const Review = ({ review, isScrolling}) => {
                 </div>
                 <div className="col-10 col-md-11 p-0">
                     <strong className="review-author"> {review?.student_name} </strong>
-                    <p className="review-text">{review?.review_text.includes('<removed>') ?<Tag icon={<MinusCircleOutlined  />} color="error" bordered={false}>Reviewed against platform guidelines</Tag> : review?.review_text}</p>
+                    {review?.is_blocked ?
+                    <div className='mt-1'><Tag icon={<MinusCircleOutlined  />} color="error" bordered={false}>Reviewed against platform guidelines</Tag></div> 
+                    : 
+                    <p className="review-text">{review?.review_text}</p>}
                     <p className="review-ratings">
                         <i className="fa-solid fa-star review-star"></i> {review?.rating_grading_fairness} <b>Grading Fairness</b>
                         <span className='review-line-divider'> | </span>
