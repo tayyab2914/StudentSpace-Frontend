@@ -28,7 +28,7 @@ useEffect(()=>{
       const response = await API_GET_FACULTY_REVIEWS(setShowSpinner, instructor_id); // Use instructor_id
       setReviews(response.reviews.reverse());
       setFacultyInfo(response.faculty);
-      console.log('response.faculty',response.faculty)
+    //   console.log('response.faculty',response.faculty)
     } catch (error) {
       console.error("Error fetching faculty reviews:", error);
     }

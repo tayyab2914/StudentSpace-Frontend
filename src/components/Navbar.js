@@ -72,7 +72,7 @@ const NAVBAR_COMPONENT = ()=>(
   
     (window.location.pathname !== "/" && window.location.hash !== "#" || windowWidth > 550) ? (
       <SearchBar 
-        placeholder="Enter Faculty Name" 
+        placeholder="Enter Instructor Name"
         apiCall={API_SEARCH_FACULTY} 
         onResultClick={handleFacultyClick} 
         style={{ marginLeft: '20px' }} 

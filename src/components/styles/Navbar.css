@@ -8,6 +8,14 @@
   background-color: #fff; /* Adjust background if needed */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add a shadow */
   width: 100vw;
+  
+}
+.searchbar input{
+    height: 35px;
+    border: 1px solid rgb(81, 81, 81) !important;
+}
+.searchbar button{
+    height: 35px !important;
 }
 .navbar-logo:hover{
     cursor: pointer;
