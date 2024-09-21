@@ -10,7 +10,7 @@
 }
 
 .review-rating-container .skill-box {
-  flex: 0 0 30%; /* Take 30% of the allocated space */
+  flex: 0 0 33%; /* Take 30% of the allocated space */
   text-align: center; /* Center text */
 }
 
@@ -20,4 +20,10 @@
   font-weight: 600;
   color: #333;
   margin-bottom: 10px;
+}
+
+@media screen and (max-width: 400px) {
+  .review-rating-container {
+    padding: 10px 10px;
+  }
 }
