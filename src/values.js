@@ -93,3 +93,37 @@ export const  formatRating = (rating)=> {
 //   7:"fomm",
 //   8:"fop" ,
 //   9:"fost",
+
+// helpers.js or utils.js
+export const calculateAverageRatings = (reviews) => {
+    const totalReviews = reviews.length;
+  
+    if (totalReviews === 0) {
+      return {
+        averageGradingFairness: 0,
+        averageLeniency: 0,
+        averageSubjectKnowledge: 0,
+      };
+    }
+  
+    // Sum all the ratings for each category
+    const totalGradingFairness = reviews.reduce((acc, review) => acc + review.rating_grading_fairness, 0);
+    const totalLeniency = reviews.reduce((acc, review) => acc + review.rating_leniency, 0);
+    const totalSubjectKnowledge = reviews.reduce((acc, review) => acc + review.rating_subject_knowledge, 0);
+  
+
+    const averageGradingFairness = (totalGradingFairness / (totalReviews*5)) * 100;
+    const averageLeniency = (totalLeniency / (totalReviews* 5))* 100 ;
+    const averageSubjectKnowledge = (totalSubjectKnowledge / (totalReviews* 5))* 100 ;
+    console.log(
+        averageGradingFairness,
+        averageLeniency,
+        averageSubjectKnowledge,)
+  
+    return {
+      averageGradingFairness,
+      averageLeniency,
+      averageSubjectKnowledge,
+    };
+  };
+  

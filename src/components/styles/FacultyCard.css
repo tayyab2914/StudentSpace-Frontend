@@ -29,14 +29,15 @@
 }
 
 /* From Uiverse.io by cssbuttons-io */ /* From Uiverse.io by kamehame-ha */
-.button {
+.faculty-card-button {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px 15px;
   gap: 15px;
-  background-color: #181717;
+  background-color: #000000;
   outline: 2px #181717 solid;
+  
   outline-offset: -3px;
   border-radius: 5px;
   border: none;
@@ -44,28 +45,24 @@
   transition: 400ms;
 }
 
-.button .text {
-  color: white !important;
+.faculty-card-button .text {
+  color: white ;
   font-weight: 700;
   font-size: 1em;
   transition: 400ms;
 }
-
-.button svg path {
+.faculty-card-button:hover{
+    background-color: white !important;
+}
+.faculty-card-button:hover p{
+    color: black;
+}
+.faculty-card-button svg path {
   transition: 400ms;
 }
 
-.button:hover {
-  background-color: transparent;
-}
 
-.button:hover .text {
-  color: #181717;
-}
 
-.button:hover svg path {
-  fill: #181717;
-}
 .card-height{
     height: 170px !important;
 }

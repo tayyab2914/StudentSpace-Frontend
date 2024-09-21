@@ -1,0 +1,29 @@
+.review-rating-container {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space them evenly */
+  width: 100%;
+  /* max-width: 500px; */
+  background: #ffffff;
+  border: 0.3px solid rgb(210, 210, 210);
+  padding: 10px 20px;
+  border-radius: 7px;
+}
+
+.review-rating-container .skill-box {
+  flex: 0 0 33%; /* Take 30% of the allocated space */
+  text-align: center; /* Center text */
+}
+
+.skill-box .title {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 400px) {
+  .review-rating-container {
+    padding: 10px 10px;
+  }
+}
