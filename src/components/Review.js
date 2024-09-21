@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Popover, Menu, message } from 'antd';
+import { Popover, Menu, message, Tag } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
 import { API_REPORT_REVIEW } from '../apis';
 import { useDispatch, useSelector } from 'react-redux';
+import {
+    CheckCircleOutlined,
+    ClockCircleOutlined,
+    CloseCircleOutlined,
+    ExclamationCircleOutlined,
+    MinusCircleOutlined,
+    SyncOutlined,
+  } from '@ant-design/icons';
 // import { API_REPORT_REVIEW } from '../apis';
 import './styles/Review.css'
 import { addReportedReview } from '../redux/FacultyReviewed/Action';
@@ -91,7 +99,7 @@ const Review = ({ review, isScrolling}) => {
                 </div>
                 <div className="col-10 col-md-11 p-0">
                     <strong className="review-author"> {review.student_name} </strong>
-                    <p className="review-text">{review.review_text}</p>
+                    <p className="review-text">{review.review_text == "<removed>"?<Tag icon={<MinusCircleOutlined  />} color="error" bordered={false}>Review against platform guidelines</Tag> : review.review_text}</p>
                     <p className="review-ratings">
                         <i className="fa-solid fa-star review-star"></i> {review.rating_grading_fairness} <b>Grading Fairness</b>
                         <span className='review-line-divider'> | </span>
