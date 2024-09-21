@@ -99,7 +99,7 @@ const Review = ({ review, isScrolling}) => {
                 </div>
                 <div className="col-10 col-md-11 p-0">
                     <strong className="review-author"> {review.student_name} </strong>
-                    <p className="review-text">{review.review_text == "<removed>"?<Tag icon={<MinusCircleOutlined  />} color="error" bordered={false}>Review against platform guidelines</Tag> : review.review_text}</p>
+                    <p className="review-text">{review.review_text == "<removed>"?<Tag icon={<MinusCircleOutlined  />} color="error" bordered={false}>Reviewed against platform guidelines</Tag> : review.review_text}</p>
                     <p className="review-ratings">
                         <i className="fa-solid fa-star review-star"></i> {review.rating_grading_fairness} <b>Grading Fairness</b>
                         <span className='review-line-divider'> | </span>
