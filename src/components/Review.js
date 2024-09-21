@@ -12,7 +12,7 @@ import {
     SyncOutlined,
   } from '@ant-design/icons';
 // import { API_REPORT_REVIEW } from '../apis';
-import './styles/review?.css'
+import './styles/Review.css'
 import { addReportedReview } from '../redux/FacultyReviewed/Action';
 const Review = ({ review, isScrolling}) => {
     const [visible, setVisible] = useState(false);
