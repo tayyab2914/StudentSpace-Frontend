@@ -1,5 +1,5 @@
 // src/redux/actions.js
-import { ADD_FACULTY_REVIEWED, CHECK_IF_EXIST_IN_FACULTY, ADD_REPORTED_REVIEW } from './Types';
+import { ADD_FACULTY_REVIEWED, CHECK_IF_EXIST_IN_FACULTY, ADD_REPORTED_REVIEW, SET_NOTICE_ALREADY_SHOWN } from './Types';
 
 // Action to add a faculty ID to the reviewed array
 export const addToFacultyReviewed = (facultyId) => {
@@ -21,3 +21,10 @@ export const addReportedReview = (facultyId) => ({
   type: ADD_REPORTED_REVIEW,
   payload: facultyId,
 });
+
+export const setNoticeAlreadyShown = () => ({
+    type: SET_NOTICE_ALREADY_SHOWN,
+    payload: {
+      isNoticeAlreadyShown: true,
+    },
+  });

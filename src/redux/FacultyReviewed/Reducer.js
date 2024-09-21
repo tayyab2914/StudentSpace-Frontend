@@ -1,9 +1,10 @@
 // src/redux/reducers/facultyReducer.js
-import { ADD_FACULTY_REVIEWED, CHECK_IF_EXIST_IN_FACULTY, ADD_REPORTED_REVIEW } from './Types';
+import { ADD_FACULTY_REVIEWED, CHECK_IF_EXIST_IN_FACULTY, ADD_REPORTED_REVIEW, SET_NOTICE_ALREADY_SHOWN } from './Types';
 
 const initialState = {
   reviewedFaculties: [], 
   reportedReviews: [], 
+  isNoticeAlreadyShown:false
 };
 
 export default function facultyReducer(state = initialState, action) {
@@ -26,6 +27,11 @@ export default function facultyReducer(state = initialState, action) {
         reportedReviews: [
           ...new Set([...state.reportedReviews, action.payload]),
         ],
+      };
+      case SET_NOTICE_ALREADY_SHOWN:
+      return {
+        ...state,
+        isNoticeAlreadyShown: true, // Set isNoticeAlreadyShown to true when action is dispatched
       };
     default:
       return state;
