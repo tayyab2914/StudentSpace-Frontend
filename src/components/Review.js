@@ -25,17 +25,17 @@ const Review = ({ review, isScrolling}) => {
         // Set the avatar URL only once, when the component mounts
         const randomNumber = Math.floor(Math.random() * 100);
         setAvatarUrl(`https://robohash.org/${randomNumber}?set=set4&size=50x50`);
+        console.log(review)
     }, [review?.student_name]); // Ensure the avatar stays consistent for each unique review
 
     useEffect(()=>{
-        console.log(review)
-        if(isScrolling)
+        if(isScrolling && showReasonPrompt)
         {
             
             setShowReasonPrompt(false);
             setVisible(false);  
         }
-    })
+    },[])
     const getAvatarUrl = () => {
         // Generate a random number between 1 and 1000
         const randomNumber = Math.floor(Math.random() * 100);
