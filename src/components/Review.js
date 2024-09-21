@@ -12,7 +12,7 @@ import {
     SyncOutlined,
   } from '@ant-design/icons';
 // import { API_REPORT_REVIEW } from '../apis';
-import './styles/Review.css'
+import './styles/review?.css'
 import { addReportedReview } from '../redux/FacultyReviewed/Action';
 const Review = ({ review, isScrolling}) => {
     const [visible, setVisible] = useState(false);
@@ -47,7 +47,7 @@ const Review = ({ review, isScrolling}) => {
         const isReported = reportedReviews.includes(review?.id);
 
         if (isReported) {
-          message.error("You have already reported this review.");
+          message.error("You have already reported this review?.");
         }
         else
         {
@@ -95,19 +95,19 @@ const Review = ({ review, isScrolling}) => {
         <div style={{ position: 'relative', width: "100%" }}>
             <div className="row w-100 review m-0">
                 <div className="col-2 col-md-1 text-center p-0">
-                    <img src={getAvatarUrl(review.student_name)} alt="avatar" className="review-avatar" />
+                    <img src={getAvatarUrl(review?.student_name)} alt="avatar" className="review-avatar" />
                 </div>
                 <div className="col-10 col-md-11 p-0">
-                    <strong className="review-author"> {review.student_name} </strong>
-                    <p className="review-text">{review.review_text == "<removed>"?<Tag icon={<MinusCircleOutlined  />} color="error" bordered={false}>Reviewed against platform guidelines</Tag> : review.review_text}</p>
+                    <strong className="review-author"> {review?.student_name} </strong>
+                    <p className="review-text">{review?.review_text.includes('<removed>') ?<Tag icon={<MinusCircleOutlined  />} color="error" bordered={false}>Reviewed against platform guidelines</Tag> : review?.review_text}</p>
                     <p className="review-ratings">
-                        <i className="fa-solid fa-star review-star"></i> {review.rating_grading_fairness} <b>Grading Fairness</b>
+                        <i className="fa-solid fa-star review-star"></i> {review?.rating_grading_fairness} <b>Grading Fairness</b>
                         <span className='review-line-divider'> | </span>
                         <br className='review-line-breaker'/>
-                        <i className="fa-solid fa-star review-star"></i> {review.rating_leniency} <b>Leniency</b>
+                        <i className="fa-solid fa-star review-star"></i> {review?.rating_leniency} <b>Leniency</b>
                         <span className='review-line-divider'> | </span>
                         <br className='review-line-breaker'/>
-                        <i className="fa-solid fa-star review-star"></i> {review.rating_subject_knowledge} <b>Subject Knowledge</b>
+                        <i className="fa-solid fa-star review-star"></i> {review?.rating_subject_knowledge} <b>Subject Knowledge</b>
                     </p>
                 </div>
             </div>
