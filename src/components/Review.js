@@ -18,11 +18,10 @@ const Review = ({ review, isScrolling}) => {
     const [visible, setVisible] = useState(false);
     const [showReasonPrompt, setShowReasonPrompt] = useState(false);
     const reportedReviews = useSelector(state => state.facultyDataRedux.reportedReviews);
-    console.log("reportedReviews",reportedReviews)
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        // console.log(review)
+        console.log(review)
         if(isScrolling)
         {
             
@@ -34,7 +33,7 @@ const Review = ({ review, isScrolling}) => {
         // Generate a random number between 1 and 1000
         const randomNumber = Math.floor(Math.random() * 100);
         // const randomNumber2 = Math.floor(Math.random() * 5) + 1;
-        return `https://robohash.org/${randomNumber}?set=set3&size=50x50`; // Adjust `set` and `size` as needed
+        return `https://robohash.org/${randomNumber}?set=set4&size=50x50`; // Adjust `set` and `size` as needed
     };
 
     const handleReportClick = () => {
@@ -47,7 +46,7 @@ const Review = ({ review, isScrolling}) => {
         const isReported = reportedReviews.includes(review?.id);
 
         if (isReported) {
-          message.error("You have already reported this review.");
+          message.error("You have already reported this review?.");
         }
         else
         {
@@ -95,19 +94,22 @@ const Review = ({ review, isScrolling}) => {
         <div style={{ position: 'relative', width: "100%" }}>
             <div className="row w-100 review m-0">
                 <div className="col-2 col-md-1 text-center p-0">
-                    <img src={getAvatarUrl(review.student_name)} alt="avatar" className="review-avatar" />
+                    <img src={getAvatarUrl(review?.student_name)} alt="avatar" className="review-avatar" />
                 </div>
                 <div className="col-10 col-md-11 p-0">
-                    <strong className="review-author"> {review.student_name} </strong>
-                    <p className="review-text">{review.review_text == "<removed>"?<Tag icon={<MinusCircleOutlined  />} color="error" bordered={false}>Reviewed against platform guidelines</Tag> : review.review_text}</p>
+                    <strong className="review-author"> {review?.student_name} </strong>
+                    {review?.is_blocked ?
+                    <div className='mt-1'><Tag icon={<MinusCircleOutlined  />} color="error" bordered={false}>Reviewed against platform guidelines</Tag></div> 
+                    : 
+                    <p className="review-text">{review?.review_text}</p>}
                     <p className="review-ratings">
-                        <i className="fa-solid fa-star review-star"></i> {review.rating_grading_fairness} <b>Grading Fairness</b>
+                        <i className="fa-solid fa-star review-star"></i> {review?.rating_grading_fairness} <b>Grading Fairness</b>
                         <span className='review-line-divider'> | </span>
                         <br className='review-line-breaker'/>
-                        <i className="fa-solid fa-star review-star"></i> {review.rating_leniency} <b>Leniency</b>
+                        <i className="fa-solid fa-star review-star"></i> {review?.rating_leniency} <b>Leniency</b>
                         <span className='review-line-divider'> | </span>
                         <br className='review-line-breaker'/>
-                        <i className="fa-solid fa-star review-star"></i> {review.rating_subject_knowledge} <b>Subject Knowledge</b>
+                        <i className="fa-solid fa-star review-star"></i> {review?.rating_subject_knowledge} <b>Subject Knowledge</b>
                     </p>
                 </div>
             </div>
