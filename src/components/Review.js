@@ -26,16 +26,16 @@ const Review = ({ review, isScrolling}) => {
         const randomNumber = Math.floor(Math.random() * 100);
         setAvatarUrl(`https://robohash.org/${randomNumber}?set=set4&size=50x50`);
         console.log(review)
-    }, [review?.student_name]); // Ensure the avatar stays consistent for each unique review
+    }, []); // Ensure the avatar stays consistent for each unique review
 
     useEffect(()=>{
-        if(isScrolling && showReasonPrompt)
+        if(isScrolling )
         {
             
             setShowReasonPrompt(false);
             setVisible(false);  
         }
-    },[])
+    })
     const getAvatarUrl = () => {
         // Generate a random number between 1 and 1000
         const randomNumber = Math.floor(Math.random() * 100);
