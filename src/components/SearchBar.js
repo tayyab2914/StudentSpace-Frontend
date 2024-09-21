@@ -104,6 +104,7 @@ const SearchBar = ({
           onSearch={handleSearch}
           enterButton
           value={searchQuery}
+          className="searchbar"
           onChange={(e) => setSearchQuery(e.target.value)}
           onPressEnter={handleSearch} // Execute search on pressing enter
           style={{
