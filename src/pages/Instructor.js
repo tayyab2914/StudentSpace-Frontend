@@ -6,9 +6,10 @@ import { API_GET_FACULTY_REVIEWS } from "../apis";
 import "./styles/Instructor.css";
 import Review from "../components/Review";
 import ReviewInput from "../components/ReviewInput";
-import { formatRating, getFacultyNameByDepNo } from "../values";
+import { calculateAverageRatings, formatRating, getFacultyNameByDepNo } from "../values";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
+import ReviewRatings from "../components/ReviewRatings";
 
 const Instructor = () => {
   const { instructor_id } = useParams(); // Extract instructor_id
@@ -17,7 +18,10 @@ const Instructor = () => {
   const [facultyInfo, setFacultyInfo] = useState(null);
   const [isScrolling, setIsScrolling] = useState(false);
   const navigate = useNavigate()
-const [isLinkCopied, setisLinkCopied] = useState(false);
+    const [isLinkCopied, setisLinkCopied] = useState(false);
+    const [averageGradingFairness, setAverageGradingFairness] = useState(0);
+    const [averageLeniency, setAverageLeniency] = useState(0);
+    const [averageSubjectKnowledge, setAverageSubjectKnowledge] = useState(0);
 
 
 useEffect(()=>{
@@ -28,7 +32,13 @@ useEffect(()=>{
       const response = await API_GET_FACULTY_REVIEWS(setShowSpinner, instructor_id); // Use instructor_id
       setReviews(response.reviews.reverse());
       setFacultyInfo(response.faculty);
-    //   console.log('response.faculty',response.faculty)
+    
+      // Use the helper function to calculate averages
+      const averages = calculateAverageRatings(response.reviews);
+
+      setAverageGradingFairness(averages.averageGradingFairness);
+      setAverageLeniency(averages.averageLeniency);
+      setAverageSubjectKnowledge(averages.averageSubjectKnowledge);
     } catch (error) {
       console.error("Error fetching faculty reviews:", error);
     }
@@ -69,8 +79,7 @@ useEffect(()=>{
        className="ms-4 mb-1 mt-0"
        items={[
         { title: <a onClick={()=>navigate('/')}>Home</a> },
-        { title: <a onClick={()=>navigate(`/department/${getFacultyNameByDepNo(facultyInfo?.department)}`)}>{getFacultyNameByDepNo(facultyInfo?.department).toUpperCase()}</a>
-         },
+        { title: <a onClick={()=>navigate(`/department/${getFacultyNameByDepNo(facultyInfo?.department)}`)}>{getFacultyNameByDepNo(facultyInfo?.department).toUpperCase()}</a>},
         { title: facultyInfo?.name },
     ]} />
       <div className="row m-0 justify-content-center">
@@ -82,22 +91,17 @@ useEffect(()=>{
                 <div>
                     <b className="me-1">{formatRating(facultyInfo?.overall_rating) || 0}</b>
                     ({facultyInfo?.review_count || 0})
-                    <Rate 
-                        style={{ marginLeft: "10px" }} 
-                        disabled 
-                        allowHalf 
-                        defaultValue={0}
-                        value={facultyInfo?.overall_rating || 0} 
-                        className="searchbar-results-rate" 
-                    />
+                    <Rate  style={{ marginLeft: "10px" }}  disabled  allowHalf  defaultValue={0} value={facultyInfo?.overall_rating || 0}  className="searchbar-results-rate"  />
                     </div>
                 </div>
-                <Tooltip placement="topRight" title="Invite to Review" open={!isLinkCopied}><span onClick={() => {
-                    message.success("Link copied successfully")
-                    setisLinkCopied(true)
-                    navigator.clipboard.writeText(window.location.href)}}>
-                    <i className="fa-regular fa-copy copy-icon me-3"></i>
-                </span></Tooltip>
+                <Tooltip placement="topRight" title="Invite to Review" open={!isLinkCopied}>
+                    <span onClick={() => {
+                        message.success("Link copied successfully")
+                        setisLinkCopied(true)
+                        navigator.clipboard.writeText(window.location.href)}}>
+                        <i className="fa-regular fa-copy copy-icon me-3"></i>
+                    </span>
+                </Tooltip>
                                 
                 </div>
 
@@ -106,6 +110,7 @@ useEffect(()=>{
                 <h3>{facultyInfo?.name}</h3>
                 <p className="text-muted">{facultyInfo?.designation}</p>
               </div>
+              <ReviewRatings rating_grading_fairness={averageGradingFairness} rating_leniency={averageLeniency} rating_subject_knowledge={averageSubjectKnowledge} />
               <ReviewInput facultyData={facultyInfo} fetch_reviews={fetch_reviews}/>
             </div>
             <div className="col-12 col-xl-8 p-0 mt-2 mt-xl-0">

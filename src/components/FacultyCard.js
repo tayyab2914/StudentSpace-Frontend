@@ -43,7 +43,7 @@ const FacultyCard = ({ data }) => {
         <br />
         <span className="review-count m-0">({review_count} {review_count==1? "review":"reviews"})</span>
       </div>
-      <button class="button text-center mt-auto w-100">
+      <button class="faculty-card-button text-center mt-auto w-100">
         <p class="text m-0">GIVE REVIEW</p>
       </button>
         </div>

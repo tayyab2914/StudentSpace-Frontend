@@ -8,6 +8,7 @@ import {
 import PopularFaculty from "../components/PopularFaculty";
 import { useNavigate } from "react-router";
 import Footer from "../components/Footer";
+import ReviewRatings from "../components/ReviewRatings";
  
 const Home = () => {
   const navigate = useNavigate();
