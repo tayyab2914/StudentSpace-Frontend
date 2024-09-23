@@ -16,6 +16,8 @@ const Footer = () => {
           <div className="col-lg-4 col-xs-12 d-flex align-items-center justify-content-center">
             <span className="single_footer single_footer_address text-center">
               <img src={logo} alt="Footer Logo" className="footer-logo" />
+              <a href="mailto:studentspace.online@gmail.com" className="footer-headline"> studentspace.online@gmail.com</a>
+
             </span>
           </div>
 
