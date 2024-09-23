@@ -84,7 +84,7 @@ const PopularFaculty = () => {
             {groupedData.map((group, index) => (
               <div key={index}>
                 <div className="container-xxl">
-                  <div className="row m-0 px-2 justify-content-center">
+                  <div className="row m-0 justify-content-center">
                     {group.map((faculty) => (
                       <div
                         key={faculty.id}
