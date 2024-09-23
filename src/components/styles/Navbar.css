@@ -17,6 +17,19 @@
 .searchbar button{
     height: 35px !important;
 }
+.headline{
+    
+    text-align: center;
+    padding: 2px 0px 4px 0px;
+    background-color: black;
+}
+.headline a{
+    font-size: 8px !important;
+    letter-spacing: 2px;
+    color: white;
+    text-decoration: none;
+    align-self: center;
+}
 .navbar-logo:hover{
     cursor: pointer;
 }
