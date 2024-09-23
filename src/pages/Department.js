@@ -29,7 +29,6 @@ const Department = () => {
     setDepartmentData(response);
     // console.log(response)
   };
-
   useEffect(() => {
     setDepartment(department_name);
     handleDepartmentChange(department_name);
