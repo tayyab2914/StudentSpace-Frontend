@@ -15,9 +15,6 @@ const PopularFaculty = () => {
       try {
         setShowSpinner(true);
         const response = await API_GET_POPULAR_FACULTIES();
-        // const response = ;
-        console.log(response)
-        // Separate top 4 faculties for Ranked component
         let top4 = []
         if(window.innerWidth > 768 && window.innerWidth < 1200)
         {
