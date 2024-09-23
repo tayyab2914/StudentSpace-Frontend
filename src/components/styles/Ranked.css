@@ -1,0 +1,123 @@
+.top-review-container {
+  margin-bottom:1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.card-container {
+  width: 100%;
+  max-width: 30rem;
+  margin-top: 4rem;
+  position: relative;
+}
+.most-reviewed {
+  padding-top: 10px;
+  background-color: rgb(246, 246, 246);
+}
+.most-reviewed:hover {
+  cursor: pointer;
+}
+.ant-card-meta-title {
+  font-weight: 600;
+}
+.ant-card-meta-description{
+    color: #8d8d8d;
+}
+.card {
+  background-color: white;
+  border-radius: 0.5rem;
+  border:1px solid #f0f0f0 !important;
+  padding: 2rem 2rem 10px 20px;
+  text-align: center;
+  position: relative;
+}
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.ranked-card-rate li {
+  font-size: 14px !important;
+  margin-right: 3px !important;
+}
+.image-container {
+  position: absolute;
+  top: -5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8rem;
+  height: 8rem;
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.card-content {
+  /* margin-top: 5rem; */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.rating-icon {
+  height: 7rem;
+  width: 7rem;
+  margin-top: -1rem;
+  margin-left: -1rem;
+}
+
+.position-icon {
+  height: 4rem;
+  width: 4rem;
+  margin-right: -1rem;
+  margin-top: -4rem;
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.designation {
+  color: #4a5568; /* A soft gray */
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+  .image-container {
+    position: absolute;
+    top: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6rem;
+    height: 6rem;
+  }
+  .position-icon {
+    height: 3rem;
+    width: 3rem;
+    margin-right: -1rem;
+    margin-top: -5.4rem;
+  }
+  .card {
+    padding: 0rem 20px 10px 20px;
+  }
+  .card-content {
+    margin-top: 40px;
+  }
+  .header {
+    font-size: 11px;
+  }
+  .top-review-container {
+    margin-bottom: .3rem;
+    display: flex;
+    justify-content: center;
+  }
+}

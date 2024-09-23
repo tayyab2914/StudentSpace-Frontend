@@ -57,6 +57,10 @@ const NAVBAR_COMPONENT = ()=>(
   return (
    <>
     <div className=' sticky-navbar'>
+        <div className="headline">
+            CONTACT US : <a href="mailto:studentspace.online@gmail.com">STUDENTSPACE.ONLINE@GMAIL.COM</a>
+
+        </div>
       <Navbar className=" px-2 px-lg-5 my-navbar">
   <Container fluid>
     <Navbar.Brand onClick={()=>navigate('/')}>

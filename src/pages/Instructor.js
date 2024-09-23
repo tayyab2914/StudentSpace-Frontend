@@ -94,12 +94,12 @@ useEffect(()=>{
                     <Rate  style={{ marginLeft: "10px" }}  disabled  allowHalf  defaultValue={0} value={facultyInfo?.overall_rating || 0}  className="searchbar-results-rate"  />
                     </div>
                 </div>
-                <Tooltip placement="topRight" title="Invite to Review" open={!isLinkCopied}>
+                <Tooltip placement="topRight" title="Invite to Review" open={!isLinkCopied} >
                     <span onClick={() => {
                         message.success("Link copied successfully")
                         setisLinkCopied(true)
                         navigator.clipboard.writeText(window.location.href)}}>
-                        <i className="fa-regular fa-copy copy-icon me-3"></i>
+                        <i className="fa-regular fa-copy copy-icon me-3 " ></i>
                     </span>
                 </Tooltip>
                                 
