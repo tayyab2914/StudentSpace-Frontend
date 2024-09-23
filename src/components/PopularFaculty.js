@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { Divider, Spin, Carousel as AntCarousel } from 'antd';
-import FacultyCard from './FacultyCard';
-import { API_GET_POPULAR_FACULTIES } from '../apis';
-import Shimmer from './Shimmer';
+import React, { useEffect, useState } from "react";
+import { Divider, Carousel as AntCarousel } from "antd";
+import FacultyCard from "./FacultyCard";
+import { API_GET_POPULAR_FACULTIES } from "../apis";
+import Shimmer from "./Shimmer";
+import Ranked from "./Ranked";
 
 const PopularFaculty = () => {
   const [popularFacultyData, setPopularFacultyData] = useState([]);
+  const [topRankedFaculty, setTopRankedFaculty] = useState([]);
   const [showSpinner, setShowSpinner] = useState(false);
 
   useEffect(() => {
@@ -13,8 +15,26 @@ const PopularFaculty = () => {
       try {
         setShowSpinner(true);
         const response = await API_GET_POPULAR_FACULTIES();
-        setPopularFacultyData(response);
-        // console.log(response);
+        const sortedFaculty = response.sort((a, b) => b.review_count - a.review_count);
+        
+        // Separate top 4 faculties for Ranked component
+        let top4 = []
+        if(window.innerWidth > 768 && window.innerWidth < 1200)
+        {
+            top4 = sortedFaculty.slice(0, 3);
+            setTopRankedFaculty(top4);
+    
+            // Set the remaining faculties for the carousel
+            setPopularFacultyData(sortedFaculty.slice(3));
+        }
+        else
+        {
+            top4 = sortedFaculty.slice(0, 4);
+            setTopRankedFaculty(top4);
+    
+            // Set the remaining faculties for the carousel
+            setPopularFacultyData(sortedFaculty.slice(4));
+        }
       } catch (error) {
         console.error("Failed to fetch popular faculties:", error);
       } finally {
@@ -33,57 +53,59 @@ const PopularFaculty = () => {
   };
 
   let groupedData;
-  if (window.innerWidth < 768 ) {
+  if (window.innerWidth < 768) {
     groupedData = groupArray(popularFacultyData, 2);
-  }
-  else if (window.innerWidth > 768 && window.innerWidth < 1200) {
+  } else if (window.innerWidth > 768 && window.innerWidth < 1200) {
     groupedData = groupArray(popularFacultyData, 3);
   } else {
     groupedData = groupArray(popularFacultyData, 4);
   }
 
-  console.log(groupedData)
-
   return (
-    <div>
-      <Divider orientation="center">
-        <h2>Most Reviewed</h2>
-      </Divider>
+    <>
+      {!showSpinner && <Ranked data={topRankedFaculty} />}
+      <div>
+        <Divider orientation="center">
+          <h2>Popular Faculty</h2>
+        </Divider>
 
-      {showSpinner ? 
-       <>
-              <div className="container-xxl">
-       <div className="row m-0">
-       {[...Array(groupedData[0]?.length)].map((_, index) => (
-         <div
-           key={index}
-           className="col-6 col-md-4 col-xxl-3 p-1 p-md-3 p-xxl-3"
-         >
-           <Shimmer />
-         </div>
-       ))}
-              </div>
-       </div>
-     </>
-       
-      : (
-        <AntCarousel  dots={true} pauseOnHover={true} arrows={true} autoplay>
-          {groupedData.map((group, index) => (
-            <div key={index}>
-              <div className="container-xxl">
-                <div className="row m-0 px-2 justify-content-center">
-                  {group.map(faculty => (
-                    <div key={faculty.id} className="col-6 col-md-4 col-xl-3 p-1 p-md-3">
-                      <FacultyCard data={faculty} />
-                    </div>
-                  ))}
+        {showSpinner ? (
+          <div className="container-xxl">
+            <div className="row m-0">
+              {[...Array(groupedData[0]?.length)].map((_, index) => (
+                <div
+                  key={index}
+                  className="col-6 col-md-4 col-xxl-3 p-1 p-md-3 p-xxl-3"
+                >
+                  <Shimmer />
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <AntCarousel dots={true} pauseOnHover={true} arrows={true} autoplay>
+            {groupedData.map((group, index) => (
+              <div key={index}>
+                <div className="container-xxl">
+                  <div className="row m-0 px-2 justify-content-center">
+                    {group.map((faculty) => (
+                      <div
+                        key={faculty.id}
+                        className="col-6 col-md-4 col-xl-3 p-1 p-md-3"
+                      >
+                        <FacultyCard data={faculty} />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </AntCarousel>
-      )}
-    </div>
+            ))}
+          </AntCarousel>
+        )}
+      </div>
+
+      {/* Pass the top 4 faculties to Ranked component */}
+    </>
   );
 };
 

@@ -115,10 +115,7 @@ export const calculateAverageRatings = (reviews) => {
     const averageGradingFairness = (totalGradingFairness / (totalReviews*5)) * 100;
     const averageLeniency = (totalLeniency / (totalReviews* 5))* 100 ;
     const averageSubjectKnowledge = (totalSubjectKnowledge / (totalReviews* 5))* 100 ;
-    console.log(
-        averageGradingFairness,
-        averageLeniency,
-        averageSubjectKnowledge,)
+
   
     return {
       averageGradingFairness,

@@ -57,10 +57,10 @@ const ReviewInput = ({ facultyData, fetch_reviews }) => {
         trackRating(reviewData?.rating_grading_fairness)
         trackRating(reviewData?.rating_leniency)
         trackRating(reviewData?.rating_subject_knowledge)
-        message.success("Review submitted successfully.");
+        // message.success("Review submitted successfully.");
         trackReview()
       } catch (error) {
-        message.error("Failed to submit review. Please try again.");
+        // message.error("Failed to submit review. Please try again.");
       } finally {
         setShowSpinner(false);
       }
