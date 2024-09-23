@@ -17,19 +17,38 @@
 .searchbar button{
     height: 35px !important;
 }
-.headline{
-    
+.headline {
     text-align: center;
     padding: 2px 0px 4px 0px;
     background-color: black;
-}
-.headline a{
+    color: white;
     font-size: 8px !important;
     letter-spacing: 2px;
-    color: white;
-    text-decoration: none;
-    align-self: center;
 }
+
+.headline a {
+    font-size: 8px !important;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: white !important;
+}
+
+/* Ensures that visited links also have the same style */
+.headline a:visited {
+    color: white;
+}
+
+/* Ensures that active (clicked) links also retain the style */
+.headline a:active {
+    color: white;
+}
+
+/* Optional: You can add hover state if needed */
+.headline a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
 .navbar-logo:hover{
     cursor: pointer;
 }

@@ -58,7 +58,7 @@ const NAVBAR_COMPONENT = ()=>(
    <>
     <div className=' sticky-navbar'>
         <div className="headline">
-            <a href="mailto:studentspace.online@gmail.com">STUDENTSPACE.ONLINE@GMAIL.COM</a>
+            CONTACT US : <a href="mailto:studentspace.online@gmail.com">STUDENTSPACE.ONLINE@GMAIL.COM</a>
 
         </div>
       <Navbar className=" px-2 px-lg-5 my-navbar">
