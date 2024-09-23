@@ -14,13 +14,13 @@ const Ranked = ({ data }) => {
   const medals = [medal1, medal2, medal3, medal4];
 
   return (
-    <div className="most-reviewed">
-      <Divider orientation="center">
+    <div className="most-reviewed pb-3">
+      <Divider orientation="center" className="mb-0 mb-sm-3">
         <h2>Highly Appreciated</h2>
       </Divider>
 
       <div className="container-xxl">
-        <div className="row m-0 px-2 justify-content-center">
+        <div className="row m-0 px-0 justify-content-center">
           {data.map((faculty, index) => (
             <div
               key={faculty.id}
@@ -50,7 +50,7 @@ const Ranked = ({ data }) => {
                               className="ranked-card-rate ms-2"
                             />
                           </div>
-                          <div className="col-12 review-content">
+                          <div className="col-12 review-content p-sm-0 p-0">
                             <span className="review-count m-0">
                               ({faculty.review_count} {faculty.review_count === 1 ? "review" : "reviews"})
                             </span>
