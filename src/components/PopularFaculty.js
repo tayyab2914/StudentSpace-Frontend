@@ -15,25 +15,25 @@ const PopularFaculty = () => {
       try {
         setShowSpinner(true);
         const response = await API_GET_POPULAR_FACULTIES();
-        const sortedFaculty = response.sort((a, b) => b.review_count - a.review_count);
-        
+        // const response = ;
+        console.log(response)
         // Separate top 4 faculties for Ranked component
         let top4 = []
         if(window.innerWidth > 768 && window.innerWidth < 1200)
         {
-            top4 = sortedFaculty.slice(0, 3);
+            top4 = response.slice(0, 3);
             setTopRankedFaculty(top4);
     
             // Set the remaining faculties for the carousel
-            setPopularFacultyData(sortedFaculty.slice(3));
+            setPopularFacultyData(response.slice(3));
         }
         else
         {
-            top4 = sortedFaculty.slice(0, 4);
+            top4 = response.slice(0, 4);
             setTopRankedFaculty(top4);
     
             // Set the remaining faculties for the carousel
-            setPopularFacultyData(sortedFaculty.slice(4));
+            setPopularFacultyData(response.slice(4));
         }
       } catch (error) {
         console.error("Failed to fetch popular faculties:", error);
