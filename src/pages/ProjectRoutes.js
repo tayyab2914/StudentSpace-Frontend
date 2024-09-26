@@ -5,6 +5,7 @@ import Department from './Department';
 import Instructor from './Instructor';
 import About from './About';
 import PrivacyPolicy from './PrivacyPolicy';
+import NotFound from './NotFound';
 
 const ProjectRoutes = () => {
   return (
@@ -15,6 +16,7 @@ const ProjectRoutes = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/department/:department_name" element={<Department />} />
         <Route path="/faculty/:instructor_id" element={<Instructor />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
