@@ -36,6 +36,11 @@ const Footer = () => {
                     Privacy Policy
                   </a>
                 </li>
+                <li>
+                  <a onClick={() => navigate("/terms-of-service")}>
+                    Terms of Service
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

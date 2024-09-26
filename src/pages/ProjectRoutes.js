@@ -6,6 +6,7 @@ import Instructor from './Instructor';
 import About from './About';
 import PrivacyPolicy from './PrivacyPolicy';
 import NotFound from './NotFound';
+import TermsOfService from './TermsOfService';
 
 const ProjectRoutes = () => {
   return (
@@ -14,6 +15,7 @@ const ProjectRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/department/:department_name" element={<Department />} />
         <Route path="/faculty/:instructor_id" element={<Instructor />} />
         <Route path="*" element={<NotFound />} />
