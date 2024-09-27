@@ -3,10 +3,11 @@ import { DOMAIN_NAME } from "./values";
 import { message } from "antd";
 import { trackReport } from "./analytics/analytics_invokers";
 
-export const API_GET_FACULTIES_BY_DEPARTMENT = async (setShowSpinner, name) => {
+export const API_GET_FACULTIES_BY_DEPARTMENT = async (setShowSpinner, name,setshowError404) => {
   setShowSpinner(true);
   const formattedName = typeof name == "string" ? name.toUpperCase() : "";
 
+  console.log("HELLO")
   try {
     const response = await axios.get(
       `${DOMAIN_NAME}/feedback/faculties_by_department/`,
@@ -20,6 +21,7 @@ export const API_GET_FACULTIES_BY_DEPARTMENT = async (setShowSpinner, name) => {
     return response.data;
   } catch (error) {
     console.log("Error fetching faculty data:", error);
+    setshowError404(true)
   } finally {
     setShowSpinner(false);
   }
