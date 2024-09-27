@@ -10,6 +10,7 @@ import { calculateAverageRatings, formatRating, getFacultyNameByDepNo } from "..
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import ReviewRatings from "../components/ReviewRatings";
+import image404 from '../assets/404.svg'
 
 const Instructor = () => {
   const { instructor_id } = useParams(); // Extract instructor_id
@@ -18,6 +19,7 @@ const Instructor = () => {
   const [facultyInfo, setFacultyInfo] = useState(null);
   const [isScrolling, setIsScrolling] = useState(false);
   const navigate = useNavigate()
+  const [showError404, setshowError404] = useState(false);
     const [isLinkCopied, setisLinkCopied] = useState(false);
     const [averageGradingFairness, setAverageGradingFairness] = useState(0);
     const [averageLeniency, setAverageLeniency] = useState(0);
@@ -40,6 +42,7 @@ useEffect(()=>{
       setAverageLeniency(averages.averageLeniency);
       setAverageSubjectKnowledge(averages.averageSubjectKnowledge);
     } catch (error) {
+        setshowError404(true)
       console.error("Error fetching faculty reviews:", error);
     }
   };
@@ -75,6 +78,16 @@ useEffect(()=>{
     <div>a
       {ShowSpinner && <Spin fullscreen className="spinner-overlay" />}
       <MyNavbar />
+    {showError404 ? <>
+    
+        <div className="row m-0 pt-5" style={{height:"400px"}}>
+        <div className="col-12 text-center align-self-center">
+            
+      <img src={image404} alt="" style={{height:"300px",textAlign:"center"}}/>
+        </div>
+      </div>
+      </>:
+    <>
       <Breadcrumb 
        className="ms-4 mb-1 mt-0"
        items={[
@@ -131,6 +144,7 @@ useEffect(()=>{
           </div>
         </div>
       </div>
+      </>}
       <Footer/>
     </div>
   );

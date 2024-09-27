@@ -8,6 +8,7 @@ import { getFacultyName } from "../values";
 import { accent_color } from "../components/Colors";
 import Shimmer from "../components/Shimmer";
 import { useNavigate } from "react-router-dom";
+import image404 from '../assets/404.svg'
 import Footer from "../components/Footer";
 
 const Department = () => {
@@ -15,6 +16,7 @@ const Department = () => {
   const navigate = useNavigate()
   const [Department, setDepartment] = useState("");
   const [ShowSpinner, setShowSpinner] = useState(false);
+  const [showError404, setshowError404] = useState(false);
   const [DepartmentData, setDepartmentData] = useState([]);
 
   const handleDepartmentChange = (Department) => {
@@ -25,9 +27,10 @@ const Department = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
   const load_Department = async (name) => {
-    const response = await API_GET_FACULTIES_BY_DEPARTMENT(setShowSpinner, name);
+
+    const response = await API_GET_FACULTIES_BY_DEPARTMENT(setShowSpinner, name,setshowError404);
     setDepartmentData(response);
-    // console.log(response)
+
   };
   useEffect(() => {
     setDepartment(department_name);
@@ -40,7 +43,15 @@ const Department = () => {
       {/* {ShowSpinner && <Spin fullscreen className="spinner-overlay" />} */}
       <MyNavbar />
       {/* <Divider orientation="left" plain> */}
-      <Breadcrumb 
+      {showError404 ? <>
+    
+    <div className="row m-0 pt-5" style={{height:"400px"}}>
+    <div className="col-12 text-center align-self-center">
+        
+  <img src={image404} alt="" style={{height:"300px",textAlign:"center"}}/>
+    </div>
+  </div>
+  </>:<> <Breadcrumb 
        className="ms-4 my-1 mt-4"
        items={[
         { title: <a onClick={()=>navigate('/')}>Home</a> },
@@ -75,7 +86,7 @@ const Department = () => {
             </>
           )}
         </div>
-      </div>
+      </div></>}
       <Footer/>
     </>
   );
