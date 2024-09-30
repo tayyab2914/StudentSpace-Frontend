@@ -32,13 +32,14 @@ const ForgotPassword = ({setShowForgotPassword}) => {
   };
   const onNewPasswordSubmit = async (newPassword) => {
     setNewPassword(newPassword);
+    console.log('newPassword',newPassword)
     await API_SET_NEW_PASSWORD( email, newPassword, verificationCode, codeToken, setShowSpinner,setShowForgotPassword );
     
   };
   return <>
   {ShowSpinner && <Spin fullscreen/>}
   {
-    CurrentState == 'email-input' && <Form form={form} name="forgotPasswordForm" className="signin-form" layout="vertical" autoComplete="off">
+    CurrentState == 'email-input' && <Form form={form} name="forgotPasswordForm" className="signin-form" layout="vertical" >
       <h2 className="form-title">Reset your password</h2>
 
       <Form.Item hasFeedback label="Email" name="email" rules={EMAIL_RULES_REQUIRED} className="form-item">

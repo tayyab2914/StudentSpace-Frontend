@@ -42,6 +42,7 @@ export const API_SIGN_IN = async (
   setShowSpinner
 ) => {
   setShowSpinner(true);
+  console.log('API_SIGN_IN',email,password)
   try {
     const response = await axios.post(`${DOMAIN_NAME}/auth/signin/`, {
       email: email,

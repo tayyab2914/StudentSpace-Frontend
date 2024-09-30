@@ -16,6 +16,7 @@ const Signin = ({ toggleCurrentMode }) => {
   const [ShowSpinner, setShowSpinner] = useState(false);
 
   const handleSignIn = async (email, password) => {
+    console.log(email,password)
     const response = await API_SIGN_IN(email, password,dispatch,navigate,setShowSpinner);
   };
 
