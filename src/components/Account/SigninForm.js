@@ -19,7 +19,7 @@ const SigninForm = ({ handleSignIn, handleForgotPassword, handleSignUpToggle }) 
   };
 
   return (
-    <Form form={form} name="signinForm" className="signin-form" layout="vertical" autoComplete="off">
+    <Form form={form} name="signinForm" className="signin-form" layout="vertical" >
       <h2 className="form-title">Welcome back, let's continue!</h2>
 
       <Form.Item hasFeedback label="Email" name="email" rules={EMAIL_RULES_REQUIRED} className="form-item">

@@ -12,7 +12,7 @@ import { API_SEARCH_FACULTY } from '../../apis';
 import logo from '../../assets/logo.svg';
 import hamburger_icon from '../../assets/hamburger_icon.svg';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { Avatar, Divider } from 'antd';
+import { Avatar, Divider, Popconfirm } from 'antd';
 import { AntDesignOutlined, UserOutlined, LogoutOutlined } from '@ant-design/icons';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLoggedIn } from '../../redux/AuthToken/Action';
@@ -82,7 +82,11 @@ const MyNavbar = () => {
             </div>
           </Container>
          {isLoggedIn ? 
-          <Avatar className='navbar-account-btn' icon={<LogoutOutlined style={{ color: 'black' }} />} onClick={() => dispatch(setLoggedIn(false))} /> :
+         
+         <Popconfirm  placement="rightBottom" title="Logout" description="Are you sure you want to logout?" okText="Yes" cancelText="No" onConfirm={() => dispatch(setLoggedIn(false))}  >
+            <Avatar className="navbar-account-btn" icon={<LogoutOutlined style={{ color: 'black' }} />} />
+        </Popconfirm>
+            :
           <Avatar className='navbar-account-btn' icon={<UserOutlined style={{ color: 'black' }} />} onClick={() => navigate('/account')} />
           }
           

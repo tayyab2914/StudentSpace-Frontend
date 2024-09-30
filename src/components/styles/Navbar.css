@@ -14,6 +14,9 @@
     background-color: white;
 
 }
+.navbar-account-btn{
+    font-size: 22px !important;
+}
 .navbar-account-btn:hover{
     cursor: pointer;
 }

@@ -15,7 +15,7 @@ const SignUpForm = ({ handleSignUp, handleSignInToggle }) => {
   };
 
   return (
-    <Form form={form} name="signupForm" className="signin-form" layout="vertical" autoComplete="off">
+    <Form form={form} name="signupForm" className="signin-form" layout="vertical" >
       <h2 className="form-title">Welcome, create your account!</h2>
 
       <Form.Item hasFeedback label="Email" name="email" rules={EMAIL_RULES_REQUIRED} className="form-item">
