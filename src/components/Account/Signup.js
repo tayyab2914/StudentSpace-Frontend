@@ -24,8 +24,8 @@ const SignUp = ({ toggleCurrentMode }) => {
     setEmail(email);
     setPassword(password);
     const response = await API_SEND_VERIFICATION_EMAIL(email,null,setShowSpinner);
+    setShowVerificationComponent(response ? true:false)
     setCodeToken(response)
-    setShowVerificationComponent(true);
   };
 
   const handleVerification = (code) => {

@@ -64,7 +64,7 @@ export const API_SIGN_IN = async (
 export const API_SEND_VERIFICATION_EMAIL = async (
   email,
   forgotPassword = false,
-  setShowSpinner
+  setShowSpinner,
 ) => {
   setShowSpinner(true);
   try {
@@ -83,6 +83,7 @@ export const API_SEND_VERIFICATION_EMAIL = async (
     message.error(
       error.response?.data?.message || "Failed to send verification email"
     );
+    return false
   } finally {
     setShowSpinner(false);
   }

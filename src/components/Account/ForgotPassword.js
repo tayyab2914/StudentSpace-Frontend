@@ -20,9 +20,9 @@ const ForgotPassword = ({setShowForgotPassword}) => {
   const onSubmitEmail = async () => {
       const values = await form.validateFields();
       setEmail(values.email);
-      const response = await API_SEND_VERIFICATION_EMAIL( values.email, true, setShowSpinner );
+      const response = await API_SEND_VERIFICATION_EMAIL( values.email, true, setShowSpinner, );
       setCodeToken(response);
-      setCurrentState("verification-code");
+      setCurrentState(response?'verification-code':'email-input');
     
   };
 
