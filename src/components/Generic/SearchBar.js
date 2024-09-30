@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Popover, Avatar, Input, Spin, Rate, Divider, message } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-import "./styles/Searchbar.css";
-import { formatRating } from "../values";
-import { trackSearch } from "../analytics/analytics_invokers";
+import "../styles/Searchbar.css";
+import { formatRating } from "../../values";
+import { trackSearch } from "../../analytics/analytics_invokers";
 const { Search } = Input;
 
 const SearchBar = ({

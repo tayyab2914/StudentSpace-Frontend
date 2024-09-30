@@ -10,6 +10,13 @@
   width: 100vw;
   
 }
+.navbar-account-btn{
+    background-color: white;
+
+}
+.navbar-account-btn:hover{
+    cursor: pointer;
+}
 .searchbar input{
     height: 35px;
     border: 1px solid rgb(81, 81, 81) !important;

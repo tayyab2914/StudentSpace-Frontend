@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Popover, Menu, message, Tag } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
-import { API_REPORT_REVIEW } from '../apis';
+import { API_REPORT_REVIEW } from '../../apis';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     CheckCircleOutlined,
@@ -12,8 +12,8 @@ import {
     SyncOutlined,
   } from '@ant-design/icons';
 // import { API_REPORT_REVIEW } from '../apis';
-import './styles/Review.css'
-import { addReportedReview } from '../redux/FacultyReviewed/Action';
+import '../styles/Review.css'
+import { addReportedReview } from '../../redux/FacultyReviewed/Action';
 const Review = ({ review, isScrolling}) => {
     const [visible, setVisible] = useState(false);
     const [showReasonPrompt, setShowReasonPrompt] = useState(false);

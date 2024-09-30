@@ -1,6 +1,6 @@
 import React from 'react'
-import MyNavbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import MyNavbar from '../components/Generic/Navbar'
+import Footer from '../components/Generic/Footer'
 import image404 from '../assets/404.svg'
 
 const NotFound = () => {

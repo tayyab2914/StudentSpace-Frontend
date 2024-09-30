@@ -24,3 +24,12 @@ export const INPUT = {
     zIndexPopup:490
   }
 
+  export const BUTTON = {
+    colorLink: "#000",
+    colorLinkActive: "#000",
+    colorLinkHover: "#000",
+    colorPrimary: "#000",
+    colorPrimaryActive: "#000",
+    colorPrimaryBorder: "#000",
+    colorPrimaryHover: "#000" // Assumed value for colorPrimaryHover
+  };

@@ -1,6 +1,6 @@
 import { Card, Skeleton } from 'antd'
 import React from 'react'
-import './styles/Shimmer.css'
+import '../styles/Shimmer.css'
 
 const Shimmer = () => {
   return (

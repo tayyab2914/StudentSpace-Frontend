@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import MyNavbar from "../components/Navbar";
+import MyNavbar from "../components/Generic/Navbar";
 import { useParams } from "react-router-dom"; // Import useParams
 import { Rate, Spin, List, message, Tooltip, Breadcrumb } from "antd";
 import { API_GET_FACULTY_REVIEWS } from "../apis";
 import "./styles/Instructor.css";
-import Review from "../components/Review";
-import ReviewInput from "../components/ReviewInput";
+import Review from "../components/Reviews/Review";
+import ReviewInput from "../components/Reviews/ReviewInput";
 import { calculateAverageRatings, formatRating, getFacultyNameByDepNo } from "../values";
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/Footer";
-import ReviewRatings from "../components/ReviewRatings";
+import Footer from "../components/Generic/Footer";
+import ReviewRatings from "../components/Reviews/ReviewRatings";
 import image404 from '../assets/404.svg'
 
 const Instructor = () => {

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Collapse, Rate, Input, Button, Form, Spin, message } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { GET_RANDOM_NAME_COMBINATION } from '../values';
-import { API_SUBMIT_REVIEW } from '../apis'; // Adjust import path as needed
-import { addToFacultyReviewed } from '../redux/FacultyReviewed/Action';
-import { trackRating, trackReview } from '../analytics/analytics_invokers';
+import { GET_RANDOM_NAME_COMBINATION } from '../../values';
+import { API_SUBMIT_REVIEW } from '../../apis'; // Adjust import path as needed
+import { addToFacultyReviewed } from '../../redux/FacultyReviewed/Action';
+import { trackRating, trackReview } from '../../analytics/analytics_invokers';
 // import { addToFacultyReviewed } from '../redux/FacultyReviewed/Action';
 
 const { Panel } = Collapse;
@@ -19,9 +19,7 @@ const ReviewInput = ({ facultyData, fetch_reviews }) => {
   const dispatch = useDispatch();
   const reviewedFaculties = useSelector(state => state.facultyDataRedux.reviewedFaculties);
   const facultyDataRedux = useSelector(state => state.facultyDataRedux);
-//   console.log(facultyDataRedux)
 
-// console.log(facultyDataRedux)
   const handleSubmit = async (values) => {
     if (gradingFairness === 0 || leniency === 0 || subjectKnowledge === 0) {
       message.error("Please rate all categories before submitting.");
@@ -44,10 +42,9 @@ const ReviewInput = ({ facultyData, fetch_reviews }) => {
       };
 
       setShowSpinner(true);
-
+      
       try {
         await API_SUBMIT_REVIEW(setShowSpinner, reviewData);
-        // Add the faculty ID to reviewed list after successful review
         dispatch(addToFacultyReviewed(facultyData.id));
         setGradingFairness(0);
         setLeniency(0);
@@ -57,10 +54,8 @@ const ReviewInput = ({ facultyData, fetch_reviews }) => {
         trackRating(reviewData?.rating_grading_fairness)
         trackRating(reviewData?.rating_leniency)
         trackRating(reviewData?.rating_subject_knowledge)
-        // message.success("Review submitted successfully.");
         trackReview()
       } catch (error) {
-        // message.error("Failed to submit review. Please try again.");
       } finally {
         setShowSpinner(false);
       }

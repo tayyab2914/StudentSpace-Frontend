@@ -2,12 +2,12 @@ import React from "react";
 import { Divider, Rate } from "antd";
 import Meta from "antd/es/card/Meta";
 import { useNavigate } from "react-router";
-import { formatRating } from "../values";
-import medal1 from "../assets/1.svg";
-import medal2 from "../assets/2.svg";
-import medal3 from "../assets/3.svg";
-import medal4 from "../assets/4.svg";
-import "./styles/Ranked.css";
+import { formatRating } from "../../values";
+import medal1 from "../../assets/1.svg";
+import medal2 from "../../assets/2.svg";
+import medal3 from "../../assets/3.svg";
+import medal4 from "../../assets/4.svg";
+import "../styles/Ranked.css";
 
 const Ranked = ({ data }) => {
   const navigate = useNavigate();

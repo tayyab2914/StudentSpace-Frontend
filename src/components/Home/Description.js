@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { notification, Button } from "antd"; // Import Button from antd
 import { useDispatch, useSelector } from "react-redux";
-import { setNoticeAlreadyShown } from "../redux/FacultyReviewed/Action";
+import { setNoticeAlreadyShown } from "../../redux/FacultyReviewed/Action";
 
 const Description = () => {
   const [api, contextHolder] = notification.useNotification(); // Use notification API

@@ -1,4 +1,4 @@
-export const PRODUCTION = true;
+export const PRODUCTION = false;
 export const LIVE_MODE = false
 
 let DOMAIN_NAME

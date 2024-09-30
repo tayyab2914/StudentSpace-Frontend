@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Divider, Carousel as AntCarousel } from "antd";
 import FacultyCard from "./FacultyCard";
-import { API_GET_POPULAR_FACULTIES } from "../apis";
-import Shimmer from "./Shimmer";
-import Ranked from "./Ranked";
+import { API_GET_POPULAR_FACULTIES } from "../../apis";
+import Shimmer from "../Generic/Shimmer";
+import Ranked from "../Home/Ranked";
 
 const PopularFaculty = () => {
   const [popularFacultyData, setPopularFacultyData] = useState([]);

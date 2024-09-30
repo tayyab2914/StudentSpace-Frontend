@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { message } from 'antd'; // Import message from Ant Design
 import ProjectRoutes from './pages/ProjectRoutes';
 import { ensureGtag, trackPageVisit } from './analytics/analytics_invokers';
-import Description from './components/Description';
+import Description from './components/Home/Description';
+// import Description from './components/Description';
 
 function App() {
   // Initialize message API
