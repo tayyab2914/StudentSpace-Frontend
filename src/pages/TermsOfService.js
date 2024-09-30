@@ -121,15 +121,14 @@ const TermsOfService = () => {
               <section className="py-2">
                 <h4>10. Governing Law</h4>
                 <p>
-                  These Terms shall be governed by the laws of [Your
-                  Country/State].
+                  These Terms shall be governed by the laws of Pakistan.
                 </p>
               </section>
               <section className="py-2">
                 <h4>11. Contact Information</h4>
                 <p>
                   If you have any questions about these Terms, please contact us
-                  at [Insert Contact Email].
+                  at studentspace.online@gmail.com
                 </p>
               </section>
             </div>
