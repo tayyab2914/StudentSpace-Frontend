@@ -1,18 +1,16 @@
 export const PRODUCTION = true;
 export const TESTING = true
 
-export const LIVE_MODE = false
-
 let DOMAIN_NAME
 let REDIRECT_URI
 
-DOMAIN_NAME = PRODUCTION ? 'https://admin.studentspace.website' : 'http://127.0.0.1:8000'
+DOMAIN_NAME = PRODUCTION ? 'https://admin.studentspace.website':'http://127.0.0.1:8000'
 REDIRECT_URI = `${window.location.origin}${window.location.pathname}`
-
+console.log(REDIRECT_URI)
 
 const GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";
 const GOOGLE_AUTH_CLIENT_ID = "337525075460-6ltsjfmn3f0nl66q2jg3am4qr292981h.apps.googleusercontent.com"
-const GOOGLE_AUTH_SCOPE = [ "https://www.googleapis.com/auth/userinfo.email", "https://www.googleapis.com/auth/userinfo.profile", ].join(" ");
+const GOOGLE_AUTH_SCOPE = [ "https://www.googleapis.com/auth/userinfo.email", "https://www.googleapis.com/auth/userinfo.profile",  ].join(" ");
 
 export {  DOMAIN_NAME, GOOGLE_AUTH_URL,REDIRECT_URI,GOOGLE_AUTH_CLIENT_ID ,GOOGLE_AUTH_SCOPE};
 

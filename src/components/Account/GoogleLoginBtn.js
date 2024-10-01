@@ -9,13 +9,14 @@ import { GOOGLE_AUTH_CLIENT_ID, GOOGLE_AUTH_SCOPE, GOOGLE_AUTH_URL, REDIRECT_URI
 const onGoogleLoginSuccess = () => {
 
 
+
   const params = {
     response_type: "code",
-    client_id:GOOGLE_AUTH_CLIENT_ID,
+    client_id: GOOGLE_AUTH_CLIENT_ID,
     redirect_uri: REDIRECT_URI,
     prompt: "select_account",
     access_type: "offline",
-    GOOGLE_AUTH_SCOPE,
+    scope:GOOGLE_AUTH_SCOPE,
   };
 
   const urlParams = new URLSearchParams(params).toString();
