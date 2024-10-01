@@ -1,14 +1,30 @@
 export const PRODUCTION = true;
+export const TESTING = true
 
 let DOMAIN_NAME
+let REDIRECT_URI
+
+if(PRODUCTION && TESTING)
+{
+    REDIRECT_URI = 'https://student-space-frontend.vercel.app/account'
+}
+else if (PRODUCTION)
+{
+    REDIRECT_URI = 'https://studentspace.online/account'
+}
+else
+{
+    REDIRECT_URI = 'http://localhost:3000/account'
+}
 
 DOMAIN_NAME = PRODUCTION ? 'https://admin.studentspace.website':'http://127.0.0.1:8000'
+
 
 const GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";
 const GOOGLE_AUTH_CLIENT_ID = "337525075460-6ltsjfmn3f0nl66q2jg3am4qr292981h.apps.googleusercontent.com"
 const GOOGLE_AUTH_SCOPE = [ "https://www.googleapis.com/auth/userinfo.email", "https://www.googleapis.com/auth/userinfo.profile",  ].join(" ");
 
-export {  DOMAIN_NAME, GOOGLE_AUTH_URL,GOOGLE_AUTH_CLIENT_ID ,GOOGLE_AUTH_SCOPE};
+export {  DOMAIN_NAME, GOOGLE_AUTH_URL,GOOGLE_AUTH_CLIENT_ID ,GOOGLE_AUTH_SCOPE,REDIRECT_URI};
 
 
 
