@@ -10,7 +10,7 @@ const onGoogleLoginSuccess = () => {
   const params = {
     response_type: "code",
     client_id: GOOGLE_AUTH_CLIENT_ID,
-    redirect_uri: 'https://student-space-frontend.vercel.app/account',
+    redirect_uri: REDIRECT_URI,
     prompt: "select_account",
     access_type: "offline",
     scope:GOOGLE_AUTH_SCOPE,
