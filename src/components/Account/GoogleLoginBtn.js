@@ -27,6 +27,7 @@ const GoogleLoginBtn = () => {
   const [email, setEmail] = useState(null);
 
   useEffect(() => {
+    console.log(REDIRECT_URI)
     const code = new URLSearchParams(window.location.search).get("code");
     if (code) {
       fetchEmail();
