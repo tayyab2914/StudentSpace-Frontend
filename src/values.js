@@ -7,7 +7,8 @@ let DOMAIN_NAME
 let REDIRECT_URI
 
 DOMAIN_NAME = PRODUCTION ? 'https://admin.studentspace.website' : 'http://127.0.0.1:8000'
-REDIRECT_URI = TESTING ? "https://student-space-frontend.vercel.app/account" : "https://studentspace.online/account "
+REDIRECT_URI = `${window.location.origin}${window.location.pathname}`
+
 
 const GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";
 const GOOGLE_AUTH_CLIENT_ID = "337525075460-6ltsjfmn3f0nl66q2jg3am4qr292981h.apps.googleusercontent.com"
