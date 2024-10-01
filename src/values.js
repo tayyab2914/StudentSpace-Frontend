@@ -1,33 +1,44 @@
 export const PRODUCTION = true;
+export const TESTING = true
+
 export const LIVE_MODE = false
 
 let DOMAIN_NAME
-if (PRODUCTION) 
-{
-    DOMAIN_NAME = 'https://admin.studentspace.website';
-} 
-else 
-{ 
-    DOMAIN_NAME = 'http://127.0.0.1:8000';
-}
+let REDIRECT_URI
+
+DOMAIN_NAME = PRODUCTION ? 'https://admin.studentspace.website' : 'http://127.0.0.1:8000'
+REDIRECT_URI = TESTING ? "https://student-space-frontend.vercel.app/account" : "https://studentspace.online/account "
+
+const GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";
+const GOOGLE_AUTH_CLIENT_ID = "337525075460-6ltsjfmn3f0nl66q2jg3am4qr292981h.apps.googleusercontent.com"
+const GOOGLE_AUTH_SCOPE = [ "https://www.googleapis.com/auth/userinfo.email", "https://www.googleapis.com/auth/userinfo.profile", ].join(" ");
+
+export {  DOMAIN_NAME, GOOGLE_AUTH_URL,REDIRECT_URI,GOOGLE_AUTH_CLIENT_ID ,GOOGLE_AUTH_SCOPE};
 
 
-export {  DOMAIN_NAME };
 
 
 
-const cuteAnimeNames = [
-    'Mio', 'Sakura', 'Haru', 'Momo', 'Yuki',
-    'Kiki', 'Chika', 'Rin', 'Neko', 'Sora',
-    'Luna', 'Koko', 'Miku', 'Yumi', 'Tomo',
-    'Fuyu', 'Aya', 'Saki', 'Momo', 'Riko',
-    'Kira', 'Nana', 'Maya', 'Suzu', 'Hina',
-    'Kane', 'Miyu', 'Riko', 'Ai', 'Hana',
-    'Mia', 'Kira', 'Nari', 'Yuri', 'Nori',
-    'Mimi', 'Pip', 'Lily', 'Ruri', 'Poko',
-    'Luna', 'Mira', 'Coco', 'Tori', 'Rara',
-    'Hoshi', 'Momo', 'Luna', 'Nina', 'Yui'
-];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const cuteAnimeNames = [ 'Mio', 'Sakura', 'Haru', 'Momo', 'Yuki', 'Kiki', 'Chika', 'Rin', 'Neko', 'Sora', 'Luna', 'Koko', 'Miku', 'Yumi', 'Tomo', 'Fuyu', 'Aya', 'Saki', 'Momo', 'Riko', 'Kira', 'Nana', 'Maya', 'Suzu', 'Hina', 'Kane', 'Miyu', 'Riko', 'Ai', 'Hana', 'Mia', 'Kira', 'Nari', 'Yuri', 'Nori', 'Mimi', 'Pip', 'Lily', 'Ruri', 'Poko', 'Luna', 'Mira', 'Coco', 'Tori', 'Rara', 'Hoshi', 'Momo', 'Luna', 'Nina', 'Yui'];
 
 export function GET_RANDOM_NAME_COMBINATION() {
     const randomIndex1 = Math.floor(Math.random() * cuteAnimeNames.length);

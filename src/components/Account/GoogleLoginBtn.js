@@ -5,23 +5,17 @@ import { API_GOOGLE_SIGN_IN } from "./Apis";
 import { Spin } from "antd";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import { GOOGLE_AUTH_CLIENT_ID, GOOGLE_AUTH_SCOPE, GOOGLE_AUTH_URL, REDIRECT_URI } from "../../values";
 const onGoogleLoginSuccess = () => {
-  const GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";
-  const REDIRECT_URI = "auth/api/login/google/";
 
-  const scope = [
-    "https://www.googleapis.com/auth/userinfo.email",
-    "https://www.googleapis.com/auth/userinfo.profile",
-  ].join(" ");
 
   const params = {
     response_type: "code",
-    client_id:
-      "337525075460-6ltsjfmn3f0nl66q2jg3am4qr292981h.apps.googleusercontent.com",
-    redirect_uri: `http://localhost:3000/account`,
+    client_id:GOOGLE_AUTH_CLIENT_ID,
+    redirect_uri: REDIRECT_URI,
     prompt: "select_account",
     access_type: "offline",
-    scope,
+    GOOGLE_AUTH_SCOPE,
   };
 
   const urlParams = new URLSearchParams(params).toString();
