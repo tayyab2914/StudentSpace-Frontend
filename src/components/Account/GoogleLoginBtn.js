@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { GOOGLE_AUTH_CLIENT_ID, GOOGLE_AUTH_SCOPE, GOOGLE_AUTH_URL } from "../../values";
 const onGoogleLoginSuccess = () => {
-
+console.log(`${window.location.origin}${window.location.pathname}`)
   const params = {
     response_type: "code",
     client_id: GOOGLE_AUTH_CLIENT_ID,
