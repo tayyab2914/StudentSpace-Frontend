@@ -5,15 +5,13 @@ import { API_GOOGLE_SIGN_IN } from "./Apis";
 import { Spin } from "antd";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import { GOOGLE_AUTH_CLIENT_ID, GOOGLE_AUTH_SCOPE, GOOGLE_AUTH_URL, REDIRECT_URI } from "../../values";
+import { GOOGLE_AUTH_CLIENT_ID, GOOGLE_AUTH_SCOPE, GOOGLE_AUTH_URL } from "../../values";
 const onGoogleLoginSuccess = () => {
-
-
 
   const params = {
     response_type: "code",
     client_id: GOOGLE_AUTH_CLIENT_ID,
-    redirect_uri: REDIRECT_URI,
+    redirect_uri: `${window.location.origin}${window.location.pathname}`,
     prompt: "select_account",
     access_type: "offline",
     scope:GOOGLE_AUTH_SCOPE,
