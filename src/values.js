@@ -4,18 +4,10 @@ export const TESTING = true
 let DOMAIN_NAME
 let REDIRECT_URI
 
-if(PRODUCTION && TESTING)
-{
     REDIRECT_URI = 'https://student-space-frontend.vercel.app/account'
-}
-else if (PRODUCTION)
-{
-    REDIRECT_URI = 'https://studentspace.online/account'
-}
-else
-{
-    REDIRECT_URI = 'http://localhost:3000/account'
-}
+    // REDIRECT_URI = 'https://studentspace.online/account'
+    // REDIRECT_URI = 'http://localhost:3000/account'
+
 
 DOMAIN_NAME = PRODUCTION ? 'https://admin.studentspace.website':'http://127.0.0.1:8000'
 
