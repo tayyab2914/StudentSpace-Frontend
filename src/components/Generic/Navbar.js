@@ -16,6 +16,7 @@ import { Avatar, Divider, Popconfirm } from 'antd';
 import { AntDesignOutlined, UserOutlined, LogoutOutlined } from '@ant-design/icons';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLoggedIn } from '../../redux/AuthToken/Action';
+import logout from '../../assets/logout.svg'
 
 const MyNavbar = () => {
   const navigate = useNavigate();
@@ -60,9 +61,9 @@ const MyNavbar = () => {
   return (
     <>
       <div className='sticky-navbar'>
-        <div className="headline">
+        {/* <div className="headline">
           CONTACT US: <a href="mailto:studentspace.online@gmail.com">STUDENTSPACE.ONLINE@GMAIL.COM</a>
-        </div>
+        </div> */}
         <Navbar className="px-2 px-lg-5 my-navbar">
           <Container fluid>
             <Navbar.Brand onClick={() => navigate('/')}>
@@ -83,11 +84,11 @@ const MyNavbar = () => {
           </Container>
          {isLoggedIn ? 
          
-         <Popconfirm  placement="rightBottom" title="Logout" description="Are you sure you want to logout?" okText="Yes" cancelText="No" onConfirm={() => dispatch(setLoggedIn(false))}  >
-            <Avatar className="navbar-account-btn" icon={<LogoutOutlined style={{ color: 'black' }} />} />
+         windowWidth > 550 && <Popconfirm  placement="rightBottom" title="Logout" description="Are you sure you want to logout?" okText="Yes" cancelText="No" onConfirm={() => dispatch(setLoggedIn(false))}  >
+            <img src={logout} style={{height:"22px"}}/> 
         </Popconfirm>
             :
-          <Avatar className='navbar-account-btn' icon={<UserOutlined style={{ color: 'black' }} />} onClick={() => navigate('/account')} />
+          <Avatar className='navbar-account-btn' icon={<img src='https://cdn-icons-png.flaticon.com/512/2886/2886011.png'></img>}  onClick={() => navigate('/account')} />
           }
           
         </Navbar>
@@ -106,6 +107,10 @@ const MyNavbar = () => {
               <li><span className='offcanvas-data' onClick={() => handleDepartmentClick("fomm")}>Faculty of Media and Mass Communication</span></li><Divider className="my-2" />
               <li><span className='offcanvas-data' onClick={() => handleDepartmentClick("fop")}>Faculty of Pharmacy</span></li><Divider className="my-2" />
               <li><span className='offcanvas-data' onClick={() => handleDepartmentClick("fost")}>Faculty of Science and Technology</span></li><Divider className="my-2" />
+              {isLoggedIn && <Popconfirm  
+          placement="topLeft" title="Logout" description="Are you sure you want to logout?" okText="Yes" cancelText="No" onConfirm={() => dispatch(setLoggedIn(false))}  >
+            <div className='logout-btn'>  <img src={logout} style={{height:"18px",marginTop:"5px", marginRight:"10px"}} /> <span className='align-self-center'>Logout</span></div>
+        </Popconfirm>}
             </ul>
           </Offcanvas.Body>
         </Offcanvas>

@@ -6,17 +6,21 @@ import Signin from "./Signin";
 import Signup from "./Signup";
 import { Col, Row } from "antd";
 import { useSelector,useDispatch} from 'react-redux';
+import { useNavigate,useLocation } from "react-router";
 
 const Account = () => {
   const [currentMode, setCurrentMode] = useState("signin");
   const { token, isLoggedIn } = useSelector((state) => state.authToken);
+  const navigate = useNavigate()
 
-  useEffect(()=>{
-    console.log(currentMode)
-  },[])
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/");
+    }
+  }, []);
+  
   const toggleCurrentMode = (mode) => {
     setCurrentMode(mode);
-    
   };
 
   return (

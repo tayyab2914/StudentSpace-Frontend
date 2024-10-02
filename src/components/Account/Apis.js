@@ -57,6 +57,7 @@ export const API_SIGN_IN = async (
     return response.data;
   } catch (error) {
     message.error(error.response?.data?.message || "Wrong credentials");
+    return false
   } finally {
     setShowSpinner(false);
   }
