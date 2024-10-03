@@ -115,7 +115,7 @@ const MyNavbar = () => {
           </Offcanvas.Body>
         </Offcanvas>
       </div>
-      <div className="row m-0" style={{ height: "82px" }}></div>
+      <div className="row m-0" style={{ height: "72px" }}></div>
     </>
   );
 };
