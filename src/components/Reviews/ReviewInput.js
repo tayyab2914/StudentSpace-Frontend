@@ -21,14 +21,16 @@ const ReviewInput = ({ facultyData, fetch_reviews }) => {
   
   
   const handleSubmit = async (values) => {
-    if(isLoggedIn)
-    {
-        await handleSubmitReview( values, gradingFairness, leniency, subjectKnowledge, reviewText, facultyData, reviewedFaculties, setShowSpinner, dispatch, fetch_reviews, trackRating, trackReview );
-    }
-    else
-    {
-        navigate(`/account?next=/faculty/${facultyData.id}`);
-    }
+    await handleSubmitReview( values, gradingFairness, leniency, subjectKnowledge, reviewText, facultyData, reviewedFaculties, setShowSpinner, dispatch, fetch_reviews, trackRating, trackReview );
+   
+    // if(isLoggedIn)
+    // {
+    //     await handleSubmitReview( values, gradingFairness, leniency, subjectKnowledge, reviewText, facultyData, reviewedFaculties, setShowSpinner, dispatch, fetch_reviews, trackRating, trackReview );
+    // }
+    // else
+    // {
+    //     navigate(`/account?next=/faculty/${facultyData.id}`);
+    // }
 };
 
   return (
