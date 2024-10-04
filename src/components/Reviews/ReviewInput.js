@@ -21,11 +21,9 @@ const ReviewInput = ({ facultyData, fetch_reviews }) => {
   
   
   const handleSubmit = async (values) => {
-    await handleSubmitReview( values, gradingFairness, leniency, subjectKnowledge, reviewText, facultyData, reviewedFaculties, setShowSpinner, dispatch, fetch_reviews, trackRating, trackReview );
-   
     // if(isLoggedIn)
     // {
-    //     await handleSubmitReview( values, gradingFairness, leniency, subjectKnowledge, reviewText, facultyData, reviewedFaculties, setShowSpinner, dispatch, fetch_reviews, trackRating, trackReview );
+        await handleSubmitReview( values, gradingFairness, leniency, subjectKnowledge, reviewText, facultyData, reviewedFaculties, setShowSpinner, dispatch, fetch_reviews, trackRating, trackReview );
     // }
     // else
     // {
