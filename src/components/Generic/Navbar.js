@@ -82,14 +82,14 @@ const MyNavbar = () => {
               )}
             </div>
           </Container>
-         {isLoggedIn ? 
+         {/* {isLoggedIn ? 
          
          windowWidth > 550 && <Popconfirm  placement="rightBottom" title="Logout" description="Are you sure you want to logout?" okText="Yes" cancelText="No" onConfirm={() => dispatch(setLoggedIn(false))}  >
             <img src={logout} style={{height:"22px"}}/> 
         </Popconfirm>
             :
           <Avatar className='navbar-account-btn' icon={<img src='https://cdn-icons-png.flaticon.com/512/2886/2886011.png'></img>}  onClick={() => navigate('/account')} />
-          }
+          } */}
           
         </Navbar>
         <Offcanvas show={showNav} onHide={() => setShowNav(false)} placement="end">
