@@ -3,11 +3,15 @@ import { DOMAIN_NAME } from "./values";
 import { message } from "antd";
 import { trackReport } from "./analytics/analytics_invokers";
 
-export const API_GET_FACULTIES_BY_DEPARTMENT = async (setShowSpinner, name,setshowError404) => {
+export const API_GET_FACULTIES_BY_DEPARTMENT = async (
+  setShowSpinner,
+  name,
+  setshowError404
+) => {
   setShowSpinner(true);
   const formattedName = typeof name == "string" ? name.toUpperCase() : "";
 
-  console.log("HELLO")
+  console.log("HELLO");
   try {
     const response = await axios.get(
       `${DOMAIN_NAME}/feedback/faculties_by_department/`,
@@ -21,7 +25,7 @@ export const API_GET_FACULTIES_BY_DEPARTMENT = async (setShowSpinner, name,setsh
     return response.data;
   } catch (error) {
     console.log("Error fetching faculty data:", error);
-    setshowError404(true)
+    setshowError404(true);
   } finally {
     setShowSpinner(false);
   }
@@ -103,13 +107,10 @@ export const API_REPORT_REVIEW = async (id, reason) => {
       { review_id: id, reason: reason }
     );
     message.success("Your report has been recorded successfully");
-    trackReport()
+    trackReport();
     return response.data;
   } catch (error) {
   } finally {
     // setShowSpinner(false);
   }
 };
-
-
-

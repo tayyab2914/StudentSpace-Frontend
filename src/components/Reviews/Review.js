@@ -1,47 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { Popover, Menu, message, Tag } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
-import { API_REPORT_REVIEW } from '../apis';
+import { API_REPORT_REVIEW } from '../../apis';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    CheckCircleOutlined,
-    ClockCircleOutlined,
-    CloseCircleOutlined,
-    ExclamationCircleOutlined,
-    MinusCircleOutlined,
-    SyncOutlined,
-  } from '@ant-design/icons';
-// import { API_REPORT_REVIEW } from '../apis';
-import './styles/Review.css'
-import { addReportedReview } from '../redux/FacultyReviewed/Action';
+import { CheckCircleOutlined, ClockCircleOutlined, CloseCircleOutlined, ExclamationCircleOutlined, MinusCircleOutlined, SyncOutlined, } from '@ant-design/icons';
+import '../styles/Review.css'
+import { addReportedReview } from '../../redux/FacultyReviewed/Action';
+import { useNavigate,useLocation  } from 'react-router';
+
 const Review = ({ review, isScrolling}) => {
+    const navigate = useNavigate()
+    const location = useLocation()
     const [visible, setVisible] = useState(false);
     const [showReasonPrompt, setShowReasonPrompt] = useState(false);
     const reportedReviews = useSelector(state => state.facultyDataRedux.reportedReviews);
     const dispatch = useDispatch();
-    const [avatarUrl, setAvatarUrl] = useState(''); // State for storing the avatar URL
+    const { token, isLoggedIn } = useSelector((state) => state.authToken);
+    const [avatarUrl, setAvatarUrl] = useState(''); 
 
     useEffect(() => {
-        // Set the avatar URL only once, when the component mounts
         const randomNumber = Math.floor(Math.random() * 30);
         setAvatarUrl(`https://robohash.org/${randomNumber}?set=set4&size=50x50`);
-        // console.log(review)
-    }, []); // Ensure the avatar stays consistent for each unique review
+    
+    }, []); 
 
     useEffect(()=>{
+        console.log(review)
         if(isScrolling )
         {
-            
             setShowReasonPrompt(false);
             setVisible(false);  
         }
     })
-    const getAvatarUrl = () => {
-        // Generate a random number between 1 and 1000
-        const randomNumber = Math.floor(Math.random() * 100);
-        // const randomNumber2 = Math.floor(Math.random() * 5) + 1;
-        return `https://robohash.org/${randomNumber}?set=set4&size=50x50`; // Adjust `set` and `size` as needed
-    };
 
     const handleReportClick = () => {
         setShowReasonPrompt(true);
@@ -52,32 +42,32 @@ const Review = ({ review, isScrolling}) => {
         const selectedKey = e.key;
         const isReported = reportedReviews.includes(review?.id);
 
-        if (isReported) {
-          message.error("You have already reported this review?.");
-        }
-        else
-        {
-            if (showReasonPrompt) {
-                const reasons = {
-                    reason1: 'Inappropriate Content',
-                    reason2: 'Spam',
-                    reason3: 'Harassment',
-                    reason4: 'False Information',
-                };
-        
-                const selectedReason = reasons[selectedKey];
-        
-                
-                await API_REPORT_REVIEW(review?.id, selectedReason);
-                dispatch(addReportedReview(review?.id));
-        
-                setShowReasonPrompt(false);
-                setVisible(false);  
-            } else {
-                // console.log(`Selected option: ${selectedKey}`);
-                setVisible(false); 
+        if(isLoggedIn)
+            {
+                if (showReasonPrompt) {
+                    const reasons = {
+                        reason1: 'Inappropriate Content',
+                        reason2: 'Spam',
+                        reason3: 'Harassment',
+                        reason4: 'False Information',
+                    };
+            
+                    const selectedReason = reasons[selectedKey];
+            
+                    
+                    await API_REPORT_REVIEW(review?.id, selectedReason);
+                    dispatch(addReportedReview(review?.id));
+            
+                    setShowReasonPrompt(false);
+                    setVisible(false);  
+                } else {
+                    setVisible(false); 
+                }
             }
-        }
+            else
+            {
+                navigate(`/account?next=${location.pathname}`);
+            }
     };
     
     const reasonPrompt = (
@@ -120,11 +110,7 @@ const Review = ({ review, isScrolling}) => {
                     </p>
                 </div>
             </div>
-            <div style={{
-                position: 'absolute',
-                top: '10px',
-                right: '10px',
-            }} >
+           {!review?.is_blocked && <div style={{ position: 'absolute', top: '10px', right: '10px', }} >
                 <Popover
                     content={showReasonPrompt ? reasonPrompt : <span onClick={handleReportClick} className='report-btn'>Report</span>}
                     trigger="click"
@@ -140,7 +126,7 @@ const Review = ({ review, isScrolling}) => {
                 >
                     <EllipsisOutlined rotate={90} onClick={() => setVisible(!visible)} />
                 </Popover>
-            </div>
+            </div>}
         </div>
     );
 };

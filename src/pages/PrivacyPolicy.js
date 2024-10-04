@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 // import { PRIVACY_POLICY_TEXT } from "../values/Text";
 import styles from "./styles/InfoPages.module.css";
-import MyNavbar from "../components/Navbar";
 import { Breadcrumb, Divider, Spin } from "antd";
-import { PRIVACY_POLICY_TEXT } from "../components/Text";
-import { accent_color } from "../components/Colors";
+import MyNavbar from "../components/Generic/Navbar";
+
+import Footer from "../components/Generic/Footer";
+import { accent_color } from "../components/Generic/Colors";
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/Footer";
 
 const PrivacyPolicy = () => {
   const navigate = useNavigate();

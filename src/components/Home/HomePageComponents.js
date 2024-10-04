@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Parallax } from "react-parallax";
-import SearchBar from "./SearchBar";
-import { API_SEARCH_FACULTY } from "../apis";
-import "./styles/HomePageComponents.css";
+import SearchBar from "../Generic/SearchBar";
+import { API_SEARCH_FACULTY } from "../../apis";
+import "../styles/HomePageComponents.css";
 import { Card,Divider } from "antd";
 
 // Image URLs

@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Card, Rate } from "antd";
-import "./styles/FacultyCard.css";
+import "../styles/FacultyCard.css";
 import { useNavigate } from "react-router-dom";
-import { formatRating } from "../values";
+import { formatRating } from "../../values";
 
 const { Meta } = Card;
 

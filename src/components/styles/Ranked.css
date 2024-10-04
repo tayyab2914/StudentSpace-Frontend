@@ -108,6 +108,7 @@
   }
   .card {
     padding: 0rem 20px 10px 20px;
+    height: 190px !important;
   }
   .card-content {
     margin-top: 40px;
@@ -120,4 +121,5 @@
     display: flex;
     justify-content: center;
   }
+
 }

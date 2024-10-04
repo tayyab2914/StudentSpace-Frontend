@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import MyNavbar from "../components/Navbar";
+import MyNavbar from "../components/Generic/Navbar";
 import { API_GET_FACULTIES_BY_DEPARTMENT } from "../apis";
 import { Divider, Spin, Row, Col, Breadcrumb } from "antd";
-import FacultyCard from "../components/FacultyCard";
+import FacultyCard from "../components/Faculty/FacultyCard";
 import { getFacultyName } from "../values";
-import { accent_color } from "../components/Colors";
-import Shimmer from "../components/Shimmer";
+import { accent_color } from "../components/Generic/Colors";
+import Shimmer from "../components/Generic/Shimmer";
 import { useNavigate } from "react-router-dom";
 import image404 from '../assets/404.svg'
-import Footer from "../components/Footer";
+import Footer from "../components/Generic/Footer";
 
 const Department = () => {
   const { department_name } = useParams();

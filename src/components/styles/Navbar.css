@@ -10,6 +10,20 @@
   width: 100vw;
   
 }
+.navbar-account-btn{
+    background-color: white;
+
+}
+.logout-btn{
+    display: flex;
+    /* justify-content: space-between; */
+}
+.navbar-account-btn{
+    font-size: 22px !important;
+}
+.navbar-account-btn:hover{
+    cursor: pointer;
+}
 .searchbar input{
     height: 35px;
     border: 1px solid rgb(81, 81, 81) !important;

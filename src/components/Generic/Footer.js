@@ -1,6 +1,6 @@
 import React from "react";
-import "./styles/Footer.css"; // Import the CSS file
-import logo from "../assets/logo.svg";
+import "../styles/Footer.css"; // Import the CSS file
+import logo from "../../assets/logo.svg";
 import { useNavigate } from "react-router";
 
 const Footer = () => {

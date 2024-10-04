@@ -1,6 +1,6 @@
 import React from "react";
 import { Progress } from "antd"; // Import Progress component from Ant Design
-import "./styles/ReviewRatings.css";
+import "../styles/ReviewRatings.css";
 
 const ReviewRatings = ({ rating_grading_fairness, rating_leniency, rating_subject_knowledge }) => {
 

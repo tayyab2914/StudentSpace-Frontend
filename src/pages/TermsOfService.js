@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import styles from "./styles/InfoPages.module.css";
-import MyNavbar from "../components/Navbar";
 import { Breadcrumb } from "antd";
-import { accent_color } from "../components/Colors";
+import MyNavbar from "../components/Generic/Navbar";
+
+import Footer from "../components/Generic/Footer";
+import { accent_color } from "../components/Generic/Colors";
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/Footer";
 
 const TermsOfService = () => {
   const navigate = useNavigate();
