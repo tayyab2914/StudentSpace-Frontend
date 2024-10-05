@@ -42,8 +42,8 @@ const Review = ({ review, isScrolling}) => {
         const selectedKey = e.key;
         const isReported = reportedReviews.includes(review?.id);
 
-        // if(isLoggedIn)
-        //     {
+        if(isLoggedIn)
+            {
                 if (showReasonPrompt) {
                     const reasons = {
                         reason1: 'Inappropriate Content',
@@ -63,11 +63,11 @@ const Review = ({ review, isScrolling}) => {
                 } else {
                     setVisible(false); 
                 }
-            // }
-            // else
-            // {
-            //     navigate(`/account?next=${location.pathname}`);
-            // }
+            }
+            else
+            {
+                navigate(`/account?next=${location.pathname}`);
+            }
     };
     
     const reasonPrompt = (
