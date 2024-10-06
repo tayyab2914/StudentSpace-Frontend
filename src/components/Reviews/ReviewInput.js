@@ -23,11 +23,11 @@ const ReviewInput = ({ facultyData, fetch_reviews }) => {
   const handleSubmit = async (values) => {
     if(isLoggedIn)
     {
-        await handleSubmitReview( values, gradingFairness, leniency, subjectKnowledge, reviewText, facultyData, reviewedFaculties, setShowSpinner, dispatch, fetch_reviews, trackRating, trackReview );
+        await handleSubmitReview(  gradingFairness, leniency, subjectKnowledge, reviewText, facultyData?.id,  setShowSpinner,  fetch_reviews, trackRating, trackReview,token );
     }
     else
     {
-        navigate(`/account?next=/faculty/${facultyData.id}`);
+        navigate(`/account?next=/faculty/${facultyData.id}&leniency=${leniency}&subjectKnowledge=${subjectKnowledge}&gradingFairness=${gradingFairness}&reviewText=${reviewText}`);
     }
 };
 

@@ -1,5 +1,7 @@
 // analytics.js
 
+import { message } from "antd";
+
 // Ensure gtag is available
 export function ensureGtag() {
     if (!window.gtag) {
@@ -63,7 +65,7 @@ export function ensureGtag() {
         });
       }
     } else {
-      console.error("Rating must be between 1 and 5");
+    //   message.error("Rating must be between 1 and 5");
     }
   }
   

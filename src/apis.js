@@ -81,30 +81,44 @@ export const API_SEARCH_FACULTY = async (setShowSpinner, name) => {
   }
 };
 
-export const API_SUBMIT_REVIEW = async (setShowSpinner, reviewData) => {
+export const API_SUBMIT_REVIEW = async (setShowSpinner, reviewData, token) => {
   setShowSpinner(true);
+  console.log(reviewData, token);
 
   try {
     const response = await axios.post(
       `${DOMAIN_NAME}/feedback/submit_review/`,
-      reviewData
+      reviewData,
+      {
+        headers: {
+          Authorization: token,
+          "Content-Type": "multipart/form-data",
+        },
+      }
     );
 
     message.success("Review Submitted Successfully");
     return response.data;
   } catch (error) {
-    message.error(error?.response?.data?.error);
+    if (error?.response?.data) message.error(error?.response?.data?.error);
+    else message.error("Rating must be between 1 and 5");
   } finally {
     setShowSpinner(false);
     //   window.location.reload()
   }
 };
 
-export const API_REPORT_REVIEW = async (id, reason) => {
+export const API_REPORT_REVIEW = async (id, reason, token) => {
   try {
     const response = await axios.post(
       `${DOMAIN_NAME}/feedback/report_review/`,
-      { review_id: id, reason: reason }
+      { review_id: id, reason: reason },
+      {
+        headers: {
+          Authorization: token,
+          "Content-Type": "multipart/form-data",
+        },
+      }
     );
     message.success("Your report has been recorded successfully");
     trackReport();

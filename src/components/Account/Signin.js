@@ -19,15 +19,23 @@ const Signin = ({ toggleCurrentMode }) => {
 
 
   const handleSignIn = async (email, password) => {
-    console.log(email,password)
     const response = await API_SIGN_IN(email, password,dispatch,navigate,setShowSpinner);
     if(response){
         const searchParams = new URLSearchParams(location.search);
         const next = searchParams.get('next'); 
-        console.log(next)
-        if (next) {
-            navigate(next); 
-        } else {
+        const leniency = searchParams.get('leniency');
+        const subjectKnowledge = searchParams.get('subjectKnowledge');
+        const gradingFairness = searchParams.get('gradingFairness');
+        const reviewText = searchParams.get('reviewText');
+        
+        //!if the user has next and liniency then it means he has to submit review 
+        if (next && leniency) {
+            navigate(`${next}?leniency=${leniency}&subjectKnowledge=${subjectKnowledge}&gradingFairness=${gradingFairness}&reviewText=${reviewText}`);
+        } else if (next)
+        {
+                navigate(next)
+        }
+            else {
             navigate('/');
         }
     }
