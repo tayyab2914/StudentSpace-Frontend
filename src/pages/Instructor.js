@@ -36,6 +36,7 @@ const Instructor = () => {
     
         // Use URLSearchParams to parse the query parameters
         const searchParams = new URLSearchParams(location.search);
+        const next = searchParams.get('next');
         const leniency = searchParams.get('leniency');
         const subjectKnowledge = searchParams.get('subjectKnowledge');
         const gradingFairness = searchParams.get('gradingFairness');
@@ -44,6 +45,7 @@ const Instructor = () => {
         if(leniency)
             {
                 await handleSubmitReview( gradingFairness, leniency, subjectKnowledge, reviewText, instructor_id,  setShowSpinner, fetch_reviews, trackRating, trackReview,token );
+                navigate(next)
             }
     }
 useEffect(()=>{
