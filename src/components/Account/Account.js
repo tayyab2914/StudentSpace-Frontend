@@ -19,6 +19,10 @@ const Account = () => {
     }
   }, []);
   
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+  
   const toggleCurrentMode = (mode) => {
     setCurrentMode(mode);
   };
