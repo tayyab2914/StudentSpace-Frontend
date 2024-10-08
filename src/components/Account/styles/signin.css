@@ -17,9 +17,10 @@
 
 .signin-form {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  margin: 100px 40px !important;
+  margin: 60px 40px !important;
   padding: 40px;
   width: 70%;
+  border-radius: 15px;
 }
 
 /* Container Flex Alignment */
