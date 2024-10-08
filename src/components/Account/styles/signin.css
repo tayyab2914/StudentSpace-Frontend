@@ -21,7 +21,7 @@
   padding: 40px;
   width: 70%;
   border-radius: 15px;
-}v
+}
 
 /* Container Flex Alignment */
 .form-container {
@@ -54,6 +54,9 @@
 @media screen and (max-width: 768px) {
   .logo-container {
     display: none;
+  }
+  .signin-form {
+    margin: 60px 0px !important;
   }
 }
 
