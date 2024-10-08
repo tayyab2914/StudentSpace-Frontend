@@ -25,7 +25,6 @@ const Review = ({ review, isScrolling}) => {
     }, []); 
 
     useEffect(()=>{
-        console.log(review)
         if(isScrolling )
         {
             setShowReasonPrompt(false);
@@ -42,8 +41,8 @@ const Review = ({ review, isScrolling}) => {
         const selectedKey = e.key;
         const isReported = reportedReviews.includes(review?.id);
 
-        // if(isLoggedIn)
-        //     {
+        if(isLoggedIn)
+            {
                 if (showReasonPrompt) {
                     const reasons = {
                         reason1: 'Inappropriate Content',
@@ -55,7 +54,7 @@ const Review = ({ review, isScrolling}) => {
                     const selectedReason = reasons[selectedKey];
             
                     
-                    await API_REPORT_REVIEW(review?.id, selectedReason);
+                    await API_REPORT_REVIEW(review?.id, selectedReason,token);
                     dispatch(addReportedReview(review?.id));
             
                     setShowReasonPrompt(false);
@@ -63,11 +62,11 @@ const Review = ({ review, isScrolling}) => {
                 } else {
                     setVisible(false); 
                 }
-            // }
-            // else
-            // {
-            //     navigate(`/account?next=${location.pathname}`);
-            // }
+            }
+            else
+            {
+                navigate(`/account?next=${location.pathname}`);
+            }
     };
     
     const reasonPrompt = (

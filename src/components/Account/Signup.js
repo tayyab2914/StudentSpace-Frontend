@@ -5,11 +5,14 @@ import { API_SEND_VERIFICATION_EMAIL, API_SIGN_UP } from "./Apis";
 import SignUpForm from './SignUpForm';
 import AuthenticateVerification from './AuthenticateVerification';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate,useLocation } from "react-router";
 import { setLoggedIn } from "../../redux/AuthToken/Action";
 
 
 const SignUp = ({ toggleCurrentMode }) => {
   const dispatch = useDispatch()
+  const location = useLocation();
+  const navigate = useNavigate()
   const [Email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
   const [VerificationCode, setVerificationCode] = useState('');
@@ -28,9 +31,28 @@ const SignUp = ({ toggleCurrentMode }) => {
     setCodeToken(response)
   };
 
-  const handleVerification = (code) => {
+  const handleVerification = async (code) => {
     setVerificationCode(code);
-    API_SIGN_UP(Email,Password,code,CodeToken,dispatch,setShowSpinner)
+    const response = await API_SIGN_UP(Email,Password,code,CodeToken,dispatch,setShowSpinner)
+    if(response){
+        const searchParams = new URLSearchParams(location.search);
+        const next = searchParams.get('next'); 
+        const leniency = searchParams.get('leniency');
+        const subjectKnowledge = searchParams.get('subjectKnowledge');
+        const gradingFairness = searchParams.get('gradingFairness');
+        const reviewText = searchParams.get('reviewText');
+        
+        //!if the user has next and liniency then it means he has to submit review 
+        if (next && leniency) {
+            navigate(`${next}?leniency=${leniency}&subjectKnowledge=${subjectKnowledge}&gradingFairness=${gradingFairness}&reviewText=${reviewText}`);
+        } else if (next)
+        {
+                navigate(next)
+        }
+            else {
+            navigate('/');
+        }
+    }
   };
 
   const handleSignInToggle = () => {
@@ -38,17 +60,17 @@ const SignUp = ({ toggleCurrentMode }) => {
   };
 
   return (
-    <div>
+    <div >
       {ShowSpinner && <Spin fullscreen/>}
       <Row gutter={24}>
-        <Col xs={24} md={12} className="form-container">
+        <Col xs={24} md={12} className="form-container" data-aos="fade-right">
           {!showVerificationComponent ? (
             <SignUpForm handleSignUp={handleSignUp} handleSignInToggle={handleSignInToggle} />
           ) : (
             <AuthenticateVerification handleVerification={handleVerification} />
           )}
         </Col>
-        <Col span={12} className="logo-container">
+        <Col span={12} className="logo-container"  data-aos="fade-left">
           <img src={accountImage} alt="Account Logo" />
         </Col>
       </Row>

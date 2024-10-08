@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MyNavbar from "../components/Generic/Navbar";
-import { useParams } from "react-router-dom"; // Import useParams
+import { useLocation, useParams } from "react-router-dom"; // Import useParams
 import { Rate, Spin, List, message, Tooltip, Breadcrumb } from "antd";
 import { API_GET_FACULTY_REVIEWS } from "../apis";
 import "./styles/Instructor.css";
@@ -11,12 +11,17 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../components/Generic/Footer";
 import ReviewRatings from "../components/Reviews/ReviewRatings";
 import image404 from '../assets/404.svg'
+import { useDispatch, useSelector } from 'react-redux';
+import { trackRating, trackReview } from "../analytics/analytics_invokers";
+import { handleSubmitReview } from "../components/Reviews/Functionality";
 
 const Instructor = () => {
+    const location = useLocation();
   const { instructor_id } = useParams(); // Extract instructor_id
   const [ShowSpinner, setShowSpinner] = useState(false);
   const [reviews, setReviews] = useState([]);
   const [facultyInfo, setFacultyInfo] = useState(null);
+  const { token, isLoggedIn } = useSelector((state) => state.authToken);
   const [isScrolling, setIsScrolling] = useState(false);
   const navigate = useNavigate()
   const [showError404, setshowError404] = useState(false);
@@ -26,14 +31,36 @@ const Instructor = () => {
     const [averageSubjectKnowledge, setAverageSubjectKnowledge] = useState(0);
 
 
+
+    const submit_review = async() => {
+    
+        // Use URLSearchParams to parse the query parameters
+        const searchParams = new URLSearchParams(location.search);
+        const next = searchParams.get('next');
+        const leniency = searchParams.get('leniency');
+        const subjectKnowledge = searchParams.get('subjectKnowledge');
+        const gradingFairness = searchParams.get('gradingFairness');
+        const reviewText = searchParams.get('reviewText');
+        console.log("HELO")
+        if(leniency)
+            {
+                await handleSubmitReview( gradingFairness, leniency, subjectKnowledge, reviewText, instructor_id,  setShowSpinner, fetch_reviews, trackRating, trackReview,token );
+                navigate(next)
+            }
+    }
 useEffect(()=>{
     window.scrollTo({ top: 0,behavior: 'smooth'});
+
+    submit_review() //! works if query param has linienecy
+    
+
 },[])
   const fetch_reviews = async () => {
     try {
       const response = await API_GET_FACULTY_REVIEWS(setShowSpinner, instructor_id); // Use instructor_id
       setReviews(response.reviews.reverse());
       setFacultyInfo(response.faculty);
+      console.log(response)
     
       // Use the helper function to calculate averages
       const averages = calculateAverageRatings(response.reviews);

@@ -4,7 +4,7 @@ import MyNavbar from "../Generic/Navbar";
 import Footer from "../Generic/Footer";
 import Signin from "./Signin";
 import Signup from "./Signup";
-import { Col, Row } from "antd";
+import { Col, message, notification, Row } from "antd";
 import { useSelector,useDispatch} from 'react-redux';
 import { useNavigate,useLocation } from "react-router";
 
@@ -17,7 +17,17 @@ const Account = () => {
     if (isLoggedIn) {
       navigate("/");
     }
+
+    notification.info({
+      message: <b>Privacy Notice</b>,
+      description: 'Rest easy, your identity remains completely anonymous—your privacy is our priority! 😊',
+      placement: 'topRight',
+    });
   }, []);
+  
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
   
   const toggleCurrentMode = (mode) => {
     setCurrentMode(mode);

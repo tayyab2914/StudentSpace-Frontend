@@ -5,33 +5,33 @@ import { API_SUBMIT_REVIEW } from '../../apis';
 import { trackReview } from '../../analytics/analytics_invokers';
  // Import necessary actions
 
-export const handleSubmitReview = async ( values, gradingFairness, leniency, subjectKnowledge, reviewText, facultyData, reviewedFaculties, setShowSpinner, dispatch, fetch_reviews, trackRating, trackRevie ) => {
+export const handleSubmitReview = async ( gradingFairness, leniency, subjectKnowledge, reviewText, facultyId, setShowSpinner, fetch_reviews, trackRating, trackReview,token ) => {
   
     if (gradingFairness === 0 || leniency === 0 || subjectKnowledge === 0) {
     message.error("Please rate all categories before submitting.");
     return;
   }
 
-  const isReviewed = reviewedFaculties.includes(facultyData.id);
+//   const isReviewed = reviewedFaculties.includes(facultyData.id);
 
 //   if (isReviewed) {
 //     message.error("You have already reviewed this faculty.");
 //   } else {
     const studentName = GET_RANDOM_NAME_COMBINATION();
     const reviewData = {
-      faculty_id: facultyData.id,
+      faculty_id: +facultyId,
       student_name: studentName,
-      rating_grading_fairness: gradingFairness,
-      rating_leniency: leniency,
-      rating_subject_knowledge: subjectKnowledge,
+      rating_grading_fairness: +gradingFairness,
+      rating_leniency: +leniency,
+      rating_subject_knowledge: +subjectKnowledge,
       review_text: reviewText,
     };
 
     setShowSpinner(true);
 
     try {
-      await API_SUBMIT_REVIEW(setShowSpinner, reviewData);
-      dispatch(addToFacultyReviewed(facultyData.id));
+      await API_SUBMIT_REVIEW(setShowSpinner, reviewData,token);
+    //   dispatch(addToFacultyReviewed(facultyData.id));
       fetch_reviews();
       trackRating(reviewData.rating_grading_fairness);
       trackRating(reviewData.rating_leniency);
