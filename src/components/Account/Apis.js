@@ -143,12 +143,13 @@ export const API_SET_NEW_PASSWORD = async (
   }
 };
 
-export const API_GOOGLE_SIGN_IN = async (authCode,dispatch,navigate, setShowSpinner) => {
+export const API_GOOGLE_SIGN_IN = async (authCode,dispatch,navigate, setShowSpinner,redirect_uri) => {
   setShowSpinner(true);
   try {
     const response = await axios.get(`${DOMAIN_NAME}/auth/google_signin/`, {
       params: {
         code: authCode,
+        redirect_uri:redirect_uri
       },
     });
 

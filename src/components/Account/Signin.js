@@ -42,9 +42,9 @@ const Signin = ({ toggleCurrentMode }) => {
   };
 
   return (
-    <div>
+    <div data-aos="fade-up">
       <Row gutter={24}>
-        <Col xs={24} md={12} className="form-container">
+        <Col xs={24} md={12} className="form-container" data-aos="fade-right">
           {!ShowForgotPassword ? (
             <SigninForm
               handleSignIn={handleSignIn}
@@ -55,7 +55,7 @@ const Signin = ({ toggleCurrentMode }) => {
             <ForgotPassword setShowForgotPassword={setShowForgotPassword}/>
           )}
         </Col>
-        <Col span={12} className="logo-container">
+        <Col span={12} className="logo-container" data-aos="fade-left">
           <img src={accountImage} alt="Account Logo" />
         </Col>
       </Row>
