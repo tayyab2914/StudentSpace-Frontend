@@ -50,9 +50,10 @@ export const API_SIGN_IN = async (
     });
 
     // Handle login token
+    
     dispatch(setAuthToken(response.data.token));
     dispatch(setLoggedIn(true));
-    navigate('/');
+    // navigate('/');
     message.success("Signed in successfully");
     return response.data;
   } catch (error) {
@@ -174,11 +175,8 @@ export const API_TEST_TOKEN = async (token, setShowSpinner) => {
       },
     });
 
-    // message.success("Token is valid");
-    return response.data;
+    return true;
   } catch (error) {
-    // message.error("Invalid or expired token");
-    
     return false
   } finally {
     // setShowSpinner(false);

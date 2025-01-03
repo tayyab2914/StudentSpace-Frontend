@@ -2,10 +2,13 @@
 
 import { SET_AUTH_TOKEN, REMOVE_AUTH_TOKEN, SET_LOGGED_IN } from './Types';
 
-export const setAuthToken = (token) => ({
-  type: SET_AUTH_TOKEN,
-  payload: token,
-});
+export const setAuthToken = (token) => {
+    console.log("AUTH TOKEN : ", token)
+    return {
+        type: SET_AUTH_TOKEN,
+        payload: token,
+      }
+};
 
 export const removeAuthToken = () => ({
   type: REMOVE_AUTH_TOKEN,

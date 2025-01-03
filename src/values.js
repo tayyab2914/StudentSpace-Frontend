@@ -11,7 +11,7 @@ let REDIRECT_URI
 // FRONTEND_DOMAIN_NAME = 'https://studentspace.online'
 // REDIRECT_URI = 'http://localhost:3000/account'
 // FRONTEND_DOMAIN_NAME = 'http://localhost:3000'
- 
+
 
 DOMAIN_NAME = PRODUCTION ? 'https://admin.studentspace.website':'http://127.0.0.1:8000'
 REDIRECT_URI = PRODUCTION ? 'https://studentspace.online/account':'http://localhost:3000/account'
