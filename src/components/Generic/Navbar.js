@@ -35,6 +35,7 @@ const MyNavbar = () => {
     }
 }
   useEffect(() => {
+    
     test_token()
 
     const handleResize = () => {
