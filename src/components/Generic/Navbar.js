@@ -31,11 +31,11 @@ const MyNavbar = () => {
     if(!response)
     {
         dispatch(setLoggedIn(false))
-        navigate('/account')
+        // navigate('/account')
     }
 }
   useEffect(() => {
-    
+
     test_token()
 
     const handleResize = () => {
