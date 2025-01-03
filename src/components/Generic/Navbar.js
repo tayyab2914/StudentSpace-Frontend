@@ -15,7 +15,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Avatar, Divider, Popconfirm } from 'antd';
 import { AntDesignOutlined, UserOutlined, LogoutOutlined } from '@ant-design/icons';
 import { useSelector, useDispatch } from 'react-redux';
-import { setLoggedIn } from '../../redux/AuthToken/Action';
+import { setAuthToken, setLoggedIn } from '../../redux/AuthToken/Action';
 import logout from '../../assets/logout.svg'
 import { API_TEST_TOKEN } from '../Account/Apis';
 
@@ -31,11 +31,12 @@ const MyNavbar = () => {
     if(!response)
     {
         dispatch(setLoggedIn(false))
-        navigate('/account')
+        dispatch(setAuthToken(null))
+        // navigate('/account')
     }
 }
   useEffect(() => {
-    
+
     test_token()
 
     const handleResize = () => {
