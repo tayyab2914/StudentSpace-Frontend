@@ -17,6 +17,7 @@ import { AntDesignOutlined, UserOutlined, LogoutOutlined } from '@ant-design/ico
 import { useSelector, useDispatch } from 'react-redux';
 import { setLoggedIn } from '../../redux/AuthToken/Action';
 import logout from '../../assets/logout.svg'
+import { API_TEST_TOKEN } from '../Account/Apis';
 
 const MyNavbar = () => {
   const navigate = useNavigate();
@@ -25,7 +26,17 @@ const MyNavbar = () => {
   const { token, isLoggedIn } = useSelector((state) => state.authToken);
   const [showNav, setShowNav] = useState(false);
 
+  const test_token = async()=>{
+    const response = await API_TEST_TOKEN(token,null)
+    if(!response)
+    {
+        dispatch(setLoggedIn(false))
+        navigate('/account')
+    }
+}
   useEffect(() => {
+    test_token()
+
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };

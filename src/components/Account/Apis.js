@@ -166,19 +166,21 @@ export const API_GOOGLE_SIGN_IN = async (authCode,dispatch,navigate, setShowSpin
 };
 
 export const API_TEST_TOKEN = async (token, setShowSpinner) => {
-  setShowSpinner(true);
+//   setShowSpinner(true);
   try {
     const response = await axios.get(`${DOMAIN_NAME}/auth/test_token/`, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `${token}`,
       },
     });
 
     message.success("Token is valid");
     return response.data;
   } catch (error) {
-    message.error("Invalid or expired token");
+    // message.error("Invalid or expired token");
+    
+    return false
   } finally {
-    setShowSpinner(false);
+    // setShowSpinner(false);
   }
 };
