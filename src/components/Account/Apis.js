@@ -174,7 +174,7 @@ export const API_TEST_TOKEN = async (token, setShowSpinner) => {
       },
     });
 
-    message.success("Token is valid");
+    // message.success("Token is valid");
     return response.data;
   } catch (error) {
     // message.error("Invalid or expired token");
