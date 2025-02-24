@@ -138,7 +138,9 @@ useEffect(()=>{
                     <span onClick={() => {
                         message.success("Link copied successfully")
                         setisLinkCopied(true)
-                        navigator.clipboard.writeText(window.location.href)}}>
+                        const modifiedUrl = window.location.href.replace(window.location.hostname, 'studentspace.website');
+                        navigator.clipboard.writeText(modifiedUrl);
+                        }}>
                         <i className="fa-regular fa-copy copy-icon me-3 " ></i>
                     </span>
                 </Tooltip>
