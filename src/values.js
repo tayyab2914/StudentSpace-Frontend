@@ -1,27 +1,39 @@
-export const PRODUCTION = true;
-export const TESTING = true
+// export const PRODUCTION = true;
+// export const TESTING = true
 
-let DOMAIN_NAME
-let FRONTEND_DOMAIN_NAME
-let REDIRECT_URI
+// let DOMAIN_NAME
+// let FRONTEND_DOMAIN_NAME
+// let REDIRECT_URI
 
-// REDIRECT_URI = 'https://student-space-frontend.vercel.app/account'
-// FRONTEND_DOMAIN_NAME = 'https://student-space-frontend.vercel.app'
-// REDIRECT_URI = 'https://studentspace.online/account'
-// FRONTEND_DOMAIN_NAME = 'https://studentspace.online'
-// REDIRECT_URI = 'http://localhost:3000/account'
-// FRONTEND_DOMAIN_NAME = 'http://localhost:3000'
+// // REDIRECT_URI = 'https://student-space-frontend.vercel.app/account'
+// // FRONTEND_DOMAIN_NAME = 'https://student-space-frontend.vercel.app'
+// // REDIRECT_URI = 'https://studentspace.online/account'
+// // FRONTEND_DOMAIN_NAME = 'https://studentspace.online'
+// // REDIRECT_URI = 'http://localhost:3000/account'
+// // FRONTEND_DOMAIN_NAME = 'http://localhost:3000'
 
 
-DOMAIN_NAME = PRODUCTION ? 'https://admin.studentspace.website':'http://127.0.0.1:8000'
-REDIRECT_URI = PRODUCTION ? 'https://studentspace.online/account':'http://localhost:3000/account'
-FRONTEND_DOMAIN_NAME = PRODUCTION ? 'https://studentspace.online.app':'http://localhost:3000'
+// DOMAIN_NAME = PRODUCTION ? 'https://admin.studentspace.website':'http://127.0.0.1:8000'
+// REDIRECT_URI = PRODUCTION ? 'https://studentspace.online/account':'http://localhost:3000/account'
+// FRONTEND_DOMAIN_NAME = PRODUCTION ? 'https://studentspace.online.app':'http://localhost:3000'
 
-const GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";
-const GOOGLE_AUTH_CLIENT_ID = "337525075460-6ltsjfmn3f0nl66q2jg3am4qr292981h.apps.googleusercontent.com"
-const GOOGLE_AUTH_SCOPE = [ "https://www.googleapis.com/auth/userinfo.email", "https://www.googleapis.com/auth/userinfo.profile",  ].join(" ");
+// const GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";
+// const GOOGLE_AUTH_CLIENT_ID = "337525075460-6ltsjfmn3f0nl66q2jg3am4qr292981h.apps.googleusercontent.com"
 
-export {  DOMAIN_NAME, GOOGLE_AUTH_URL,GOOGLE_AUTH_CLIENT_ID ,GOOGLE_AUTH_SCOPE,REDIRECT_URI};
+// export {  DOMAIN_NAME, GOOGLE_AUTH_URL,GOOGLE_AUTH_CLIENT_ID ,GOOGLE_AUTH_SCOPE,REDIRECT_URI};
+
+
+export const PRODUCTION = process.env.REACT_APP_PRODUCTION === "true";
+export const TESTING = process.env.REACT_APP_TESTING === "true";
+
+export const DOMAIN_NAME = process.env.REACT_APP_BACKEND_DOMAIN_NAME;
+export const FRONTEND_DOMAIN_NAME = process.env.REACT_APP_FRONTEND_DOMAIN_NAME;
+export const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI;
+
+export const GOOGLE_AUTH_CLIENT_ID = process.env.REACT_APP_GOOGLE_AUTH_CLIENT_ID;
+export const GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";
+export const GOOGLE_AUTH_SCOPE = [ "https://www.googleapis.com/auth/userinfo.email", "https://www.googleapis.com/auth/userinfo.profile",  ].join(" ");
+
 
 
 
