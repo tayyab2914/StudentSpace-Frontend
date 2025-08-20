@@ -87,7 +87,7 @@ const PopularFaculty = () => {
                   <div className="row m-0 justify-content-center">
                     {group.map((faculty) => (
                       <div
-                        key={faculty.id}
+                        key={faculty.slug}
                         className="col-6 col-md-4 col-xl-3 p-1 p-md-3"
                       >
                         <FacultyCard data={faculty} />

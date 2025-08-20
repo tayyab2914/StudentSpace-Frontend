@@ -17,7 +17,8 @@ import { handleSubmitReview } from "../components/Reviews/Functionality";
 
 const Instructor = () => {
     const location = useLocation();
-  const { instructor_id } = useParams(); // Extract instructor_id
+  // const { instructor_id } = useParams(); // Extract instructor_id
+  const { slug } = useParams(); // Extract instructor_id
   const [ShowSpinner, setShowSpinner] = useState(false);
   const [reviews, setReviews] = useState([]);
   const [facultyInfo, setFacultyInfo] = useState(null);
@@ -44,7 +45,7 @@ const Instructor = () => {
         console.log("HELO")
         if(leniency)
             {
-                await handleSubmitReview( gradingFairness, leniency, subjectKnowledge, reviewText, instructor_id,  setShowSpinner, fetch_reviews, trackRating, trackReview,token );
+                await handleSubmitReview( gradingFairness, leniency, subjectKnowledge, reviewText, slug,  setShowSpinner, fetch_reviews, trackRating, trackReview,token );
                 navigate(next)
             }
     }
@@ -57,7 +58,7 @@ useEffect(()=>{
 },[])
   const fetch_reviews = async () => {
     try {
-      const response = await API_GET_FACULTY_REVIEWS(setShowSpinner, instructor_id); // Use instructor_id
+      const response = await API_GET_FACULTY_REVIEWS(setShowSpinner, slug); // Use instructor_id
       setReviews(response.reviews.reverse());
       setFacultyInfo(response.faculty);
       console.log(response)
@@ -76,7 +77,7 @@ useEffect(()=>{
 
   useEffect(() => {
     fetch_reviews();
-  }, [instructor_id]); // Fetch data whenever the instructor_id changes
+  }, [slug]); // Fetch data whenever the instructor_id changes
 
   // Handle scroll event
   useEffect(() => {
@@ -138,7 +139,8 @@ useEffect(()=>{
                     <span onClick={() => {
                         message.success("Link copied successfully")
                         setisLinkCopied(true)
-                        const modifiedUrl = window.location.href.replace(window.location.hostname, 'studentspace.website');
+                        // const modifiedUrl = window.location.href.replace(window.location.hostname, 'studentspace.website');
+                        const modifiedUrl = window.location.href;
                         navigator.clipboard.writeText(modifiedUrl);
                         }}>
                         <i className="fa-regular fa-copy copy-icon me-3 " ></i>

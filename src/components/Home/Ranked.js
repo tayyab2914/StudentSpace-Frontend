@@ -23,9 +23,9 @@ const Ranked = ({ data }) => {
         <div className="row m-0 px-0 justify-content-center">
           {data.map((faculty, index) => (
             <div
-              key={faculty.id}
+              key={faculty.slug}
               className="col-6 col-md-4 col-xl-3 p-1 p-md-3"
-              onClick={() => navigate(`/faculty/${faculty.id}`)}
+              onClick={() => navigate(`/faculty/${faculty.slug}`)}
       data-aos="fade-up"
             >
               <div className="top-review-container">
@@ -33,7 +33,7 @@ const Ranked = ({ data }) => {
                   <div className="card">
                     <div className="image-container">
                       <img
-                        src={faculty.image_url}
+                         src={faculty.image_url}
                         alt={faculty.name}
                         className="profile-img"
                       />

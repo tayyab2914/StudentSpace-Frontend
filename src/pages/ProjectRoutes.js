@@ -20,7 +20,8 @@ const ProjectRoutes = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/department/:department_name" element={<Department />} />
-        <Route path="/faculty/:instructor_id" element={<Instructor />} />
+        {/* <Route path="/faculty/:instructor_id" element={<Instructor />} /> */}
+        <Route path="/faculty/:slug" element={<Instructor />} />
         <Route path="/account" element={isLoggedIn ? <Home/> : <Account />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

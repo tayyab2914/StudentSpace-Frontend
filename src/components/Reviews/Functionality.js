@@ -5,12 +5,13 @@ import { API_SUBMIT_REVIEW } from '../../apis';
 import { trackReview } from '../../analytics/analytics_invokers';
  // Import necessary actions
 
-export const handleSubmitReview = async ( gradingFairness, leniency, subjectKnowledge, reviewText, facultyId, setShowSpinner, fetch_reviews, trackRating, trackReview,token ) => {
+export const handleSubmitReview = async ( gradingFairness, leniency, subjectKnowledge, reviewText, slug, setShowSpinner, fetch_reviews, trackRating, trackReview,token ) => {
   
     if (gradingFairness === 0 || leniency === 0 || subjectKnowledge === 0) {
     message.error("Please rate all categories before submitting.");
     return;
   }
+  console.log("SLUGGGG", slug)
 
 //   const isReviewed = reviewedFaculties.includes(facultyData.id);
 
@@ -19,7 +20,7 @@ export const handleSubmitReview = async ( gradingFairness, leniency, subjectKnow
 //   } else {
     const studentName = GET_RANDOM_NAME_COMBINATION();
     const reviewData = {
-      faculty_id: +facultyId,
+      slug: slug,
       student_name: studentName,
       rating_grading_fairness: +gradingFairness,
       rating_leniency: +leniency,

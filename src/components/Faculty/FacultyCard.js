@@ -7,7 +7,7 @@ import { formatRating } from "../../values";
 const { Meta } = Card;
 
 const FacultyCard = ({ data }) => {
-  const { id, name, designation, overall_rating, review_count, image_url } =
+  const { id, slug, name, designation, overall_rating, review_count, image_url } =
     data;
   const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ const FacultyCard = ({ data }) => {
         />
       }
       className="faculty-card"
-      onClick={() => navigate(`/faculty/${id}`)}
+      onClick={() => navigate(`/faculty/${slug}`)}
       data-aos="fade-up"
     >
      <div className="row m-0">

@@ -44,12 +44,12 @@ export const API_GET_POPULAR_FACULTIES = async () => {
   }
 };
 
-export const API_GET_FACULTY_REVIEWS = async (setShowSpinner, id) => {
+export const API_GET_FACULTY_REVIEWS = async (setShowSpinner, slug) => {
   setShowSpinner(true);
   try {
     const response = await axios.get(`${DOMAIN_NAME}/feedback/reviews/`, {
       params: {
-        faculty_id: id,
+        slug: slug,
       },
     });
     return response.data;
