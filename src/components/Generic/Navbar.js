@@ -48,7 +48,7 @@ const MyNavbar = () => {
   }, []);
 
   const handleFacultyClick = (faculty) => {
-    navigate(`/faculty/${faculty.id}`, { state: { data: faculty } });
+    navigate(`/faculty/${faculty.slug}`, { state: { data: faculty } });
   };
 
   const handleDepartmentClick = (departmentName) => {

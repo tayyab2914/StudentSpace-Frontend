@@ -30,7 +30,7 @@ export const LANDING_IMAGE_COMPONENT = ({ navigate }) => {
               placeholder="Enter Instructor Name"
               apiCall={API_SEARCH_FACULTY}
               onResultClick={(faculty) =>
-                navigate(`/faculty/${faculty.id}`, { state: { data: faculty } })
+                navigate(`/faculty/${faculty.slug}`, { state: { data: faculty } })
               }
               style={{ marginRight: "20px", padding:"10px 0px " }}
               id={2}
@@ -55,7 +55,7 @@ export const LANDING_IMAGE_COMPONENT = ({ navigate }) => {
               placeholder="Enter Instructor Name"
               apiCall={API_SEARCH_FACULTY}
               onResultClick={(faculty) =>
-                navigate(`/faculty/${faculty.id}`, { state: { data: faculty } })
+                navigate(`/faculty/${faculty.slug}`, { state: { data: faculty } })
               }
               style={{ marginRight: "20px"}}
               id={2}
