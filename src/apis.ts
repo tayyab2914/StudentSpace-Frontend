@@ -1,0 +1,128 @@
+import axios from "axios";
+import { DOMAIN_NAME } from "./values";
+import { message } from "antd";
+import { trackReport } from "./analytics/analytics_invokers";
+
+export const API_GET_FACULTIES_BY_DEPARTMENT = async (
+  setShowSpinner: (loading: boolean) => void,
+  name: string,
+  setshowError404: (error: boolean) => void
+) => {
+  setShowSpinner(true);
+  const formattedName = typeof name == "string" ? name.toUpperCase() : "";
+
+  console.log("HELLO");
+  try {
+    const response = await axios.get(
+      `${DOMAIN_NAME}/feedback/faculties_by_department/`,
+      {
+        params: {
+          department_code: formattedName,
+        },
+      }
+    );
+
+    return response.data;
+  } catch (error) {
+    console.log("Error fetching faculty data:", error);
+    setshowError404(true);
+  } finally {
+    setShowSpinner(false);
+  }
+};
+
+export const API_GET_POPULAR_FACULTIES = async () => {
+  try {
+    const response = await axios.get(
+      `${DOMAIN_NAME}/feedback/popular_faculties/`
+    );
+    return response.data;
+  } catch (error) {
+    console.log("Error fetching faculty data:", error);
+  } finally {
+  }
+};
+
+export const API_GET_FACULTY_REVIEWS = async (setShowSpinner: (loading: boolean) => void, slug: string) => {
+  setShowSpinner(true);
+  try {
+    const response = await axios.get(`${DOMAIN_NAME}/feedback/reviews/`, {
+      params: {
+        slug: slug,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.log("Error fetching faculty data:", error);
+  } finally {
+    setShowSpinner(false);
+  }
+};
+
+export const API_SEARCH_FACULTY = async (setShowSpinner: (loading: boolean) => void, name: string) => {
+  setShowSpinner(true);
+  const formattedName = typeof name == "string" ? name.toLowerCase() : "";
+
+  try {
+    const response = await axios.get(
+      `${DOMAIN_NAME}/feedback/search_faculty/`,
+      {
+        params: {
+          name: formattedName,
+        },
+      }
+    );
+
+    return response.data;
+  } catch (error) {
+    console.log("Error fetching faculty data:", error);
+  } finally {
+    setShowSpinner(false);
+  }
+};
+
+export const API_SUBMIT_REVIEW = async (setShowSpinner: (loading: boolean) => void, reviewData: any, token: string) => {
+  setShowSpinner(true);
+  console.log(reviewData, token);
+
+  try {
+    const response = await axios.post(
+      `${DOMAIN_NAME}/feedback/submit_review/`,
+      reviewData,
+      {
+        headers: {
+          Authorization: token,
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+
+    message.success("Review Submitted Successfully");
+    return response.data;
+  } catch (error: any) {
+    if (error?.response?.data) message.error(error?.response?.data?.error);
+    else message.error("Rating must be between 1 and 5");
+  } finally {
+    setShowSpinner(false);
+  }
+};
+
+export const API_REPORT_REVIEW = async (id: number, reason: string, token: string) => {
+  try {
+    const response = await axios.post(
+      `${DOMAIN_NAME}/feedback/report_review/`,
+      { review_id: id, reason: reason },
+      {
+        headers: {
+          Authorization: token,
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+    message.success("Your report has been recorded successfully");
+    trackReport();
+    return response.data;
+  } catch (error) {
+  } finally {
+  }
+};

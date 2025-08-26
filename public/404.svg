@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#f8f9fa"/>
+  <text x="200" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" fill="#6c757d">404</text>
+  <text x="200" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#6c757d">Page Not Found</text>
+</svg>
