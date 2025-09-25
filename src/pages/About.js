@@ -8,6 +8,7 @@ import Footer from "../components/Generic/Footer";
 import MyNavbar from "../components/Generic/Navbar";
 
 
+
 const About = () => {
   const navigate = useNavigate();
   useEffect(()=>{
